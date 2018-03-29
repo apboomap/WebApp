@@ -374,3 +374,4 @@ body {
                 </div>
             </form> <!-- /form -->
         </div> <!-- ./container -->
+<?php require_once("footer.php"); ?>   
