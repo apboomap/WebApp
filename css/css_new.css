@@ -72,11 +72,6 @@
       .row.content {height:auto;} 
     }
 
-
-    .container {
-      width: 600px;
-      margin: 100px auto; 
-        }
         .progressbar {
             counter-reset: step;
         }
