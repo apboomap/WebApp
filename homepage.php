@@ -19,12 +19,12 @@
         
                 <div class="item" >
                     <img src="picture/img2.jpg" style="width:100%;"  class="center">
-                    <button onclick="location.href='space.html'"class="btn">REGISTRATION IS NOW OPEN</button>
+                    <button onclick="location.href='register1.php'"class="btn">REGISTRATION IS NOW OPEN</button>
                 </div>
                 
                 <div class="item">
                     <img src="picture/img3.jpg" style="width:100%;"  class="center" >
-                    <button onclick="location.href='space.html'" class="btn">REGISTRATION IS NOW OPEN</button>
+                    <button onclick="location.href='register1.php'" class="btn">REGISTRATION IS NOW OPEN</button>
                 </div>
             </div>
         
