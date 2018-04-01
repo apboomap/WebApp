@@ -71,7 +71,6 @@ body {
     <div class="container">
         <!-- /form1 -->
         <form class="form-horizontal" role="form">
-<<<<<<< HEAD
             <div class="b"><h2>กรอกข้อมูลผู้เข้าแข่งขัน</h2></div>
             <!-- /.form-group-first-last-gender-email -->
             <div class="form-group">
@@ -101,35 +100,6 @@ body {
                                     <input type="checkbox" id="femaleCheckbox" value="Female">Female
                                 </label>
                             </div>
-=======
-        <!-- /.form-group-first-last-gender-email -->
-        <div class="form-group">
-            <label for="firstName" class="col-sm-3 control-label">ชื่อ<font color="red"> *</font></label>
-            <div class="col-sm-9">
-                <input type="text" name="firstName" placeholder="First Name" class="form-control" autofocus>
-                <span class="help-block">First Name, eg.: Harry</span>
-            </div>
-            <label for="lastName" class="col-sm-3 control-label">นามสกุล<font color="red"> *</font></label>
-            <div class="col-sm-9">
-                <input type="text" name="lastName" placeholder="Last Name" class="form-control" autofocus>
-                <span class="help-block">Last Name, eg.: Tom</span>
-            </div>
-
-             <!-- /.form-group-gender -->
-            <div class="form-group">
-                <label class="control-label col-sm-3">Gender</label>
-                <div class="col-sm-6">
-                    <div class="row">
-                        <div class="col-sm-4">
-                            <label class="checkbox-inline">
-                                <input type="checkbox" id="maleCheckbox" value="Male">Male
-                            </label>
-                        </div>
-                        <div class="col-sm-4">
-                            <label class="checkbox-inline">
-                                <input type="checkbox" id="femaleCheckbox" value="Female">Female
-                            </label>
->>>>>>> e2da5866d0e9ef41c10a53d7368878e64cae876b
                         </div>
                     </div>
                 </div>
@@ -611,11 +581,7 @@ body {
                     <input type="text" name="Emergency number" class="form-control" autofocus>
                 </div>
             </div>
-<<<<<<< HEAD
                 
-=======
-            
->>>>>>> e2da5866d0e9ef41c10a53d7368878e64cae876b
             <!-- /.form-group-disease -->
             <div class="form-group">
                 <label for="disease" class="col-sm-3 control-label">โรคประจำตัว</label>
@@ -653,15 +619,7 @@ body {
                     </select>
                 </div>
             </div>
-<<<<<<< HEAD
             <center><div class=""><h2>กรอกข้อมูลการแข่งขัน</h2></div></center>
-=======
-        </form> 
-        
-        <!-- /form2 -->
-        <div class="b"><h2>2.กรอกข้อมูลการแข่งขัน<font color="red"> *</font></h2></div>
-        <form class="form-horizontal" role="form">
->>>>>>> e2da5866d0e9ef41c10a53d7368878e64cae876b
             <div class="form-group">
                 <label class="control-label col-sm-3">ประเภท<font color="red"> *</font></label>
                 <div class="col-sm-6">
