@@ -70,53 +70,53 @@ body {
     </div>
 
     <div class="container">
-        <div class="b"><h2>1.กรอกข้อมูลผู้เข้าแข่งขัน<font color="red"> *</font></h2></div>
         <!-- /form1 -->
         <form class="form-horizontal" role="form">
-        <!-- /.form-group-first-last-gender-email -->
-        <div class="form-group">
-            <label for="firstName" class="col-sm-3 control-label">ชื่อ<font color="red"> *</font></label>
-            <div class="col-sm-9">
-                <input type="text" name="firstName" placeholder="First Name" class="form-control" autofocus>
-                <span class="help-block">First Name, eg.: Harry</span>
-            </div>
-            <label for="lastName" class="col-sm-3 control-label">นามสกุล<font color="red"> *</font></label>
-            <div class="col-sm-9">
-                <input type="text" name="lastName" placeholder="Last Name" class="form-control" autofocus>
-                <span class="help-block">Last Name, eg.: Tom</span>
-            </div>
-
-             <!-- /.form-group-gender -->
+            <div class="b"><h2>กรอกข้อมูลผู้เข้าแข่งขัน</h2></div>
+            <!-- /.form-group-first-last-gender-email -->
             <div class="form-group">
-                <label class="control-label col-sm-3">Gender</label>
-                <div class="col-sm-6">
-                    <div class="row">
-                        <div class="col-sm-4">
-                            <label class="checkbox-inline">
-                                <input type="checkbox" id="maleCheckbox" value="Male">Male
-                            </label>
-                        </div>
-                        <div class="col-sm-4">
-                            <label class="checkbox-inline">
-                                <input type="checkbox" id="femaleCheckbox" value="Female">Female
-                            </label>
+                <label for="firstName" class="col-sm-3 control-label">ชื่อ<font color="red"> *</font></label>
+                <div class="col-sm-9">
+                    <input type="text" name="firstName" placeholder="First Name" class="form-control" autofocus>
+                    <span class="help-block">First Name, eg.: Harry</span>
+                </div>
+                <label for="lastName" class="col-sm-3 control-label">นามสกุล<font color="red"> *</font></label>
+                <div class="col-sm-9">
+                    <input type="text" name="lastName" placeholder="Last Name" class="form-control" autofocus>
+                    <span class="help-block">Last Name, eg.: Tom</span>
+                </div>
+
+                <!-- /.form-group-gender -->
+                <div class="form-group">
+                    <label class="control-label col-sm-3">Gender</label>
+                    <div class="col-sm-6">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <label class="checkbox-inline">
+                                    <input type="checkbox" id="maleCheckbox" value="Male">Male
+                                </label>
+                            </div>
+                            <div class="col-sm-4">
+                                <label class="checkbox-inline">
+                                    <input type="checkbox" id="femaleCheckbox" value="Female">Female
+                                </label>
+                            </div>
                         </div>
                     </div>
                 </div>
+                <label for="email" class="col-sm-3 control-label">Email</label>
+                    <div class="col-sm-9">
+                    <input type="email" name="email" placeholder="example@gmail.com" class="form-control">
+                </div>  
             </div>
-            <label for="email" class="col-sm-3 control-label">Email</label>
-                <div class="col-sm-9">
-                <input type="email" name="email" placeholder="example@gmail.com" class="form-control">
-            </div>  
-        </div>
 
-        <!-- /.form-group-id-->
-        <div class="form-group">
-            <label for="id" class="col-sm-3 control-label">เลขบัตรประชาชน</label>
-            <div class="col-sm-9">
-                <input type="id" name="id" placeholder="1 2345 67890 12 3" class="form-control">
+            <!-- /.form-group-id-->
+            <div class="form-group">
+                <label for="id" class="col-sm-3 control-label">เลขบัตรประชาชน</label>
+                <div class="col-sm-9">
+                    <input type="id" name="id" placeholder="1 2345 67890 12 3" class="form-control">
+                </div>
             </div>
-        </div>
 
             <!-- /.form-group-birthdate -->
             <div class="form-group">
@@ -582,7 +582,7 @@ body {
                     <input type="text" name="Emergency number" class="form-control" autofocus>
                 </div>
             </div>
-            
+                
             <!-- /.form-group-disease -->
             <div class="form-group">
                 <label for="disease" class="col-sm-3 control-label">โรคประจำตัว</label>
@@ -620,11 +620,7 @@ body {
                     </select>
                 </div>
             </div>
-        </form> 
-        
-        <!-- /form2 -->
-        <div class="b"><h2>2.กรอกข้อมูลการแข่งขัน<font color="red"> *</font></h2></div>
-        <form class="form-horizontal" role="form">
+            <center><div class=""><h2>กรอกข้อมูลการแข่งขัน</h2></div></center>
             <div class="form-group">
                 <label class="control-label col-sm-3">ประเภท<font color="red"> *</font></label>
                 <div class="col-sm-6">
@@ -758,11 +754,10 @@ body {
              <!-- /.form-group -->
              <div class="form-group">
                 <div class="col-sm-6 col-sm-offset-3">
-                    <br><br><button type="submit" class="btn btn-primary btn-block"><a href="register2.5.1.php">บันทึก</a></button>
+                    <br><br><button type="submit" class="btn btn-primary btn-block"><a href="payment.php">บันทึก</a></button>
                 </div>
             </div>
-        </form>
-    </div> <!-- ./container -->
+        </form> 
 
     <!-- The Modal -->
     <div id="myModal" class="modal">
