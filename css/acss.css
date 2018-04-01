@@ -160,11 +160,6 @@
         }
   
     .container .pume {
-        position: absolute;
-        top: 10%;
-        right: 60%;
-        transform: translate(-50%, -50%);
-        -ms-transform: translate(-50%, -50%);
         background-color: rgb(0, 238, 255);
         color: white;
         font-size: 16px;
