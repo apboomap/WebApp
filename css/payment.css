@@ -1,1 +1,27 @@
 body{ margin-top:20px; }
+
+.container .b {
+    text-align: center;
+}
+
+.container .btn1 {
+position: absolute;
+top: 97%;
+left: 50%;
+transform: translate(-50%, -50%);
+-ms-transform: translate(-50%, -50%);
+background-color: #FF8C00;
+color: white;
+font-size: 16px;
+padding: 12px 24px;
+border: none;
+cursor: pointer;
+border-radius: 5px;
+}
+
+div.imglogo {
+margin: 5px;
+border: 1px solid #ccc; 
+width: 250px;
+height: auto;
+}

@@ -50,7 +50,7 @@
     <div class="carousel-inner">
             <div class="item active container" > 
                 <button onclick ="document.getElementById('id02').style.display='block'" class="btnnn">กรอกแบบสอบถาม</button>	
-                <button onclick="location.href='registerrunner3.html'" class="btnn" >ต่อไป</button>
+                <button onclick="location.href='register2.5.2.php'" class="btnn" >ต่อไป</button>
             </div>
     </div>
 <div class="w3-container">
@@ -90,7 +90,7 @@
 
                     <div class="carousel-inner">
                         <div class="item active container" > 	
-                            <button onclick="location.href='register2.5.1.php'" class="pume" >บันทึก</button>
+                            <button onclick="location.href='register2.5.2.php'" class="pume" >บันทึก</button>
                         </div>
                     </div>
             </div>

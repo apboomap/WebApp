@@ -22,47 +22,47 @@
             <li>เสร็จสิ้น</li>
         </ul>
 </div>
-<h4><center><strong>กรุณาตรวจสอบเเละยืนยันความถูกต้องของข้อมูลการสมัครของท่าน</strong></center></h4>
+
+
 <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
         <div class="panel panel-info">
             <div class="panel-heading">
-                <h4 class="panel-title"><strong>ประเภทการวิ่ง</strong></h4>
+                <h1><center><strong>ยืนยันการชำระเงิน</strong></center></h1>
             </div>
             <div class="panel-body">
               <div class="row">
-                <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="http://babyinfoforyou.com/wp-content/uploads/2014/10/avatar-300x300.png" class="img-circle img-responsive"> </div>
                 <div class=" col-md-9 col-lg-9 "> 
                   <table class="table table-user-information">
                     <tbody>
-                      <tr>
-                        <td>ชื่อ-สกุล</td>
-                        <td>รัชพงศ์ ทองสุข</td>
-                      </tr>
-                      <tr>
-                        <td>เพศ-อายุ</td>
-                        <td>ชาย 21</td>
-                      </tr>
-                      <tr>
-                        <td>อีเมลล์</td>
-                        <td><a href="mailto:Ratchaponga@gmail.com">Ratchaponga@gmail.com</a></td>
-                      </tr>
                         <tr>
-                        <td>เบอร์โทรศัพท์</td>
-                        <td>0910288234</td>
-                      </tr>
-                      <tr>
-                        <td>รุ่น</td>
-                        <td>ชาย 16-29 (490 บาท)</td>
-                      </tr>
-                      <tr>
-                        <td>ไซต์เสื้อ</td>
-                        <td>M - 38" x 27"</td>
-                      </tr>
-                      <tr>
-                        <td>การรับเสื้อและหมายเลขวิ่ง</td>
-                        <td>ด้วยตัวเอง ณ สถานที่จัดงาน</td>
-                      </tr>
+                            <td>Tracking Number : </td>
+                            <td>YYY-1234</td>
+                        </tr>
+                        <tr>
+                            <td>วันที่สมัคร : </td>
+                            <td>DD/MM/YYYY</td>
+                        </tr>
+                        <tr>
+                            <td>Time :</td>
+                            <td>HH : MM : SS</td>
+                        </tr>
+                        <tr>
+                            <td>จำนวนเงินรวม :</td>
+                            <td>XXX.XX บาท</td>
+                        </tr>
+                        <tr>
+                            <td>ข้อมูลธนาคารสำหรับการโอน</td>
+                            <td>ชื่อธนาคาร : <br><br> ประเภทบัญชี : </td>
+                        </tr>
+                        <tr>
+                            <td>ไซต์เสื้อ</td>
+                            <td>M - 38" x 27"</td>
+                        </tr>
+                        <tr>
+                            <td>การรับเสื้อและหมายเลขวิ่ง</td>
+                            <td>ด้วยตัวเอง ณ สถานที่จัดงาน</td>
+                        </tr>
                     </tbody>
                   </table>
                   </div>
@@ -106,6 +106,7 @@
                       <tr>
                         <td>ไซต์เสื้อ</td>
                         <td>M - 38" x 27"</td>
+                        
                       </tr>
                       <tr>
                         <td>การรับเสื้อและหมายเลขวิ่ง</td>
@@ -184,4 +185,4 @@
 <button type="button" class="btn btn-warning"><a href="register1.php">ย้อนกลับ</a></button>
 </center><br>
 
-<?php require_once("footer.php"); ?>   
+<?php require_once("footer.php"); ?>  

@@ -13,17 +13,17 @@
             <!-- Wrapper for slides -->
             <div class="carousel-inner">
                 <div class="item active " > 
-                    <img src="picture/img1.jpg" style="width:100%;" class="center">
+                    <img src="event/CMU/even.jpg" style="width:100%;" class="center">
                     <button onclick="location.href='register1.php'" class="btn" >REGISTRATION IS NOW OPEN</button>
                 </div>
         
                 <div class="item" >
-                    <img src="picture/img2.jpg" style="width:100%;"  class="center">
+                    <img src="event/Run To Sea/even1.jpg" style="width:100%;"  class="center">
                     <button onclick="location.href='register1.php'"class="btn">REGISTRATION IS NOW OPEN</button>
                 </div>
                 
                 <div class="item">
-                    <img src="picture/img3.jpg" style="width:100%;"  class="center" >
+                    <img src="event/วิ่งอมยิ้ม/even2.jpg" style="width:100%;"  class="center" >
                     <button onclick="location.href='register1.php'" class="btn">REGISTRATION IS NOW OPEN</button>
                 </div>
             </div>
