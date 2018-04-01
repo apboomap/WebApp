@@ -24,9 +24,9 @@
                 </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="homepage.php">Home</a></li>
+                    <li class=""><a href="homepage.php">Home</a></li>
                     <li class=""><a href="register2.php">Store</a></li>
-                    <li class=""><a href="#.php">picture</a></li>
+                    <li class=""><a href="model.php">picture</a></li>
                     <li class=""><a href="#.php">video</a></li>
                     <li class=""><a href="#">Event All</a></li>
                 </ul>
