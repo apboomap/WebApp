@@ -7,13 +7,12 @@
 <script src="javascript/payment.js"></script>
 
 <style>
-	div.b {
+	.b {
 		text-align: center;
 	}
 </style>
-
 <!-- process step bar -->
-<div class="container">
+<br><div class="container">
         <ul class="progressbar">
             <li class="active">ลงทะเบียน</li>
             <li class="active">ตรวจสอบ</li>
@@ -55,12 +54,13 @@
         </div>
 	</div>
     <div class="row setup-content" id="step-1">
-		<div class="imglogo">
-			<img src="picture/credit.png" alt="Logo" height="52" width="150">
-		</div>
         <div class="col-xs-12">
-		
 			<div class="col-md-12 well">
+			<center>
+				<div class="imglogo">
+					<img src="picture/credit.png" alt="Logocredit">
+				</div>
+			</center>
 				<div class="b">
 					<!-- <img class="imglogo" src="picture/credit.png" alt="Credit Card"> -->
 					<h1 class=""><font color="red">*****ค่าบริการ 24.50 บาท*****</font></h1>
@@ -83,18 +83,20 @@
 							<span><h3>ราคารวมค่าบริการ</h3></span>
 							<span ><font color="red" ><h2><u> 514.50 บาท</u></h2></font></span>
 						</div><br>
-						<button class="btn-primary ">ชำระเลย</button>
+						<button class="btn1 b"><a href="homepage.php">ชำระเลย</a></button><br>
 					</div>
 				</div>
 			</div>
 		</div>
     </div>
     <div class="row setup-content" id="step-2">
-		<div class="imglogo">
-			<img src="picture/netbank.png" alt="Logo" height="52" width="150">
-		</div>
         <div class="col-xs-12">
             <div class="col-md-12 well">
+				<center>
+					<div class="imglogo">
+						<img src="picture/netbank.png" alt="Logo" height="52" width="150">
+					</div>
+				</center>
 				<div class="b">
 					<!-- <img class="imglogo" src="picture/credit.png" alt="Credit Card"> -->
 					<h1 class=""><font color="red">*****ค่าบริการ 24.50 บาท*****</font></h1>
@@ -118,7 +120,7 @@
 								<span><h3>ราคารวมค่าบริการ</h3></span>
 								<span ><font color="red" ><h2><u> 514.50 บาท</u></h2></font></span>
 							</div><br>
-							<button class="btn-primary ">ชำระเลย</button>
+							<button class="btn1 b"><a href="homepage.php">ชำระเลย</a></button><br>
 						</div>
 					</div>
 				</div>
@@ -126,11 +128,13 @@
         </div>
     </div>
     <div class="row setup-content" id="step-3">
-		<div class="">
-			<img src="picture/eleven7.png" alt="Logo" height="52" width="150">
-		</div>
         <div class="col-xs-12">
             <div class="col-md-12 well">
+				<center>
+					<div class="imglogo">
+						<img src="picture/eleven7.png" alt="Logoeleven7">
+					</div>
+				</center>
 				<div class="b">
 					<!-- <img class="imglogo" src="picture/credit.png" alt="Credit Card"> -->
 					<h1 class=""><font color="red">*****ค่าบริการ 24.50 บาท*****</font></h1>
@@ -151,8 +155,8 @@
 							<div class="sc-hwwEjo cyNieD w3-padding">
 								<span><h3>ราคารวมค่าบริการ</h3></span>
 								<span ><font color="red" ><h2><u> 514.50 บาท</u></h2></font></span>
-							</div><br>
-							<button class="btn-primary ">ชำระเลย</button>
+							</div><br><br>
+							<button class="btn1 b"><a href="homepage.php">ชำระเลย</a></button><br>
 						</div>
 					</div>
 				</div>
@@ -160,11 +164,13 @@
         </div>
     </div>
 	<div class="row setup-content" id="step-4">
-	<div class="">
-			<img src="picture/banktransfer.png" alt="Logo" height="52" width="150">
-		</div>
         <div class="col-xs-12">
             <div class="col-md-12 well">
+				<center>
+					<div class="imglogo">
+						<img src="picture/banktransfer.png" alt="Logobanktransfer">
+					</div>
+				</center>
 				<div class="b">
 					<!-- <img class="imglogo" src="picture/credit.png" alt="Credit Card"> -->
 				</div>
@@ -196,7 +202,7 @@
 							<span><h3>ราคารวม</h3></span>
 							<span ><font color="red" ><h2><u> 490 บาท</u></h2></font></span>
 						</div><br>
-						<button class="btn-primary ">แจ้งการโอนเงิน</button>
+						<button class="btn1 b"><a href="confirmpayment.php">แจ้งการโอนเงิน</button><br>
 					</div>
 				</div>
 			</div>

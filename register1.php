@@ -57,9 +57,8 @@ body {
 
 </style>
 
-
     <!-- process step bar -->
-    <div class="container">
+    <br><div class="container">
         <ul class="progressbar">
             <li class="active">ลงทะเบียน</li>
             <li>ตรวจสอบ</li>
@@ -712,13 +711,6 @@ body {
                             <label class="checkbox-inline">
                                 <input type="checkbox" id="longCheckbox" value="long">เสื้อแขนยาว
                             </label>
-                            <!-- <div class="dropdown">
-                                <img src="picture/img1.jpg" alt="Trolltunga Norway" width="100" height="50">
-                                <div class="dropdown-content">
-                                    <img src="picture/img1.jpg" alt="Trolltunga Norway" width="800" height="700">
-                                    <div class="desc">Beautiful Trolltunga, Norway</div>
-                                </div>
-                            </div> -->
                             <img id="myImg" src="picture/longarm.jpg" alt="" width="300" height="200">
                         </div>
                         <div class="col-sm-12">  
