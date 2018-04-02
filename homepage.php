@@ -12,7 +12,7 @@
 
     function make_query($connect)
     {
-    $query = "SELECT * FROM events ";
+    $query = "SELECT * FROM events ORDER by race_day DESC LIMIT 3";
     $result = mysqli_query($connect, $query);
     return $result;
     }
