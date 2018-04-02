@@ -1,3 +1,8 @@
+<?php
+session_start();
+$bill_id = $_SESSION['bill_id'];
+$event_id = $_SESSION['event_id'];
+?>
 <!doctype html>
 <?php require_once("header.php"); ?>
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -113,7 +118,7 @@ body {
             <div class="form-group">
                 <label for="essn" class="col-sm-3 control-label">เลขบัตรประชาชน</label>
                 <div class="col-sm-9">
-                    <input type="id" name="essn" placeholder="1 2345 67890 12 3" class="form-control">
+                    <input type="id" name="essn" placeholder="1 2345 67890 12 3" class="form-control"  maxlength="13">
                 </div>
             </div>
 
@@ -634,22 +639,22 @@ body {
                     <div class="row">
                         <div class="col-sm-6">
                             <label class="checkbox-inline">
-                                <input type="checkbox" id="fullmarathonCheckbox" value="Fullmarathon">Fullmarathon
+                                <input type="checkbox"  name="flag_full" id="fullmarathonCheckbox" value="1">Fullmarathon
                             </label>
                         </div>
                         <div class="col-sm-6">
                             <label class="checkbox-inline">
-                                <input type="checkbox" id="halfmarathonCheckbox" value="Halfmarathon">Halfmarathon
+                                <input type="checkbox" name="flag_half" id="halfmarathonCheckbox" value="1">Halfmarathon
                             </label>
                         </div>
                         <div class="col-sm-6">
                             <label class="checkbox-inline">
-                                <input type="checkbox" id="minimarathonCheckbox" value="Minimarathon">Minimarathon
+                                <input type="checkbox"name="flag_mini"  id="minimarathonCheckbox" value="1">Minimarathon
                             </label>
                         </div>
                         <div class="col-sm-6">
                             <label class="checkbox-inline">
-                                <input type="checkbox" id="funrunCheckbox" value="Funrun">Funrun
+                                <input type="checkbox" name="flag_fun" id="funrunCheckbox" value="1">Funrun
                             </label>
                         </div>
                     </div>
