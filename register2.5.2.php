@@ -178,8 +178,8 @@
     </div>
 </div>
 <center>
-<button type="button" class="btn btn-warning" id="step-2"><a href="payment.php">ยืนยัน</a></button>
 <button type="button" class="btn btn-warning"><a href="register2.5.1.php">ย้อนกลับ</a></button>
+<button type="button" class="btn btn-warning"><a href="payment.php">ยืนยัน</a></button>
 </center><br>
 
 <?php require_once("footer.php"); ?>   
