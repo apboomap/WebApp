@@ -113,7 +113,7 @@
                                     <h2 class="title">CMU Marathon 2018</h2>
                                     <p class="desc"><span class="glyphicon glyphicon-map-marker"></span><a href="https://goo.gl/maps/vcMkD2jsjgo">  Chiang Mai University </a></p>
                                     <ul>
-                                        <li style="width:25%;"><span class="fa fa-male"></span> [42.195L]</li>
+                                        <li style="width:25%;"><span class="fa fa-male"></span> [42.195K]</li>
                                         <li style="width:25%;"><span class="fa fa-male"></span> [21.1K]</li>
                                         <li style="width:25%;"><span class="fa fa-male"></span> [10.5K]</li>
                                         <li style="width:25%;"><span class="fa fa-child"></span> [4.6K]</li>
@@ -121,7 +121,9 @@
                                 </div>
                                 <div class="detail">
                                     <ul>
-                                        <li class="facebook" style="width:33%;"><a href="#facebook"> ข้อมูลเพิ่มเติม </a></li>
+                                        <li class="additional" style="width:25%;"><a href="registerdetail.php"> ข้อมูลเพิ่มเติม <span class="glyphicon glyphicon-info-sign"></span> </a></li>
+                                        <li class="register" style="width:25%;"><a href="register1.php"> สมัครวิ่ง <span class="glyphicon glyphicon-pencil"></span></a></li>
+                                        <li class="searchrunner" style="width:25%;"><a href="search.php"> ค้นหานักวิ่ง <span class="glyphicon glyphicon-search"></span></a></li>
                                     </ul>
                                 </div>
                             </li>
@@ -146,7 +148,9 @@
                                 </div>
                                 <div class="detail">
                                     <ul>
-                                        <li class="facebook" style="width:33%;"><a href="#facebook"> ข้อมูลเพิ่มเติม </a></li>
+                                        <li class="additional" style="width:25%;"><a href="registerdetail.php"> ข้อมูลเพิ่มเติม <span class="glyphicon glyphicon-info-sign"></span> </a></li>
+                                        <li class="register" style="width:25%;"><a href="register1.php"> สมัครวิ่ง <span class="glyphicon glyphicon-pencil"></span></a></li>
+                                        <li class="searchrunner" style="width:25%;"><a href="search.php"> ค้นหานักวิ่ง <span class="glyphicon glyphicon-search"></span></a></li>
                                     </ul>
                                 </div>
                             </li>  
@@ -171,7 +175,9 @@
                                 </div>
                                 <div class="detail">
                                     <ul>
-                                        <li class="facebook" style="width:33%;"><a href="#facebook"> ข้อมูลเพิ่มเติม </a></li>
+                                        <li class="additional" style="width:25%;"><a href="registerdetail.php"> ข้อมูลเพิ่มเติม <span class="glyphicon glyphicon-info-sign"></span> </a></li>
+                                        <li class="register" style="width:25%;"><a href="register1.php"> สมัครวิ่ง <span class="glyphicon glyphicon-pencil"></span></a></li>
+                                        <li class="searchrunner" style="width:25%;"><a href="search.php"> ค้นหานักวิ่ง <span class="glyphicon glyphicon-search"></span></a></li>
                                     </ul>
                                 </div>
                             </li>                        
@@ -187,6 +193,5 @@
 
 
     
-
 
 
