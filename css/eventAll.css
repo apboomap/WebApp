@@ -1,6 +1,7 @@
 @import url("http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,400italic");
 @import url("//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css");
 body {
+    
     background-color: rgb(220, 220, 220);
 }
 
@@ -97,23 +98,28 @@ body {
 } 
 .event-list > li > .info > ul > li:hover,
 .event-list > li > .detail > ul > li:hover {
-    color: rgb(30, 30, 30);
-    background-color: rgb(200, 200, 200);
+    color: rgb(194, 54, 182);
+    
 }
-.facebook a,
-.twitter a,
-.google-plus a {
+.additional a{
     display: block;
     width: 100%;
-    color: rgb(75, 110, 168) !important;
+    color: rgb(197, 61, 209) !important;
+}
+.register a{
+    display: block;
+    width: 100%;
+    color: rgb(0, 102, 255) !important;
+}
+.searchrunner a {
+    display: block;
+    width: 100%;
+    color: rgb(245, 4, 4) !important;
 }
 
-.facebook:hover a {
-    color: rgb(255, 255, 255) !important;
-    background-color: rgb(75, 110, 168) !important;
-}
 
-@media (min-width: 800px) {
+@media (min-width: 720px) {
+   
     .event-list > li {
         position: relative;
         display: block;
