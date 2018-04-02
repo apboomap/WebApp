@@ -42,10 +42,10 @@ $conn->close();
                 <!-- Wrapper for slides -->
                 <div class="carousel-inner">
                     <div class="item active" > 
-                        <center><img src="event/RunToSea/even1.jpg" style="width:60%; height:auto"></center>
+                        <center><img src="<?=$row["img"]?>" style="width:60%; height:auto"></center>
                         <br>
                     </div>
-                    <form name="test" method="post" action="register1.php">
+                    <form name="test" method="post" action="add/addbill.php">
                         <button class="btn1" >สมัครเลย</button>
                     </form>
                 </div>
@@ -73,7 +73,7 @@ $conn->close();
                     }
                 ?>
                 <br><br><br>
-                <form name="test" method="post" action="register1.php">
+                <form name="test" method="post" action="add/addbill.php">
                         <button class="btn1" >สมัครเลย</button>
                     </form>
             </div>
@@ -82,7 +82,7 @@ $conn->close();
             <div id="map" class="tabcontent">
                 <center><img src="<?=$row["map"]?>" style="width:50%; height:50%"></center>
                 <br><br><br>
-                <form name="test" method="post" action="register1.php">
+                <form name="test" method="post" action="add/addbill.php">
                         <button class="btn1" >สมัครเลย</button>
                     </form>
             </div>
@@ -96,7 +96,7 @@ $conn->close();
                     }
                 ?>
                 <br><br><br>
-                <form name="test" method="post" action="register1.php">
+                <form name="test" method="post" action="add/addbill.php">
                         <button class="btn1" >สมัครเลย</button>
                     </form>
             </div>
