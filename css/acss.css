@@ -1,6 +1,10 @@
 @import "font-awesome.min.css";
 @import "font-awesome-ie7.min.css";
 
+.atrain {
+    height: 10px;
+    }
+
 .entry:not(:first-of-type)
 {
     margin-top: 10px;
@@ -143,21 +147,6 @@
     }
 
     /* Style the button and place it in the middle of the container/image */
-
-    .container .btnnn {
-        position: absolute;
-        top: 10%;
-        right: 60%;
-        transform: translate(-10%, -90%);
-        -ms-transform: translate(-50%, -50%);
-        background-color: rgb(200,10,20);
-        color: white;
-        font-size: 16px;
-        padding: 12px 48px;
-        border: none;
-        cursor: pointer;
-        border-radius: 5px;
-        }
   
     .container .pume {
         background-color: rgb(0, 238, 255);
@@ -171,9 +160,9 @@
 
     .container .btnn {
     position: absolute;
-    top: 101.5%;
+    top: 10%;
     left: 60%;
-    transform: translate(-10%, -50%);
+    transform: translate(-90%, -10%);
     -ms-transform: translate(-50%, -50%);
     background-color: rgb(21, 7, 102);
     color: white;
