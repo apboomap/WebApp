@@ -1,9 +1,43 @@
+<?php 
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "marathon";
+$conn = new mysqli($servername, $username, $password,$dbname);
+mysqli_set_charset($conn, "utf8");
+
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+} 
+$event_id = $_GET['id'];
+
+
+$sql = "SELECT * FROM events WHERE event_id = $event_id";
+$result = $conn->query($sql);
+$row = $result->fetch_assoc();
+
+$sqla = "SELECT * FROM shirts WHERE event_id = $event_id";
+$resulta = $conn->query($sqla);
+$rowa = $resulta->fetch_assoc();
+
+$last_id = $conn->insert_id;
+session_start();
+$_SESSION['event_id'] = $event_id;
+
+
+
+
+
+$conn->close();
+
+?>
+
 <!doctype html>
 <?php require_once("header.php"); ?>
 <link href="css/registerdetail.css" rel="stylesheet">
-    
     <!-- slide -->
-    <form>
         <div class="container">
                 <!-- Wrapper for slides -->
                 <div class="carousel-inner">
@@ -11,7 +45,9 @@
                         <center><img src="event/RunToSea/even1.jpg" style="width:60%; height:auto"></center>
                         <br>
                     </div>
-                    <button onclick="location.href='login.html'" class="btn1" >สมัครเลย</button>
+                    <form name="test" method="post" action="register1.php">
+                        <button class="btn1" >สมัครเลย</button>
+                    </form>
                 </div>
 
             <!-- tab bar -->
@@ -20,42 +56,51 @@
                 <button class="tablinks" onclick="openCity(event, 'map')">แผนที่</button>
                 <button class="tablinks" onclick="openCity(event, 'typeRace')">ประเภทการเเข่ง</button>
             </div>
-
             <!--rule-->
             <div id="detail" class="tabcontent">
                 <h2><u>กำหนดการ</u></h2>
-                <img src="event/RunToSea/Schedule.png" style="width:50%; height:50%" class="center">
+                <img src="<?=$row["img"]?>" style="width:50%; height:50%" class="center">
                 <h2>ค่าธรรมเนียม</h2>
-                <img src="event/RunToSea/Fee.png" style="width:50%; height:50%" class="center">
+                <img src="<?=$row["charge"]?>" style="width:50%; height:50%" class="center">
                 <h2>เสื้อที่จะได้ในรายการแข่งขัน</h2>
-                <img src="event/RunToSea/shirt1.jpg" style="width:50%; height:50%" class="center"><br>
-                <img src="event/RunToSea/shirt2.jpg" style="width:50%; height:50%" class="center">
+                <img src="<?=$rowa["img1"]?>" style="width:50%; height:50%" class="center"><br>
+                <img src="<?=$rowa["img2"]?>" style="width:50%; height:50%" class="center">
                 <h2>กติกา</h2>
-                <h4>กติกาของงานซึ่งผู้สมัครเข้าร่วมการแข่งขันต้องยอมรับและปฏิบัติตาม</h4>
-                <h5>1. กติกาของงานสอดคล้องกับกฎหมาย</h5>
-                <h5>2. นอกจากกติกาของงานแล้ว ยังประกอบด้วยกติกาการแข่งขัน และกติกาในการสมัคร</h5>
-                <h5>3. นักวิ่งผู้เข้าร่วมจะถูกปฏิบัติตามข้อควรระวังของผู้จัดงานเพื่อให้แน่ใจว่าผู้เข้าร่วมเกิดความปลอดภัย และผู้เข้าร่วมจะทำการวิ่งโดยยอมรับความเสี่ยงของตนเอง และผู้จัดงานจะไม่รับผิดชอบหรือต้องระวางโทษต่อการบาดเจ็บหรือเสียชีวิต ไม่ว่ากรณีฝึกซ้อมหรือระหว่างเข้าร่วมแข่งขัน ทั้งนี้ ผู้เข้าร่วมควรพบแพทย์หรือที่ปรึกษาทางสุขภาพก่อนทำการลงทะเบียน และก่อนวันแข่งขันจริง</h5>
+                <?php
+                    $text = file($row["rules"]);
+                    foreach($text as $index=>$value){
+                        echo $value."<br />";
+                    }
+                ?>
                 <br><br><br>
-                <button onclick="location.href='login.html'" class="btnn" >สมัครเลย</button>
+                <form name="test" method="post" action="register1.php">
+                        <button class="btn1" >สมัครเลย</button>
+                    </form>
             </div>
 
             <!--map-->
             <div id="map" class="tabcontent">
-                <center><img src="event/RunToSea/map1.jpg" style="width:50%; height:50%"></center>
+                <center><img src="<?=$row["map"]?>" style="width:50%; height:50%"></center>
                 <br><br><br>
-                <button onclick="location.href='login.html'" class="btnn1" >สมัครเลย</button>
+                <form name="test" method="post" action="register1.php">
+                        <button class="btn1" >สมัครเลย</button>
+                    </form>
             </div>
             
             <!--type-of-race-->
             <div id="typeRace" class="tabcontent">
-                <h2><u>Male (ชาย)</u></h2>
-                <h5>รุ่นอายุ 16 - 29 ปี</h5>
-                <h5>รุ่นอายุ 30 - 39 ปี</h5>
-                <h5>รุ่นอายุ 40 - 49 ปี</h5>
+                <?php
+                    $text = file($row["generation_competing"]);
+                    foreach($text as $index=>$value){
+                        echo $value."<br />";
+                    }
+                ?>
                 <br><br><br>
-                <button onclick="location.href='login.html'" class="btnn2" >สมัครเลย</button>
+                <form name="test" method="post" action="register1.php">
+                        <button class="btn1" >สมัครเลย</button>
+                    </form>
             </div>
-        </form>
+     
     </div>
     <script src="javascript/registerdetail.js"></script>
 <?php require_once("footer.php"); ?> 

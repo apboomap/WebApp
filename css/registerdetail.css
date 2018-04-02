@@ -13,8 +13,8 @@
     /* Style the button and place it in the middle of the container/image */
     .container .btn1 {
     position: absolute;
-    top: 90%;
-    left: 70%;
+    top: 60%;
+    left: 60%;
     transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
     background-color: rgb(92, 1, 1);
