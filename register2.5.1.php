@@ -60,57 +60,58 @@
                 <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-display-topright">&times;</span>
               
                 <div class="b"><h2>1.กรอกข้อมูลผู้เข้าแข่งขัน<font color="red"> *</font></h2></div>
-                <!-- /form1 -->
-                <form class="form-horizontal" role="form">
-                <!-- /.form-group-first-last-gender-email -->
-                <div class="form-group">
-                    <label for="firstName" class="col-sm-3 control-label">ชื่อ<font color="red"> *</font></label>
-                    <div class="col-sm-9">
-                        <input type="text" name="firstName" placeholder="First Name" class="form-control" autofocus>
-                        <span class="help-block">First Name, eg.: Harry</span>
-                    </div>
-                    <label for="lastName" class="col-sm-3 control-label">นามสกุล<font color="red"> *</font></label>
-                    <div class="col-sm-9">
-                        <input type="text" name="lastName" placeholder="Last Name" class="form-control" autofocus>
-                        <span class="help-block">Last Name, eg.: Tom</span>
-                    </div>
+                <form class="form-horizontal" role="form" action="add/addregister.php" method="POST"  enctype="multipart/form-data">
+            <div class="b"><h2>กรอกข้อมูลผู้เข้าแข่งขัน</h2></div>
+            <!-- /.form-group-first-last-gender-email -->
+            <div class="form-group">
+                <label for="frist_name" class="col-sm-3 control-label">ชื่อ<font color="red"> *</font></label>
+                <div class="col-sm-9">
+                    <input type="text" name="frist_name" placeholder="First Name" class="form-control" autofocus>
+                    <span class="help-block">First Name, eg.: Harry</span>
+                </div>
+                <label for="last_name" class="col-sm-3 control-label">นามสกุล<font color="red"> *</font></label>
+                <div class="col-sm-9">
+                    <input type="text" name="last_name" placeholder="Last Name" class="form-control" autofocus>
+                    <span class="help-block">Last Name, eg.: Tom</span>
+                </div>
 
-                    <div class="form-group">
-                        <label class="control-label col-sm-3">Gender</label>
-                        <div class="col-sm-6">
-                            <div class="row">
-                                <div class="col-sm-4">
-                                    <label class="radio-inline">
-                                        <input type="radio" id="maleRadio" value="Male">Male
-                                    </label>
-                                </div>
-                                <div class="col-sm-4">
-                                    <label class="radio-inline">
-                                        <input type="radio" id="femaleRadio" value="Female">Female
-                                    </label>
+                <!-- /.form-group-gender -->
+                <div class="form-group">
+                    <label class="control-label col-sm-3">Gender</label>
+                    <div class="col-sm-6">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <label class="checkbox-inline">
+                                    <input type="checkbox" name="sex" id="maleCheckbox" value="M">Male
+                                </label>
+                            </div>
+                            <div class="col-sm-4">
+                                <label class="checkbox-inline">
+                                    <input type="checkbox" name="sex" id="femaleCheckbox" value="F">Female
+                                </label>
+                            </div>
                         </div>
                     </div>
                 </div>
+                <label for="email" class="col-sm-3 control-label">Email</label>
+                    <div class="col-sm-9">
+                    <input type="email" name="email" placeholder="example@gmail.com" class="form-control">
+                </div>  
             </div>
-            <label for="email" class="col-sm-3 control-label">Email</label>
-                <div class="col-sm-9">
-                <input type="email" name="email" placeholder="example@gmail.com" class="form-control">
-            </div>  
-        </div>
 
-        <!-- /.form-group-id-->
-        <div class="form-group">
-            <label for="id" class="col-sm-3 control-label">เลขบัตรประชาชน</label>
-            <div class="col-sm-9">
-                <input type="id" name="id" placeholder="1 2345 67890 12 3" class="form-control">
+            <!-- /.form-group-id-->
+            <div class="form-group">
+                <label for="essn" class="col-sm-3 control-label">เลขบัตรประชาชน</label>
+                <div class="col-sm-9">
+                    <input type="id" name="essn" placeholder="1 2345 67890 12 3" class="form-control">
+                </div>
             </div>
-        </div>
 
             <!-- /.form-group-birthdate -->
             <div class="form-group">
-                <label for="birthDate" class="col-sm-3 control-label">Date of Birth</label>
+                <label for="brith_date" class="col-sm-3 control-label">Date of Birth</label>
                 <div class="col-sm-3">
-                    <select name="birthDate" class="form-control">
+                    <select name="day" class="form-control">
                         <option value="">--DD--</option> 
                         <option>1</option>
                         <option>2</option>
@@ -146,7 +147,7 @@
                     </select>
                 </div>
                 <div class="col-sm-3">
-                    <select name="birthDate" class="form-control">
+                    <select name="month" class="form-control">
                         <option value="">--MM--</option> 
                         <option value="0">มกราคม</option>
                         <option value="1">กุมภาพันธ์</option>
@@ -163,7 +164,7 @@
                     </select>
                 </div>
                 <div class="col-sm-3">
-                    <select name="birthDate" class="form-control">
+                    <select name="year" class="form-control">
                         <option value="">--YY--</option> 
                         <option value="2017">2560</option>
                         <option value="2016">2559</option>
@@ -523,11 +524,19 @@
                 </div>
             </div>
 
+            <!-- /.form-group-nationality -->
+            <div class="form-group">
+                <label for="nationality" class="col-sm-3 control-label">สัญชาติ<font color="red"> *</font></label>
+                <div class="col-sm-9">
+                    <input type="text" name="nationality" placeholder="Thai" class="form-control" autofocus>
+                </div>
+            </div>
+
             <!-- /.form-group-telephone -->
             <div class="form-group">
-                <label for="tel" class="col-sm-3 control-label">โทรศัพท์<font color="red"> *</font></label>
+                <label for="phone" class="col-sm-3 control-label">โทรศัพท์<font color="red"> *</font></label>
                 <div class="col-sm-9">
-                    <input type="text" name="tel" placeholder="000-00000-00" class="form-control" autofocus>
+                    <input type="text" name="phone" placeholder="000-00000-00" class="form-control" autofocus>
                 </div>
             </div>
 
@@ -555,111 +564,151 @@
                 </div>
             </div>
 
-                <!-- /.form-group-Emergency-Contacts -->
-                <div class="form-group">
-                <label for="Emergency Contacts" class="col-sm-3 control-label">ผู้ติดต่อกรณีฉุกเฉิน<font color="red"> *</font></label>
+            <!-- /.form-group-Emergency-Contacts -->
+            <div class="form-group">
+                <label for="emergency_contact_name" class="col-sm-3 control-label">ผู้ติดต่อกรณีฉุกเฉิน<font color="red"> *</font></label>
                 <div class="col-sm-9">
-                    <input type="text" name="Emergency Contacts" class="form-control" autofocus>
+                    <input type="text" name="emergency_contact_name" class="form-control" autofocus>
                 </div>
             </div>
 
-                <!-- /.form-group-Emergency-number -->
-                <div class="form-group">
-                <label for="Emergency number" class="col-sm-3 control-label">เบอร์ติดต่อกรณีฉุกเฉิน<font color="red"> *</font></label>
+            <!-- /.form-group-Emergency-number -->
+            <div class="form-group">
+                <label for="emergency_contact_phone" class="col-sm-3 control-label">เบอร์ติดต่อกรณีฉุกเฉิน<font color="red"> *</font></label>
                 <div class="col-sm-9">
-                    <input type="text" name="Emergency number" class="form-control" autofocus>
+                    <input type="text" name="emergency_contact_phone" class="form-control" autofocus>
+                </div>
+            </div>
+                
+            <!-- /.form-group-disease -->
+            <div class="form-group">
+                <label for="disease" class="col-sm-3 control-label">โรคประจำตัว</label>
+                <div class="col-sm-6">
+                    <input type="text" name="disease" placeholder="" class="form-control" autofocus>
+                </div>
+            </div>
+
+            <!-- /.form-group-allergy -->
+            <div class="form-group">
+                <label for="allergic_drug" class="col-sm-3 control-label">การแพ้ยา</label>
+                <div class="col-sm-6">
+                    <input type="text" name="allergic_drug" placeholder="" class="form-control" autofocus>
+                </div>
+            </div>
+
+            <!-- /.form-group-regular-drugs -->
+            <div class="form-group">
+                <label for="medicine" class="col-sm-3 control-label">ยาที่ใช้ประจำ</label>
+                <div class="col-sm-6">
+                    <input type="text" name="medicine" placeholder="" class="form-control" autofocus>
+                </div>
+            </div>
+
+            <!-- /.form-group-blood --> 
+            <div class="form-group">
+                <label for="blood" class="col-sm-3 control-label">กรุ๊ปเลือด</label>
+                <div class="col-sm-3">
+                    <select name="blood" class="form-control">
+                        <option value="">--BLOOD--</option> 
+                        <option>O</option>
+                        <option>A</option>
+                        <option>B</option>
+                        <option>AB</option>
+                    </select>
+                </div>
+            </div>
+            <center><div class=""><h2>กรอกข้อมูลการแข่งขัน</h2></div></center>
+            <div class="form-group">
+                <label class="control-label col-sm-3">ประเภท<font color="red"> *</font></label>
+                <div class="col-sm-6">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <label class="checkbox-inline">
+                                <input type="checkbox" id="fullmarathonCheckbox" value="Fullmarathon">Fullmarathon
+                            </label>
+                        </div>
+                        <div class="col-sm-6">
+                            <label class="checkbox-inline">
+                                <input type="checkbox" id="halfmarathonCheckbox" value="Halfmarathon">Halfmarathon
+                            </label>
+                        </div>
+                        <div class="col-sm-6">
+                            <label class="checkbox-inline">
+                                <input type="checkbox" id="minimarathonCheckbox" value="Minimarathon">Minimarathon
+                            </label>
+                        </div>
+                        <div class="col-sm-6">
+                            <label class="checkbox-inline">
+                                <input type="checkbox" id="funrunCheckbox" value="Funrun">Funrun
+                            </label>
+                        </div>
+                    </div>
                 </div>
             </div>
             
-        </form> 
-        
-        <!-- /form2 -->
-        <div class="b"><h2>2.เลือกประเภทการแข่งขัน<font color="red"> *</font></h2></div>
-        <form class="form-horizontal" role="form">
+            <!-- /.form-group-generation-->
             <div class="form-group">
-                <label class="control-label col-sm-3">ประเภท<font color="red"> *</font></label>
+                <label class="control-label col-sm-3">รุ่นการแข่งขัน<font color="red"> *</font></label>
                 <div class="col-sm-6">
                     <div class="row">
                         <div class="col-sm-6">
-                            <label class="radio-inline">
-                                <input type="radio" id="fullmarathonRadio" value="Fullmarathon">Fullmarathon
+                            <label class="checkbox-inline">
+                                <input type="checkbox" id="male16-19Checkbox" value="16-19">ชาย 16-19 ปี
                             </label>
                         </div>
                         <div class="col-sm-6">
-                            <label class="radio-inline">
-                                <input type="radio" id="halfmarathonRadio" value="Halfmarathon">Halfmarathon
+                            <label class="checkbox-inline">
+                                <input type="checkbox" id="female16-19Checkbox" value="16-19">หญิง 16-19 ปี
                             </label>
                         </div>
                         <div class="col-sm-6">
-                            <label class="radio-inline">
-                                <input type="radio" id="minimarathonRadio" value="Minimarathon">Minimarathon
+                            <label class="checkbox-inline">
+                                <input type="checkbox" id="male30-39Checkbox" value="30-39">ชาย 30-39 ปี
                             </label>
                         </div>
                         <div class="col-sm-6">
-                            <label class="radio-inline">
-                                <input type="radio" id="funrunRadio" value="Funrun">Funrun
+                            <label class="checkbox-inline">
+                                <input type="checkbox" id="female30-39Checkbox" value="30-39">หญิง 30-39 ปี
+                            </label>
+                        </div>
+                        <div class="col-sm-6">
+                            <label class="checkbox-inline">
+                                <input type="checkbox" id="male40-49Checkbox" value="40-49">ชาย 40-49 ปี
+                            </label>
+                        </div>
+                        <div class="col-sm-6">
+                            <label class="checkbox-inline">
+                                <input type="checkbox" id="female40-49Checkbox" value="40-49">หญิง 40-49 ปี
+                            </label>
+                        </div>
+                        <div class="col-sm-6">
+                            <label class="checkbox-inline">
+                                <input type="checkbox" id="male50-59Checkbox" value="50-59">ชาย 50-59 ปี
+                            </label>
+                        </div>
+                        <div class="col-sm-6">
+                            <label class="checkbox-inline">
+                                <input type="checkbox" id="female50-59Checkbox" value="50-59">หญิง 50-59 ปี
+                            </label>
+                        </div>
+                        <div class="col-sm-9">
+                            <label class="checkbox-inline">
+                                <input type="checkbox" id="male60upCheckbox" value="60up">ชาย 60ปีขึ้นไป
                             </label>
                         </div>
                     </div>
                 </div>
             </div>
-        </form>
 
-        <!-- /form3 -->
-        <div class="b"><h2>3.รุ่นการแข่งขัน<font color="red"> *</font></h2></div>
-        <form class="form-horizontal" role="form">
+            <!-- /.form-group-type-shirt-->
             <div class="form-group">
-                <label class="control-label col-sm-3">ชาย<font color="red"> *</font></label>
-                <div class="col-sm-6">
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <label class="radio-inline">
-                                <input type="radio" id="male16-19Radio" value="16-19">16-19 ปี
-                            </label>
-                        </div>
-                        <div class="col-sm-6">
-                            <label class="radio-inline">
-                                <input type="radio" id="male30-39Radio" value="30-39">30 - 39 ปี
-                            </label>
-                        </div>
-                        <div class="col-sm-6">
-                            <label class="radio-inline">
-                                <input type="radio" id="male40-49Radio" value="40-49">40 - 49 ปี
-                            </label>
-                        </div>
-                        <div class="col-sm-6">
-                            <label class="radio-inline">
-                                <input type="radio" id="male50-59Radio" value="50-59">50 - 59 ปี
-                            </label>
-                        </div>
-                        <div class="col-sm-6">
-                            <label class="radio-inline">
-                                <input type="radio" id="male60upRadio" value="60up">60 ปี ขึ้นไป
-                            </label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </form>
-
-        <!-- /form4 -->
-        <div class="b"><h2>4.เลือกรูปแบบเสื้อ<font color="red"> *</font></h2></div>
-        <form class="form-horizontal" role="form">
-            <div class="form-group">
-                <label class="control-label col-sm-3">ประเภท<font color="red"> *</font></label>
+                <label class="control-label col-sm-3">รูปแบบเสื้อ<font color="red"> *</font></label>
                 <div class="col-sm-6">
                     <div class="row">
                         <div class="col-sm-12">
                             <label class="checkbox-inline">
                                 <input type="checkbox" id="longCheckbox" value="long">เสื้อแขนยาว
                             </label>
-                            <!-- <div class="dropdown">
-                                <img src="picture/img1.jpg" alt="Trolltunga Norway" width="100" height="50">
-                                <div class="dropdown-content">
-                                    <img src="picture/img1.jpg" alt="Trolltunga Norway" width="800" height="700">
-                                    <div class="desc">Beautiful Trolltunga, Norway</div>
-                                </div>
-                            </div> -->
                             <img id="myImg" src="picture/longarm.jpg" alt="" width="300" height="200">
                         </div>
                         <div class="col-sm-12">  
@@ -672,11 +721,8 @@
                     </div>
                 </div>
             </div>
-        </form>
 
-        <!-- /form5 -->
-        <div class="b"><h2>5.การรับเสื้อและหมายเลขวิ่ง<font color="red"> *</font></h2></div>
-        <form class="form-horizontal" role="form">
+            <!-- /.form-group-how-to-receive-shirt-->
             <div class="form-group">
                 <label class="control-label col-sm-3">ท่านสะดวกวิธีไหน<font color="red"> *</font></label>
                 <div class="col-sm-6">
@@ -687,95 +733,14 @@
                             </label>
                         </div>
                         <div class="col-sm-12">  
-                            <label class="radio-inline">
+                            <label class="checkbox-inline">
                                 <input type="checkbox"  id="shortCheckbox" value="short">ส่งไปรษณีย์ (ค่าส่ง 100 บาท)
                             </label>
                         </div>
                     </div>
                 </div>
             </div>
-        </form>
-
-        <!-- /form6 -->
-        <div class="b"><h2>6.ข้อมูลสุขภาพ<font color="red"> *</font></h2></div>
-        <form class="form-horizontal" role="form">
         
-            <div class="form-group">
-                <div class="form-group">
-                    <label for="disease" class="col-sm-3 control-label">โรคประจำตัว</label>
-                    <div class="col-sm-6">
-                        <input type="text" name="disease" placeholder="" class="form-control" autofocus>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="allergy" class="col-sm-3 control-label">การแพ้ยา</label>
-                    <div class="col-sm-6">
-                        <input type="text" name="allergy" placeholder="" class="form-control" autofocus>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="regular drugs" class="col-sm-3 control-label">ยาที่ใช้ประจำ</label>
-                    <div class="col-sm-6">
-                        <input type="text" name="regular drugs" placeholder="" class="form-control" autofocus>
-                    </div>
-                </div>
-                <label for="blood" class="col-sm-3 control-label">กรุ๊ปเลือด</label>
-                <div class="col-sm-3">
-                    <select name="blood" class="form-control">
-                        <option value="">--BLOOD--</option> 
-                        <option>O</option>
-                        <option>A</option>
-                        <option>B</option>
-                        <option>AB</option>
-                    </select>
-                </div>
-            </div>
-             
-
-            <!-- /.form-group -->
-            <div class="form-group">
-                <div class="col-sm-6 col-sm-offset-3">
-                    <br><br><button type="submit" class="btn btn-primary btn-block"><a href="payment.php">บันทึก</a></button>
-                </div>
-            </div>
-        </form>
-    </div> <!-- ./container -->
-            </div>
-        </div>
-    </div>
-    </div>
-    <div id="id02" class="w3-modal">
-        <div class="w3-modal-content">
-            <div class="w3-container">
-                <span onclick="document.getElementById('id02').style.display='none'" class="w3-button w3-display-topright">&times;</span>
-                    <center><h1>แบบสอบถาม</h1>
-                    <div class="form-group col-md-12">
-                        <label for="inputCity">1.ทราบ event จากช่องทางไหน</label>
-                    </div>
-                    <div class="form-group col-md-12">
-                        <label for="primary" class="btn btn-primary">Facebook <input type="checkbox" id="primary" ></label>
-                        <label for="success" class="btn btn-success">Line <input type="checkbox" id="success" ></label>
-                        <label for="warning" class="btn btn-warning">Friend <input type="checkbox" id="warning" ></label>
-                    </div>
-                    <div class="form-group col-md-12">
-                        <label for="inputCity">2.รู้จักเว็บไซต์เราได้อย่างไร</label>
-                    </div>
-                    <div class="form-group col-md-12">
-                        <label for="primary" class="btn btn-primary">Facebook <input type="checkbox" id="primary" ></label>
-                        <label for="success" class="btn btn-success">Line <input type="checkbox" id="success" ></label>
-                        <label for="warning" class="btn btn-warning">Friend <input type="checkbox" id="warning" ></label>
-                    </div>
-                    <div class="form-group col-md-12">
-                        <label for="inputCity">3.เดินทางมาด้วยวิธีไหน</label>
-                    </div>
-                    <div class="form-group col-md-12">
-                        <label for="primary" class="btn btn-primary">รถจักรยานยนต์ <input type="checkbox" id="primary" ></label>
-                        <label for="success" class="btn btn-success">รถยนต์ <input type="checkbox" id="success" ></label>
-                        <label for="warning" class="btn btn-warning">มากับเพื่อน <input type="checkbox" id="warning" ></label>
-                    </div>
-                    </center>
-
-
                     <div class="carousel-inner">
                         <div class="item active container" > 	
                             <center><button type="submit" class="pume" ><a href="register2.5.1.php">บันทึก</a></button></center>
