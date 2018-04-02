@@ -11,7 +11,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
 $conn->set_charset("utf8");
-$sql = "INSERT INTO pay (bill_id, run_id, flag_full, flag_half , flag_mini, flag_fun)
+$sql = "INSERT INTO runners_bills(bill_id, run_id, flag_full, flag_half , flag_mini, flag_fun)
 VALUES (1 , 1, 1, 0, 0 ,0),(1, 2, 1, 0, 0 ,0),(2 , 3, 0, 1, 0, 0)";
 
 
