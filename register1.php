@@ -70,18 +70,18 @@ body {
 
     <div class="container">
         <!-- /form1 -->
-        <form class="form-horizontal" role="form">
+        <form class="form-horizontal" role="form" action="add/addregister.php" method="POST"  enctype="multipart/form-data">
             <div class="b"><h2>กรอกข้อมูลผู้เข้าแข่งขัน</h2></div>
             <!-- /.form-group-first-last-gender-email -->
             <div class="form-group">
-                <label for="firstName" class="col-sm-3 control-label">ชื่อ<font color="red"> *</font></label>
+                <label for="frist_name" class="col-sm-3 control-label">ชื่อ<font color="red"> *</font></label>
                 <div class="col-sm-9">
-                    <input type="text" name="firstName" placeholder="First Name" class="form-control" autofocus>
+                    <input type="text" name="frist_name" placeholder="First Name" class="form-control" autofocus>
                     <span class="help-block">First Name, eg.: Harry</span>
                 </div>
-                <label for="lastName" class="col-sm-3 control-label">นามสกุล<font color="red"> *</font></label>
+                <label for="last_name" class="col-sm-3 control-label">นามสกุล<font color="red"> *</font></label>
                 <div class="col-sm-9">
-                    <input type="text" name="lastName" placeholder="Last Name" class="form-control" autofocus>
+                    <input type="text" name="last_name" placeholder="Last Name" class="form-control" autofocus>
                     <span class="help-block">Last Name, eg.: Tom</span>
                 </div>
 
@@ -92,12 +92,12 @@ body {
                         <div class="row">
                             <div class="col-sm-4">
                                 <label class="checkbox-inline">
-                                    <input type="checkbox" id="maleCheckbox" value="Male">Male
+                                    <input type="checkbox" name="sex" id="maleCheckbox" value="M">Male
                                 </label>
                             </div>
                             <div class="col-sm-4">
                                 <label class="checkbox-inline">
-                                    <input type="checkbox" id="femaleCheckbox" value="Female">Female
+                                    <input type="checkbox" name="sex" id="femaleCheckbox" value="F">Female
                                 </label>
                             </div>
                         </div>
@@ -111,17 +111,17 @@ body {
 
             <!-- /.form-group-id-->
             <div class="form-group">
-                <label for="id" class="col-sm-3 control-label">เลขบัตรประชาชน</label>
+                <label for="essn" class="col-sm-3 control-label">เลขบัตรประชาชน</label>
                 <div class="col-sm-9">
-                    <input type="id" name="id" placeholder="1 2345 67890 12 3" class="form-control">
+                    <input type="id" name="essn" placeholder="1 2345 67890 12 3" class="form-control">
                 </div>
             </div>
 
             <!-- /.form-group-birthdate -->
             <div class="form-group">
-                <label for="birthDate" class="col-sm-3 control-label">Date of Birth</label>
+                <label for="brith_date" class="col-sm-3 control-label">Date of Birth</label>
                 <div class="col-sm-3">
-                    <select name="birthDate" class="form-control">
+                    <select name="day" class="form-control">
                         <option value="">--DD--</option> 
                         <option>1</option>
                         <option>2</option>
@@ -157,7 +157,7 @@ body {
                     </select>
                 </div>
                 <div class="col-sm-3">
-                    <select name="birthDate" class="form-control">
+                    <select name="month" class="form-control">
                         <option value="">--MM--</option> 
                         <option value="0">มกราคม</option>
                         <option value="1">กุมภาพันธ์</option>
@@ -174,7 +174,7 @@ body {
                     </select>
                 </div>
                 <div class="col-sm-3">
-                    <select name="birthDate" class="form-control">
+                    <select name="year" class="form-control">
                         <option value="">--YY--</option> 
                         <option value="2017">2560</option>
                         <option value="2016">2559</option>
@@ -534,11 +534,19 @@ body {
                 </div>
             </div>
 
+            <!-- /.form-group-nationality -->
+            <div class="form-group">
+                <label for="nationality" class="col-sm-3 control-label">สัญชาติ<font color="red"> *</font></label>
+                <div class="col-sm-9">
+                    <input type="text" name="nationality" placeholder="Thai" class="form-control" autofocus>
+                </div>
+            </div>
+
             <!-- /.form-group-telephone -->
             <div class="form-group">
-                <label for="tel" class="col-sm-3 control-label">โทรศัพท์<font color="red"> *</font></label>
+                <label for="phone" class="col-sm-3 control-label">โทรศัพท์<font color="red"> *</font></label>
                 <div class="col-sm-9">
-                    <input type="text" name="tel" placeholder="000-00000-00" class="form-control" autofocus>
+                    <input type="text" name="phone" placeholder="000-00000-00" class="form-control" autofocus>
                 </div>
             </div>
 
@@ -568,17 +576,17 @@ body {
 
             <!-- /.form-group-Emergency-Contacts -->
             <div class="form-group">
-                <label for="Emergency Contacts" class="col-sm-3 control-label">ผู้ติดต่อกรณีฉุกเฉิน<font color="red"> *</font></label>
+                <label for="emergency_contact_name" class="col-sm-3 control-label">ผู้ติดต่อกรณีฉุกเฉิน<font color="red"> *</font></label>
                 <div class="col-sm-9">
-                    <input type="text" name="Emergency Contacts" class="form-control" autofocus>
+                    <input type="text" name="emergency_contact_name" class="form-control" autofocus>
                 </div>
             </div>
 
             <!-- /.form-group-Emergency-number -->
             <div class="form-group">
-                <label for="Emergency number" class="col-sm-3 control-label">เบอร์ติดต่อกรณีฉุกเฉิน<font color="red"> *</font></label>
+                <label for="emergency_contact_phone" class="col-sm-3 control-label">เบอร์ติดต่อกรณีฉุกเฉิน<font color="red"> *</font></label>
                 <div class="col-sm-9">
-                    <input type="text" name="Emergency number" class="form-control" autofocus>
+                    <input type="text" name="emergency_contact_phone" class="form-control" autofocus>
                 </div>
             </div>
                 
@@ -592,17 +600,17 @@ body {
 
             <!-- /.form-group-allergy -->
             <div class="form-group">
-                <label for="allergy" class="col-sm-3 control-label">การแพ้ยา</label>
+                <label for="allergic_drug" class="col-sm-3 control-label">การแพ้ยา</label>
                 <div class="col-sm-6">
-                    <input type="text" name="allergy" placeholder="" class="form-control" autofocus>
+                    <input type="text" name="allergic_drug" placeholder="" class="form-control" autofocus>
                 </div>
             </div>
 
             <!-- /.form-group-regular-drugs -->
             <div class="form-group">
-                <label for="regular drugs" class="col-sm-3 control-label">ยาที่ใช้ประจำ</label>
+                <label for="medicine" class="col-sm-3 control-label">ยาที่ใช้ประจำ</label>
                 <div class="col-sm-6">
-                    <input type="text" name="regular drugs" placeholder="" class="form-control" autofocus>
+                    <input type="text" name="medicine" placeholder="" class="form-control" autofocus>
                 </div>
             </div>
 
@@ -746,7 +754,7 @@ body {
              <!-- /.form-group -->
              <div class="form-group">
                 <div class="col-sm-6 col-sm-offset-3">
-                    <br><br><button type="submit" class="btn btn-primary btn-block"><a href="register2.5.1.php">บันทึก</a></button>
+                    <br><br><button type="submit" class="btn btn-primary btn-block" value="Submit">บันทึก</a></button>
                 </div>
             </div>
         </form> 
