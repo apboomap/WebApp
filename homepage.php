@@ -8,7 +8,7 @@
     $dbname = "marathon";
 
     $connect  = new mysqli($servername, $username, $password, $dbname);
-    $connect->set_charset("urf8");
+    mysqli_set_charset($connect, "utf8");
 
     function make_query($connect)
     {
