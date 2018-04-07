@@ -28,7 +28,7 @@
                     <li class=""><a href="register2.php">Store</a></li>
                     <li class=""><a href="model.php">picture</a></li>
                     <li class=""><a href="#.php">video</a></li>
-                    <li class=""><a href="#">Event All</a></li>
+                    <li class=""><a href="eventAll.php?year=<?=date('Y')?>">Event All</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <!-- <li class=""><a href="register.php"><span class="glyphicon glyphicon-user"></span> Register Now</a></li> -->
