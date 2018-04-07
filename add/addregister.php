@@ -29,11 +29,20 @@ $bill_id = $_SESSION['bill_id'];
 $event_id = $_SESSION['event_id'];
 
 
+if($_POST['flag'] == "1"){
+    $flag_full = 1;
+}else if($_POST['flag'] == "2"){
+    $flag_half = 1;
+}else if($_POST['flag'] == "3"){
+    $flag_mini = 1;
+}else if($_POST['flag'] == "4"){
+    $flag_fun = 1;
+}
 
-$flag_full = (isset($_POST['flag_full'])) ? 1 : 0;
-$flag_half = (isset($_POST['flag_half'])) ? 1 : 0;
-$flag_mini = (isset($_POST['flag_mini'])) ? 1 : 0;
-$flag_fun = (isset($_POST['flag_fun'])) ? 1 : 0;
+$flag_full = (isset($_POST['flag'])) ? 1 : 0;
+$flag_half = (isset($_POST['flag'])) ? 1 : 0;
+$flag_mini = (isset($_POST['flag'])) ? 1 : 0;
+$flag_fun = (isset($_POST['flag'])) ? 1 : 0;
 
 $sql1 = "INSERT INTO runners_bills (bill_id, run_id, flag_full, flag_half, flag_mini, flag_fun, generation_compete, getting, size, type_shirt)
         VALUES ('".$bill_id."', '".$last_id."','".$flag_full."','".$flag_half."','".$flag_mini."','".$flag_fun."','".$_POST["generation_compete"]."','".$_POST["getting"]."','".$_POST["size"]."','".$_POST["type_shirt"]."')";

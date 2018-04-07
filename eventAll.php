@@ -1,3 +1,21 @@
+<?php 
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "marathon";
+$conn = new mysqli($servername, $username, $password,$dbname);
+mysqli_set_charset($conn, "utf8");
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+} 
+
+
+session_start();
+$year = $_GET['year'] ;
+?>
+
 <!DOCTYPE html>
 <html>
     
@@ -16,84 +34,56 @@
         
     
  
-</head>
-
-<body>
-    <!-- navbar -->
-    <nav class="navbar navbar-inverse bg-1">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>                        
-                </button>
-                <img src="picture/logo.jpg" alt="Logo" height="52" width="150">
-                
-                </div>
-                <div class="collapse navbar-collapse" id="myNavbar">
-                <ul class="nav navbar-nav">
-                    <li class=""><a href="homepage.php">Home</a></li>
-                    <li class=""><a href="register2.php">Store</a></li>
-                    <li class=""><a href="model.php">picture</a></li>
-                    <li class=""><a href="#.php">video</a></li>
-                    <li class=""><a href="#">Event All</a></li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <!-- <li class=""><a href="register.php"><span class="glyphicon glyphicon-user"></span> Register Now</a></li> -->
-                    <!-- <li class="active"><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li> -->
-                    <button class="btn btn-danger navbar-btn"><a href="register1.php"><span class="glyphicon glyphicon-log-in"></span> Register Now</a></button>
-                    <button class="btn btn-success navbar-btn"><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></button>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    
+<?php require_once("header.php"); ?>
 
 <br>
 <center>
 <div class="container">
                 <div class="row">
                         <p class="lead"><h3>ค้นหางานวิ่งจากเดือน หรือ ปี</h3></p>    <br>                   
-                                    <!-- Our Special dropdown has class show-on-hover -->
-                                    <div class="btn-group show-on-hover">
-                                    <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown">
-                                        เดือน <span class="caret"></span>
-                                    </button>
-                                    <ul class="dropdown-menu" role="menu">
-                                        <li><a href="#">มกราคม</a></li>
-                                        <li><a href="#">กุมภาพันธ์</a></li>
-                                        <li><a href="#">มีนาคม</a></li>               
-                                        <li><a href="#">เมษายน</a></li>
-                                        <li><a href="2018may.php" target="_blank">พฤษภาคม</a></li>
-                                        <li><a href="#">มิถุนายน</a></li>
-                                        <li><a href="2018jul.php" target="_blank">กรกฎาคม</a></li>
-                                        <li><a href="#">สิงหาคม</a></li>
-                                        <li><a href="#">กันยายน</a></li>
-                                        <li><a href="#">ตุลาคม</a></li>
-                                        <li><a href="#">พฤศจิกายน</a></li>
-                                        <li><a href="#">ธันวาคม</a></li>
-									</ul>
-									</div>
 													                  
                                     <!-- Our Special dropdown has class show-on-hover -->
                                     <div class="btn-group show-on-hover">
-                                    <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">
-                                        ปี <span class="caret"></span>
+                                    <button type="button" class=" btn-danger dropdown-toggle" data-toggle="dropdown">
+                                       <?=$year?> <span class="caret"></span>
                                     </button>
                                     <ul class="dropdown-menu" role="menu">
-										<li><a href="#">2015</a></li>
-										<li><a href="#">2016</a></li>
-                                        <li><a href="2017dec.php" target="_blank">2017</a></li>
-                                        <li><a href="#">2018</a></li>
-                                        <li><a href="#">2019</a></li>               
-                                        <li><a href="#">2020</a></li>
+										<li><a href="eventAll.php?year=2018">2018</a></li>
+                                        <li><a href="eventAll.php?year=2017">2017</a></li>
+                                        <li><a href="eventAll.php?year=2016">2016</a></li>
+                                        <li><a href="eventAll.php?year=2015">2015</a></li>
+                                        <li><a href="eventAll.php?year=2014">2014</a></li>
+                                        <li><a href="eventAll.php?year=2013">2013</a></li>
 									</ul>
                                     </div>
                 </div>
         </div>
 </center>
 
+<?php 
+$sql = "SELECT * FROM events WHERE YEAR(race_day) = $year";
+$result = $conn->query($sql);
+while($row = $result->fetch_assoc()):
+$date = explode('-', $row['race_day']);
+$years = $date[0];
+$date_date = getdate();
+switch ($date[1])
+{ 
+case 1 : $month="ม.ค."; break;
+case 2 : $month="ก.พ."; break;
+case 3 : $month="มี.ค."; break;
+case 4 : $month="เม.ย."; break;
+case 5 : $month="พ.ค."; break;
+case 6 : $month="มิ.ย."; break;
+case 7 : $month="ก.ค."; break;
+case 8 : $month="ส.ค."; break;
+case 9 : $month="ก.ย."; break;
+case 10 : $month="ต.ค."; break;
+case 11 : $month="พ.ย."; break;
+case 12 : $month="ธ.ค."; break;
+}
+$day = $date[2]; 
+?>
 <br><br>
 <!--event-->
 <div class="container">
@@ -102,85 +92,39 @@
                     <ul class="event-list">
                         <!--cmu-->                                                
                             <li>
-                                <time datetime="2018-02-11">
-                                    <span class="day">11</span>
-                                    <span class="month">ก.พ.</span>
-                                    <span class="year">2018</span>
+                                <time datetime=<?=$row['race_day']?>>
+                                    <span class="day"><?=$day?></span>
+                                    <span class="month"><?=$month?></span>
+                                    <span class="year"><?=$years?></span>
                                     <span class="time">All Day</span>
                                 </time>
-                                <img alt="CMU" src="event/CMU/even.jpg"/>
+                                <img  src="<?=$row["img"]?>"/>
                                 <div class="info">
-                                    <h2 class="title">CMU Marathon 2018</h2>
-                                    <p class="desc"><span class="glyphicon glyphicon-map-marker"></span><a href="https://goo.gl/maps/vcMkD2jsjgo">  Chiang Mai University </a></p>
+                                    <h2 class="title"><?=$row["name"]?></h2>
                                     <ul>
+                                        <?php if(!empty($row['flag_full'])){?>
                                         <li style="width:25%;"><span class="fa fa-male"></span> [42.195K]</li>
+                                        <?php } ?>
+                                        <?php if(!empty($row['flag_half'])){?>
                                         <li style="width:25%;"><span class="fa fa-male"></span> [21.1K]</li>
+                                        <?php } ?>
+                                        <?php if(!empty($row['flag_mini'])){?>
                                         <li style="width:25%;"><span class="fa fa-male"></span> [10.5K]</li>
+                                        <?php } ?>
+                                        <?php if(!empty($row['flag_fun'])){?>
                                         <li style="width:25%;"><span class="fa fa-child"></span> [4.6K]</li>
+                                        <?php } ?>
                                     </ul>
                                 </div>
                                 <div class="detail">
                                     <ul>
-                                        <li class="additional" style="width:25%;"><a href="registerdetail.php"> ข้อมูลเพิ่มเติม <span class="glyphicon glyphicon-info-sign"></span> </a></li>
-                                        <li class="register" style="width:25%;"><a href="register1.php"> สมัครวิ่ง <span class="glyphicon glyphicon-pencil"></span></a></li>
+                                        <li class="additional" style="width:25%;"><a href="registerdetail.php?id=<?=$row['event_id']?>"> ข้อมูลเพิ่มเติม <span class="glyphicon glyphicon-info-sign"></span> </a></li>
+                                        <li class="register" style="width:25%;"><a href="registerdetail.php?id=<?=$row['event_id']?>"> สมัครวิ่ง <span class="glyphicon glyphicon-pencil"></span></a></li>
                                         <li class="searchrunner" style="width:25%;"><a href="search.php"> ค้นหานักวิ่ง <span class="glyphicon glyphicon-search"></span></a></li>
                                     </ul>
                                 </div>
                             </li>
-                            
-                            <!--หาดคุ้งวิมาน-->
-                            <li>
-                                <time datetime="2018-04-01">
-                                    <span class="day">1</span>
-                                    <span class="month">เม.ย.</span>
-                                    <span class="year">2018</span>
-                                    <span class="time">All Day</span>
-                                </time>
-                                <img alt="RunToSea" src="event/RunToSea/even1.jpg" />
-                                <div class="info">
-                                    <h2 class="title">RUN TO SEA 2018</h2>
-                                    <p class="desc"><span class="glyphicon glyphicon-map-marker"></span><a href="https://goo.gl/maps/pWAKPDXvLgQ2">  หาดคุ้งวิมานเนินนางพญา</a></p>
-                                    <ul>
-                                        <li style="width:33%;"><span class="fa fa-male"></span> [21K] </li>
-                                        <li style="width:34%;"><span class="fa fa-male"></span> [10K] </li>
-                                        <li style="width:33%;"><span class="fa fa-child"></span> [5K] </li>
-                                    </ul>
-                                </div>
-                                <div class="detail">
-                                    <ul>
-                                        <li class="additional" style="width:25%;"><a href="registerdetail.php"> ข้อมูลเพิ่มเติม <span class="glyphicon glyphicon-info-sign"></span> </a></li>
-                                        <li class="register" style="width:25%;"><a href="register1.php"> สมัครวิ่ง <span class="glyphicon glyphicon-pencil"></span></a></li>
-                                        <li class="searchrunner" style="width:25%;"><a href="search.php"> ค้นหานักวิ่ง <span class="glyphicon glyphicon-search"></span></a></li>
-                                    </ul>
-                                </div>
-                            </li>  
-
-                            <!--วิ่งอมยิ้ม-->
-                            <li>
-                                <time datetime="2018-04-01">
-                                    <span class="day">1</span>
-                                    <span class="month">เม.ย.</span>
-                                    <span class="year">2018</span>
-                                    <span class="time">All Day</span>
-                                </time>
-                                <img alt="VingAomYim" src="event/VingAomYem/even2.jpg" />
-                                <div class="info">
-                                    <h2 class="title">วิ่งอมยิ้ม 2018</h2>
-                                    <p class="desc"><span class="glyphicon glyphicon-map-marker"></span><a href="https://goo.gl/maps/phYSvyiYcCC2">  ณ ตลาดอมยิ้ม อำเภอจอมบึง</a></p>
-                                    <ul>
-                                        <li style="width:33%;"><span class="fa fa-male"></span> [21K] </li>
-                                        <li style="width:34%;"><span class="fa fa-male"></span> [10.5K] </li>
-                                        <li style="width:33%;"><span class="fa fa-child"></span> [5K] </li>
-                                    </ul>
-                                </div>
-                                <div class="detail">
-                                    <ul>
-                                        <li class="additional" style="width:25%;"><a href="registerdetail.php"> ข้อมูลเพิ่มเติม <span class="glyphicon glyphicon-info-sign"></span> </a></li>
-                                        <li class="register" style="width:25%;"><a href="register1.php"> สมัครวิ่ง <span class="glyphicon glyphicon-pencil"></span></a></li>
-                                        <li class="searchrunner" style="width:25%;"><a href="search.php"> ค้นหานักวิ่ง <span class="glyphicon glyphicon-search"></span></a></li>
-                                    </ul>
-                                </div>
-                            </li>                        
+<?php endwhile;?>
                     </ul> 
                 </div>          
             </div>
@@ -188,6 +132,8 @@
 
 </body>
 </html>
+
+<?php $conn->close();?>
 
 
 

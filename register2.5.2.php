@@ -182,7 +182,6 @@ $rowB = $resultB->fetch_assoc();
 </center><br>
 
 <?php
-session_start();
 $_SESSION['sum'] = $sum;
 $conn->close();
 require_once("footer.php");
