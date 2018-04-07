@@ -1,3 +1,27 @@
+<?php 
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "marathon";
+$conn = new mysqli($servername, $username, $password,$dbname);
+mysqli_set_charset($conn, "utf8");
+
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+} 
+
+session_start();
+$bill_id = $_SESSION['bill_id'];
+$event_id = $_SESSION['event_id'];
+
+$sql = "SELECT * FROM runners_bills WHERE bill_id = $bill_id";
+$result = $conn->query($sql);
+
+
+?>
+
 <!doctype html>
 <?php require_once("header.php"); ?>
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -20,17 +44,25 @@
         </ul>
 </div>
 
-    
-<div class="container">
-    <header class="clearfix">
-        <div id="logo">
-            <h3>นักวิ่งคนที่1</h3>
-            <a href="register1.php"><span></span></a>
+<?php while($row = $result->fetch_assoc()): ?>    
+    <div class="container;row" >
+        <div class="row">
+        <header class="clearfix">
+            <div id="logo" class="col-md-4 col-xs-12">
+            <?php
+                $sqlA = "SELECT * FROM runners WHERE run_id = ".$row['run_id'];
+                $resultA = $conn->query($sqlA);
+                $rowA = $resultA->fetch_assoc();
+            ?>
+                <h3><?=$rowA["frist_name"]?></h3>
+                <a href="register1.1.php?id=<?=$rowA["run_id"]?>"><span></span></a>
+            </div>
+                <button type="button" class="close" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
         </div>
-            <button type="button" class="close" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-            </button>
-    </header>
+        </header>
+<?php endwhile; ?> 
     <header class="clearfix">
         <div id="logo">
             <h3>+เพิ่มเพื่อน</h3>
@@ -269,7 +301,7 @@
                     <select name="country" class="form-control">
                         <option value="">---------------------------ประเทศ---------------------------</option>
                         <option value="TH">Thailand</option>
-                        <option value="0000">---------------------------------------------------</option>
+                        <option value="">---------------------------------------------------</option>
                         <option value="AF">Afghanistan</option>
                         <option value="AX">Åland Islands</option>
                         <option value="AL">Albania</option>
@@ -640,54 +672,54 @@
                 </div>
             </div>
             
-            <!-- /.form-group-generation-->
-            <div class="form-group">
+             <!-- /.form-group-generation-->
+             <div class="form-group">
                 <label class="control-label col-sm-3">รุ่นการแข่งขัน<font color="red"> *</font></label>
                 <div class="col-sm-6">
                     <div class="row">
                         <div class="col-sm-6">
                             <label class="checkbox-inline">
-                                <input type="checkbox" id="male16-19Checkbox" value="16-19">ชาย 16-19 ปี
+                                <input type="checkbox" id="male16-19Checkbox"  name="generation_compete" value="16-19">ชาย 16-19 ปี
                             </label>
                         </div>
                         <div class="col-sm-6">
                             <label class="checkbox-inline">
-                                <input type="checkbox" id="female16-19Checkbox" value="16-19">หญิง 16-19 ปี
+                                <input type="checkbox" id="female16-19Checkbox" name="generation_compete" value="16-19">หญิง 16-19 ปี
                             </label>
                         </div>
                         <div class="col-sm-6">
                             <label class="checkbox-inline">
-                                <input type="checkbox" id="male30-39Checkbox" value="30-39">ชาย 30-39 ปี
+                                <input type="checkbox" id="male30-39Checkbox" name="generation_compete" value="30-39">ชาย 30-39 ปี
                             </label>
                         </div>
                         <div class="col-sm-6">
                             <label class="checkbox-inline">
-                                <input type="checkbox" id="female30-39Checkbox" value="30-39">หญิง 30-39 ปี
+                                <input type="checkbox" id="female30-39Checkbox" name="generation_compete" value="30-39">หญิง 30-39 ปี
                             </label>
                         </div>
                         <div class="col-sm-6">
                             <label class="checkbox-inline">
-                                <input type="checkbox" id="male40-49Checkbox" value="40-49">ชาย 40-49 ปี
+                                <input type="checkbox" id="male40-49Checkbox" name="generation_compete" value="40-49">ชาย 40-49 ปี
                             </label>
                         </div>
                         <div class="col-sm-6">
                             <label class="checkbox-inline">
-                                <input type="checkbox" id="female40-49Checkbox" value="40-49">หญิง 40-49 ปี
+                                <input type="checkbox" id="female40-49Checkbox"  name="generation_compete" value="40-49">หญิง 40-49 ปี
                             </label>
                         </div>
                         <div class="col-sm-6">
                             <label class="checkbox-inline">
-                                <input type="checkbox" id="male50-59Checkbox" value="50-59">ชาย 50-59 ปี
+                                <input type="checkbox" id="male50-59Checkbox" name="generation_compete" value="50-59">ชาย 50-59 ปี
                             </label>
                         </div>
                         <div class="col-sm-6">
                             <label class="checkbox-inline">
-                                <input type="checkbox" id="female50-59Checkbox" value="50-59">หญิง 50-59 ปี
+                                <input type="checkbox" id="female50-59Checkbox" name="generation_compete" value="50-59">หญิง 50-59 ปี
                             </label>
                         </div>
                         <div class="col-sm-9">
                             <label class="checkbox-inline">
-                                <input type="checkbox" id="male60upCheckbox" value="60up">ชาย 60ปีขึ้นไป
+                                <input type="checkbox" id="male60upCheckbox" name="generation_compete" value="60up">ชาย 60ปีขึ้นไป
                             </label>
                         </div>
                     </div>
@@ -701,13 +733,13 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <label class="checkbox-inline">
-                                <input type="checkbox" id="longCheckbox" value="long">เสื้อแขนยาว
+                                <input type="checkbox" id="longCheckbox" name="type_shirt" value="เสื้อแขนยาว">เสื้อแขนยาว
                             </label>
                             <img id="myImg" src="picture/longarm.jpg" alt="" width="300" height="200">
                         </div>
                         <div class="col-sm-12">  
-                            <label class="radio-inline">
-                                <input type="checkbox"  id="shortCheckbox" value="short">เสื้อแขนสั้น
+                            <label class="checkbox-inline">
+                                <input type="checkbox"  id="shortCheckbox" name="type_shirt" value="เสื้อแขนสั้น">เสื้อแขนสั้น
                             </label>
                             <!-- <img id="myImg" src="picture/longarm.jpg" alt="" width="300" height="200"> -->
                             <img id="myImg" src="picture/shortarm.jpg" alt="" width="300" height="200">
@@ -723,48 +755,18 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <label class="checkbox-inline">
-                                <input type="checkbox" id="longCheckbox" value="long">รับด้วยตัวเองที่สถานที่จัดงาน
+                                <input type="checkbox" id="longCheckbox" name="getting" value="รับด้วยตัวเองที่สถานที่จัดงาน">รับด้วยตัวเองที่สถานที่จัดงาน
                             </label>
                         </div>
                         <div class="col-sm-12">  
                             <label class="checkbox-inline">
-                                <input type="checkbox"  id="shortCheckbox" value="short">ส่งไปรษณีย์ (ค่าส่ง 100 บาท)
+                                <input type="checkbox"  id="shortCheckbox"  name="getting" value="ส่งไปรษณีย์">ส่งไปรษณีย์ (ค่าส่ง 100 บาท)
                             </label>
                         </div>
                     </div>
                 </div>
             </div>
         
-            <div class="form-group">
-                <div class="form-group">
-                    <label for="disease" class="col-sm-3 control-label">โรคประจำตัว</label>
-                    <div class="col-sm-6">
-                        <input type="text" name="disease" placeholder="" class="form-control" autofocus>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="allergy" class="col-sm-3 control-label">การแพ้ยา</label>
-                    <div class="col-sm-6">
-                        <input type="text" name="allergy" placeholder="" class="form-control" autofocus>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="regular drugs" class="col-sm-3 control-label">ยาที่ใช้ประจำ</label>
-                    <div class="col-sm-6">
-                        <input type="text" name="regular drugs" placeholder="" class="form-control" autofocus>
-                    </div>
-                </div>
-                <label for="blood" class="col-sm-3 control-label">กรุ๊ปเลือด</label>
-                <div class="col-sm-3">
-                    <select name="blood" class="form-control">
-                        <option value="">--BLOOD--</option> 
-                        <option>O</option>
-                        <option>A</option>
-                        <option>B</option>
-                        <option>AB</option>
-                    </select>
-                </div>
-            </div>
              
 
             <!-- /.form-group -->
@@ -825,5 +827,5 @@
     </div>
 </div>
 
-
-<?php require_once("footer.php"); ?>   
+<?php $conn->close();?>
+<?php require_once("footer.php"); ?>
