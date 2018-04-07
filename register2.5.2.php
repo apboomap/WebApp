@@ -1,3 +1,31 @@
+<?php 
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "marathon";
+$conn = new mysqli($servername, $username, $password,$dbname);
+mysqli_set_charset($conn, "utf8");
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+} 
+
+session_start();
+$bill_id = $_SESSION['bill_id'];
+$event_id = $_SESSION['event_id'];
+$sum = 0;
+
+$sql = "SELECT * FROM runners_bills WHERE bill_id = $bill_id";
+$result = $conn->query($sql);
+
+$sqlB = "SELECT * FROM events WHERE event_id = $event_id";
+$resultB = $conn->query($sqlB);
+$rowB = $resultB->fetch_assoc();
+
+?>
+
+
 <!doctype html>
 <?php require_once("header.php"); ?>
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -21,125 +49,96 @@
         </ul>
 </div>
 <h4><center><strong>กรุณาตรวจสอบเเละยืนยันความถูกต้องของข้อมูลการสมัครของท่าน</strong></center></h4>
-<div class="row">
-    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
-        <div class="panel panel-info">
-            <div class="panel-heading">
-                <h4 class="panel-title"><strong>ประเภทการวิ่ง</strong></h4>
-            </div>
-            <div class="panel-body">
-              <div class="row">
-                <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="http://babyinfoforyou.com/wp-content/uploads/2014/10/avatar-300x300.png" class="img-circle img-responsive"> </div>
-                <div class=" col-md-9 col-lg-9 "> 
-                  <table class="table table-user-information">
-                    <tbody>
-                      <tr>
-                        <td>ชื่อ-สกุล</td>
-                        <td>รัชพงศ์ ทองสุข</td>
-                      </tr>
-                      <tr>
-                        <td>เพศ-อายุ</td>
-                        <td>ชาย 21</td>
-                      </tr>
-                      <tr>
-                        <td>อีเมลล์</td>
-                        <td><a href="mailto:Ratchaponga@gmail.com">Ratchaponga@gmail.com</a></td>
-                      </tr>
-                        <tr>
-                        <td>เบอร์โทรศัพท์</td>
-                        <td>0910288234</td>
-                      </tr>
-                      <tr>
-                        <td>รุ่น</td>
-                        <td>ชาย 16-29 (490 บาท)</td>
-                      </tr>
-                      <tr>
-                        <td>ไซต์เสื้อ</td>
-                        <td>M - 38" x 27"</td>
-                      </tr>
-                      <tr>
-                        <td>การรับเสื้อและหมายเลขวิ่ง</td>
-                        <td>ด้วยตัวเอง ณ สถานที่จัดงาน</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                  </div>
+<?php while($row = $result->fetch_assoc()): 
+    $text = "";
+    $cost = 0;
+    if(!empty($row["flag_full"])){
+      $text = "Full Marathon";
+      $cost = $rowB["charge_full"];
+    } else if(!empty($row["flag_half"])){
+      $text = "Half Marathon";
+      $cost = $rowB["charge_half"];
+    }else if(!empty($row["flag_mini"])){
+      $text = "Mini Marathon";
+      $cost = $rowB["charge_mini"];
+    }else if(!empty($row["flag_fun"])){
+      $text = "Funrun Marathon";
+      $cost = $rowB["charge_fun"];
+    } 
+    $sum += $cost;
+?>
+  <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
+          <div class="panel panel-info">
+              <div class="panel-heading">
+                  <h4 class="panel-title"><strong>ประเภทการวิ่ง</strong>     <?php echo $text ?></h4>
               </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="row">
-    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
-        <div class="panel panel-info">
-        <div class="panel-heading">
-            <h4 class="panel-title"><strong>ประเภทการวิ่ง</strong></h4>
-        </div>
-        <div class="panel-body">
-            <div class="row">
-                <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="http://babyinfoforyou.com/wp-content/uploads/2014/10/avatar-300x300.png" class="img-circle img-responsive"> </div>
-                <div class=" col-md-9 col-lg-9 "> 
-                  <table class="table table-user-information">
-                    <tbody>
-                      <tr>
-                        <td>ชื่อ-สกุล</td>
-                        <td>รัชพงศ์ ทองสุข</td>
-                      </tr>
-                      <tr>
-                        <td>เพศ-อายุ</td>
-                        <td>ชาย 21</td>
-                      </tr>
-                      <tr>
-                        <td>อีเมลล์</td>
-                        <td><a href="mailto:Ratchaponga@gmail.com">Ratchaponga@gmail.com</a></td>
-                      </tr>
-                        <tr>
-                        <td>เบอร์โทรศัพท์</td>
-                        <td>0910288234</td>
-                      </tr>
-                      <tr>
-                        <td>รุ่น</td>
-                        <td>ชาย 16-29 (490 บาท)</td>
-                      </tr>
-                      <tr>
-                        <td>ไซต์เสื้อ</td>
-                        <td>M - 38" x 27"</td>
-                      </tr>
-                      <tr>
-                        <td>การรับเสื้อและหมายเลขวิ่ง</td>
-                        <td>ด้วยตัวเอง ณ สถานที่จัดงาน</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
-        </div>
-    </div>
-</div>
+              <div class="panel-body">
+                <div class="row">
+                  <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="picture/default.png" class="img-circle img-responsive"> </div>
+                  <div class=" col-md-9 col-lg-9 "> 
+                    <table class="table table-user-information">
+                    <?php 
+                        $sqlA = "SELECT * FROM runners WHERE run_id = ".$row['run_id'];
+                        $resultA = $conn->query($sqlA);
+                        $rowA = $resultA->fetch_assoc();
 
-<div class="row">
-    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
-        <div class="panel panel-info">
-        <div class="panel-heading">
-            <h3 class="panel-title"><strong>จำนวนเงินรวม</strong></h3>
-        </div>
-        <div class="panel-body">
-            <div class="row">
-                <div class=" col-md-9 col-lg-9 "> 
-                  <table class="table table-user-information">
-                    <tbody>
-                      <tr>
-                        <td>x,xxx บาท</td>
-                      </tr>
-                    </tbody>
-                  </table>
+                        $gen = "";
+                        if ($rowA["sex"] == "M") $gen = "ชาย";
+                        else $gen = "หญิง";
+
+                        $date = explode('-', $rowA['brith_date']);
+                        $age = date("Y") - (int)$date[0];
+
+                        $generation_compete = "";
+                        if ($age < 20) $generation_compete = "ต่ำกว่า 19 ปี";
+                        else if ($age >= 20 && $age < 30) $generation_compete = "20-29 ปี";
+                        else if ($age >= 30 && $age < 40) $generation_compete = "30-39 ปี";
+                        else if ($age >= 40 && $age < 50) $generation_compete = "40-49 ปี";
+                        else if ($age >= 50 && $age < 60) $generation_compete = "50-59 ปี";
+                        else if ($age >= 60 ) $generation_compete = "60 ปีขึ้นไป";
+                    ?>
+                      <tbody>
+                        <tr>
+                          <td>ชื่อ-สกุล</td>
+                          <td><?=$rowA["frist_name"]?>         <?=$rowA["last_name"]?></td>
+                        </tr>
+                        <tr>
+                          <td>เพศ-อายุ</td>
+                          <td><?=$gen?>      <?=$age?></td>
+                        </tr>
+                        <tr>
+                          <td>อีเมลล์</td>
+                          <td><?=$rowA["email"]?></td>
+                        </tr>
+                          <tr>
+                          <td>เบอร์โทรศัพท์</td>
+                          <td><?=$rowA["phone"]?></td>
+                        </tr>
+                        <tr>
+                          <td>รุ่น</td>
+                          <td><?=$gen?>   <?=$generation_compete?>      (<?=$cost?> บาท)</td>
+                        </tr>
+                        <tr>
+                          <td>ไซต์เสื้อ</td>
+                          <td><?=$row["size"]?></td>
+                        </tr>
+                        <tr>
+                          <td>การรับเสื้อและหมายเลขวิ่ง</td>
+                          <?php
+                            ($row['getting'] == "0")? $temp="รับด้วยตัวเองที่สถานที่จัดงาน":$temp="ส่งไปรษณีย์ (ค่าส่ง 100 บาท)";
+                          ?>
+                          <td><?=$temp?></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    </div>
                 </div>
               </div>
-            </div>
-        </div>
-    </div>
-</div>
+          </div>
+      </div>
+  </div>
+<?php endwhile; ?>
 
 <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
@@ -182,4 +181,9 @@
 <button type="button" class="btn btn-warning"><a href="payment.php">ยืนยัน</a></button>
 </center><br>
 
-<?php require_once("footer.php"); ?>   
+<?php
+session_start();
+$_SESSION['sum'] = $sum;
+$conn->close();
+require_once("footer.php");
+?>   

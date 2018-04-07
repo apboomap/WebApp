@@ -1,3 +1,24 @@
+<?php 
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "marathon";
+$conn = new mysqli($servername, $username, $password,$dbname);
+mysqli_set_charset($conn, "utf8");
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+} 
+
+session_start();
+$bill_id = $_SESSION['bill_id'];
+$event_id = $_SESSION['event_id'];
+$sum = $_SESSION['sum'];
+
+$conn->close();
+
+?>
 <?php require_once("header.php"); ?>
 
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -81,7 +102,7 @@
 					<div class="b">
 						<div class="sc-hwwEjo cyNieD w3-padding">
 							<span><h3>ราคารวมค่าบริการ</h3></span>
-							<span ><font color="red" ><h2><u> 514.50 บาท</u></h2></font></span>
+							<span ><font color="red" ><h2><u> <?=$sum+24.5?> บาท</u></h2></font></span>
 						</div><br>
 						<button class="btn1 b"><a href="homepage.php">ชำระเลย</a></button><br>
 					</div>
@@ -118,7 +139,7 @@
 						<div class="b">
 							<div class="sc-hwwEjo cyNieD w3-padding">
 								<span><h3>ราคารวมค่าบริการ</h3></span>
-								<span ><font color="red" ><h2><u> 514.50 บาท</u></h2></font></span>
+								<span ><font color="red" ><h2><u> <?=$sum+24.5?> บาท</u></h2></font></span>
 							</div><br>
 							<button class="btn1 b"><a href="homepage.php">ชำระเลย</a></button><br>
 						</div>
@@ -154,7 +175,7 @@
 						<div class="b">
 							<div class="sc-hwwEjo cyNieD w3-padding">
 								<span><h3>ราคารวมค่าบริการ</h3></span>
-								<span ><font color="red" ><h2><u> 514.50 บาท</u></h2></font></span>
+								<span ><font color="red" ><h2><u> <?=$sum+24.5?> บาท</u></h2></font></span>
 							</div><br><br>
 							<button class="btn1 b"><a href="homepage.php">ชำระเลย</a></button><br>
 						</div>
@@ -200,7 +221,7 @@
 					<div class="b">
 						<div class="sc-hwwEjo cyNieD w3-padding">
 							<span><h3>ราคารวม</h3></span>
-							<span ><font color="red" ><h2><u> 490 บาท</u></h2></font></span>
+							<span ><font color="red" ><h2><u> <?=$sum?> บาท</u></h2></font></span>
 						</div><br>
 						<button class="btn1 b"><a href="confirmpayment.php">แจ้งการโอนเงิน</button><br>
 					</div>
