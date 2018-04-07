@@ -1,8 +1,3 @@
-<?php
-session_start();
-$bill_id = $_SESSION['bill_id'];
-$event_id = $_SESSION['event_id'];
-?>
 <!doctype html>
 <?php require_once("header.php"); ?>
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -11,56 +6,7 @@ $event_id = $_SESSION['event_id'];
 <link href="css/pic.css" rel="stylesheet">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-
-<!------ Include the above in your HEAD tag ---------->
-
-<!-- <style>
-body {
-    background-color: #eee;
-}
-
-*[role="form"] {
-    max-width: 530px;
-    padding: 15px;
-    margin: 0 auto;
-    background-color: #fff;
-    border-radius: 0.3em;
-}
-
-*[role="form"] h2 {
-    margin-left: 5em;
-    margin-bottom: 1em;
-} 
-</style> -->
-<style>
-    div.b {
-        text-align: center;
-    }
-
-/* .dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-}
-
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
-.desc {
-    padding: 15px;
-    text-align: center;
-} */
-
-</style>
+<script src="javascript/validateregister.js"></script>
 
     <!-- process step bar -->
     <br><div class="container">
@@ -75,58 +21,124 @@ body {
 
     <div class="container">
         <!-- /form1 -->
-        <form class="form-horizontal" role="form" action="add/addregister.php" method="POST"  enctype="multipart/form-data">
+<<<<<<< refs/remotes/origin/tanawat
+        <form class="form-horizontal" role="form">
+<<<<<<< HEAD
             <div class="b"><h2>กรอกข้อมูลผู้เข้าแข่งขัน</h2></div>
             <!-- /.form-group-first-last-gender-email -->
             <div class="form-group">
-                <label for="frist_name" class="col-sm-3 control-label">ชื่อ<font color="red"> *</font></label>
+                <label for="firstName" class="col-sm-3 control-label">ชื่อ<font color="red"> *</font></label>
                 <div class="col-sm-9">
-                    <input type="text" name="frist_name" placeholder="First Name" class="form-control" autofocus>
+                    <input type="text" name="firstName" placeholder="First Name" class="form-control" autofocus>
+=======
+        <form class="form-horizontal" role="form" action="add/addregister.php" method="POST"  enctype="multipart/form-data">
+            <div class=""><h2>กรอกข้อมูลผู้เข้าแข่งขัน</h2></div>
+            <!-- /.form-group-first-last-gender-email -->
+            <div class="form-group">
+                <label for="first_name" class="col-sm-3 control-label">ชื่อ<font color="red"> *</font></label>
+                <div class="col-sm-9">
+                    <input type="text" name="frist_name" placeholder="ชื่อจริง" class="form-control" autofocus required id = "txt" onkeyup = "Validate(this)">
+>>>>>>> local
                     <span class="help-block">First Name, eg.: Harry</span>
                 </div>
-                <label for="last_name" class="col-sm-3 control-label">นามสกุล<font color="red"> *</font></label>
+                <label for="lastName" class="col-sm-3 control-label">นามสกุล<font color="red"> *</font></label>
                 <div class="col-sm-9">
-                    <input type="text" name="last_name" placeholder="Last Name" class="form-control" autofocus>
+<<<<<<< refs/remotes/origin/tanawat
+                    <input type="text" name="lastName" placeholder="Last Name" class="form-control" autofocus>
+=======
+                    <input type="text" name="last_name" placeholder="นามสกุล" class="form-control" autofocus required id = "txt" onkeyup = "Validate(this)">
+>>>>>>> local
                     <span class="help-block">Last Name, eg.: Tom</span>
                 </div>
 
                 <!-- /.form-group-gender -->
                 <div class="form-group">
-                    <label class="control-label col-sm-3">Gender</label>
+                    <label class="control-label col-sm-3">เพศ<font color="red"> *</font></label>
                     <div class="col-sm-6">
                         <div class="row">
                             <div class="col-sm-4">
+<<<<<<< refs/remotes/origin/tanawat
                                 <label class="checkbox-inline">
-                                    <input type="checkbox" name="sex" id="maleCheckbox" value="M">Male
+                                    <input type="checkbox" id="maleCheckbox" value="Male">Male
                                 </label>
                             </div>
                             <div class="col-sm-4">
                                 <label class="checkbox-inline">
-                                    <input type="checkbox" name="sex" id="femaleCheckbox" value="F">Female
+                                    <input type="checkbox" id="femaleCheckbox" value="Female">Female
+=======
+                                <label class="radio-inline">
+                                    <input type="radio" name="sex" id="maleRadio" value="M" required onchange="this.setCustomValidity(validity.valueMissing ?  : '');" id="field_terms">ชาย
                                 </label>
                             </div>
+                            <div class="col-sm-4">
+                                <label class="radio-inline">
+                                    <input type="radio" name="sex" id="femaleRadio" value="F" required onchange="this.setCustomValidity(validity.valueMissing ?  : '');" id="field_terms">หญิง
+>>>>>>> local
+                                </label>
+                            </div>
+=======
+        <!-- /.form-group-first-last-gender-email -->
+        <div class="form-group">
+            <label for="firstName" class="col-sm-3 control-label">ชื่อ<font color="red"> *</font></label>
+            <div class="col-sm-9">
+                <input type="text" name="firstName" placeholder="First Name" class="form-control" autofocus>
+                <span class="help-block">First Name, eg.: Harry</span>
+            </div>
+            <label for="lastName" class="col-sm-3 control-label">นามสกุล<font color="red"> *</font></label>
+            <div class="col-sm-9">
+                <input type="text" name="lastName" placeholder="Last Name" class="form-control" autofocus>
+                <span class="help-block">Last Name, eg.: Tom</span>
+            </div>
+
+             <!-- /.form-group-gender -->
+            <div class="form-group">
+                <label class="control-label col-sm-3">Gender</label>
+                <div class="col-sm-6">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <label class="checkbox-inline">
+                                <input type="checkbox" id="maleCheckbox" value="Male">Male
+                            </label>
+                        </div>
+                        <div class="col-sm-4">
+                            <label class="checkbox-inline">
+                                <input type="checkbox" id="femaleCheckbox" value="Female">Female
+                            </label>
+>>>>>>> e2da5866d0e9ef41c10a53d7368878e64cae876b
                         </div>
                     </div>
                 </div>
-                <label for="email" class="col-sm-3 control-label">Email</label>
+                <label for="email" class="col-sm-3 control-label">Email<font color="red"> *</font></label>
                     <div class="col-sm-9">
-                    <input type="email" name="email" placeholder="example@gmail.com" class="form-control">
+                    <input type="email" name="email" placeholder="example@gmail.com" class="form-control" required id = "email"  onchange="email_validate(this.value);" />
                 </div>  
             </div>
 
             <!-- /.form-group-id-->
             <div class="form-group">
-                <label for="essn" class="col-sm-3 control-label">เลขบัตรประชาชน</label>
+<<<<<<< refs/remotes/origin/tanawat
+                <label for="id" class="col-sm-3 control-label">เลขบัตรประชาชน</label>
                 <div class="col-sm-9">
-                    <input type="id" name="essn" placeholder="1234567890123" class="form-control"  maxlength="13">
+                    <input type="id" name="id" placeholder="1 2345 67890 12 3" class="form-control">
+=======
+                <label for="essn" class="col-sm-3 control-label">เลขบัตรประชาชน<font color="red"> *</font></label>
+                <div class="col-sm-9">
+                    <input type="id" name="essn" placeholder="1234567890123" class="form-control" required minlength="7" maxlength="13" id = "pass1">
+>>>>>>> local
                 </div>
             </div>
 
             <!-- /.form-group-birthdate -->
             <div class="form-group">
-                <label for="brith_date" class="col-sm-3 control-label">Date of Birth</label>
+<<<<<<< refs/remotes/origin/tanawat
+                <label for="birthDate" class="col-sm-3 control-label">Date of Birth</label>
                 <div class="col-sm-3">
-                    <select name="day" class="form-control">
+                    <select name="birthDate" class="form-control">
+=======
+                <label for="brith_date" class="col-sm-3 control-label">วัน/เดือน/ปีเกิด<font color="red"> *</font></label>
+                <div class="col-sm-3">
+                    <select name="day" class="form-control" required onchange="this.setCustomValidity(validity.valueMissing ?  : '');" id="field_terms">
+>>>>>>> local
                         <option value="">--DD--</option> 
                         <option>1</option>
                         <option>2</option>
@@ -162,7 +174,11 @@ body {
                     </select>
                 </div>
                 <div class="col-sm-3">
-                    <select name="month" class="form-control">
+<<<<<<< refs/remotes/origin/tanawat
+                    <select name="birthDate" class="form-control">
+=======
+                    <select name="month" class="form-control" required onchange="this.setCustomValidity(validity.valueMissing ?  : '');" id="field_terms">
+>>>>>>> local
                         <option value="">--MM--</option> 
                         <option value="0">มกราคม</option>
                         <option value="1">กุมภาพันธ์</option>
@@ -179,7 +195,11 @@ body {
                     </select>
                 </div>
                 <div class="col-sm-3">
-                    <select name="year" class="form-control">
+<<<<<<< refs/remotes/origin/tanawat
+                    <select name="birthDate" class="form-control">
+=======
+                    <select name="year" class="form-control" required onchange="this.setCustomValidity(validity.valueMissing ?  : '');" id="field_terms">
+>>>>>>> local
                         <option value="">--YY--</option> 
                         <option value="2017">2560</option>
                         <option value="2016">2559</option>
@@ -285,12 +305,12 @@ body {
                 </div>        
             </div>
             <div class="form-group">
-                <label for="country" class="col-sm-3 control-label">ประเทศ</label>
+                <label for="country" class="col-sm-3 control-label">ประเทศ<font color="red"> *</font></label>
                 <div class="col-sm-9">
-                    <select name="country" class="form-control">
+                    <select name="country" class="form-control" required onchange="this.setCustomValidity(validity.valueMissing ?  : '');" id="field_terms">
                         <option value="">---------------------------ประเทศ---------------------------</option>
                         <option value="TH">Thailand</option>
-                        <option value="">---------------------------------------------------</option>
+                        <option value="0000">---------------------------------------------------</option>
                         <option value="AF">Afghanistan</option>
                         <option value="AX">Åland Islands</option>
                         <option value="AL">Albania</option>
@@ -539,19 +559,26 @@ body {
                 </div>
             </div>
 
+<<<<<<< refs/remotes/origin/tanawat
+=======
             <!-- /.form-group-nationality -->
             <div class="form-group">
                 <label for="nationality" class="col-sm-3 control-label">สัญชาติ<font color="red"> *</font></label>
                 <div class="col-sm-9">
-                    <input type="text" name="nationality" placeholder="Thai" class="form-control" autofocus>
+                    <input type="text" name="nationality" placeholder="Thai" class="form-control" autofocus required id = "txt" onkeyup = "Validate(this)">
                 </div>
             </div>
 
+>>>>>>> local
             <!-- /.form-group-telephone -->
             <div class="form-group">
-                <label for="phone" class="col-sm-3 control-label">โทรศัพท์<font color="red"> *</font></label>
+                <label for="tel" class="col-sm-3 control-label">โทรศัพท์<font color="red"> *</font></label>
                 <div class="col-sm-9">
-                    <input type="text" name="phone" placeholder="0000000000" class="form-control" autofocus>
+<<<<<<< refs/remotes/origin/tanawat
+                    <input type="text" name="tel" placeholder="000-00000-00" class="form-control" autofocus>
+=======
+                    <input type="text" name="phone" placeholder="012-3456789" class="form-control" autofocus required id="phone" maxlength="10" onkeyup="validatephone(this);">
+>>>>>>> local
                 </div>
             </div>
 
@@ -559,7 +586,7 @@ body {
             <div class="form-group">
                 <label for="address" class="col-sm-3 control-label">ที่อยู่<font color="red"> *</font></label>
                 <div class="col-sm-9">
-                    <input type="text" name="address" class="form-control" autofocus>
+                    <input type="text" name="address" class="form-control" autofocus required id = "txt" onkeyup = "Validate(this)">
                 </div>
             </div>
 
@@ -567,7 +594,7 @@ body {
             <div class="form-group">
                 <label for="province" class="col-sm-3 control-label">จังหวัด<font color="red"> *</font></label>
                 <div class="col-sm-9">
-                    <input type="text" name="province" class="form-control" autofocus>
+                    <input type="text" name="province" class="form-control" autofocus required id = "txt" onkeyup = "Validate(this)">
                 </div>
             </div>
 
@@ -575,55 +602,79 @@ body {
             <div class="form-group">
                 <label for="postcode" class="col-sm-3 control-label">รหัสไปรษณีย์<font color="red"> *</font></label>
                 <div class="col-sm-9">
-                    <input type="text" name="postcode" class="form-control" autofocus>
+                    <input type="text" name="postcode" class="form-control" autofocus required id="postcode" maxlength="5" onkeyup="validatephone(this);">
                 </div>
             </div>
 
             <!-- /.form-group-Emergency-Contacts -->
             <div class="form-group">
-                <label for="emergency_contact_name" class="col-sm-3 control-label">ผู้ติดต่อกรณีฉุกเฉิน<font color="red"> *</font></label>
+                <label for="Emergency Contacts" class="col-sm-3 control-label">ผู้ติดต่อกรณีฉุกเฉิน<font color="red"> *</font></label>
                 <div class="col-sm-9">
-                    <input type="text" name="emergency_contact_name" class="form-control" autofocus>
+<<<<<<< refs/remotes/origin/tanawat
+                    <input type="text" name="Emergency Contacts" class="form-control" autofocus>
+=======
+                    <input type="text" name="emergency_contact_name" class="form-control" autofocus required id = "txt" onkeyup = "Validate(this)">
+>>>>>>> local
                 </div>
             </div>
 
             <!-- /.form-group-Emergency-number -->
             <div class="form-group">
-                <label for="emergency_contact_phone" class="col-sm-3 control-label">เบอร์ติดต่อกรณีฉุกเฉิน<font color="red"> *</font></label>
+                <label for="Emergency number" class="col-sm-3 control-label">เบอร์ติดต่อกรณีฉุกเฉิน<font color="red"> *</font></label>
                 <div class="col-sm-9">
-                    <input type="text" name="emergency_contact_phone" class="form-control" autofocus>
+<<<<<<< refs/remotes/origin/tanawat
+                    <input type="text" name="Emergency number" class="form-control" autofocus>
+=======
+                    <input type="text" name="emergency_contact_phone" class="form-control" autofocus required id="phone" maxlength="10" onkeyup="validatephone(this);">
+>>>>>>> local
                 </div>
             </div>
+<<<<<<< HEAD
                 
+=======
+            
+>>>>>>> e2da5866d0e9ef41c10a53d7368878e64cae876b
             <!-- /.form-group-disease -->
             <div class="form-group">
-                <label for="disease" class="col-sm-3 control-label">โรคประจำตัว</label>
+                <label for="disease" class="col-sm-3 control-label">โรคประจำตัว<font color="red"> *</font></label>
                 <div class="col-sm-6">
-                    <input type="text" name="disease" placeholder="" class="form-control" autofocus>
+                    <input type="text" name="disease" placeholder="" class="form-control" autofocus required id = "txt" onkeyup = "Validate(this)">
                 </div>
             </div>
 
             <!-- /.form-group-allergy -->
             <div class="form-group">
-                <label for="allergic_drug" class="col-sm-3 control-label">การแพ้ยา</label>
+<<<<<<< refs/remotes/origin/tanawat
+                <label for="allergy" class="col-sm-3 control-label">การแพ้ยา</label>
                 <div class="col-sm-6">
-                    <input type="text" name="allergic_drug" placeholder="" class="form-control" autofocus>
+                    <input type="text" name="allergy" placeholder="" class="form-control" autofocus>
+=======
+                <label for="allergic_drug" class="col-sm-3 control-label">การแพ้ยา<font color="red"> *</font></label>
+                <div class="col-sm-6">
+                    <input type="text" name="allergic_drug" placeholder="" class="form-control" autofocus required id = "txt" onkeyup = "Validate(this)">
+>>>>>>> local
                 </div>
             </div>
 
             <!-- /.form-group-regular-drugs -->
             <div class="form-group">
-                <label for="medicine" class="col-sm-3 control-label">ยาที่ใช้ประจำ</label>
+<<<<<<< refs/remotes/origin/tanawat
+                <label for="regular drugs" class="col-sm-3 control-label">ยาที่ใช้ประจำ</label>
                 <div class="col-sm-6">
-                    <input type="text" name="medicine" placeholder="" class="form-control" autofocus>
+                    <input type="text" name="regular drugs" placeholder="" class="form-control" autofocus>
+=======
+                <label for="medicine" class="col-sm-3 control-label">ยาที่ใช้ประจำ<font color="red"> *</font></label>
+                <div class="col-sm-6">
+                    <input type="text" name="medicine" placeholder="" class="form-control" autofocus required id = "txt" onkeyup = "Validate(this)">
+>>>>>>> local
                 </div>
             </div>
 
             <!-- /.form-group-blood --> 
             <div class="form-group">
-                <label for="blood" class="col-sm-3 control-label">กรุ๊ปเลือด</label>
+                <label for="blood" class="col-sm-3 control-label">กรุ๊ปเลือด<font color="red"> *</font></label>
                 <div class="col-sm-3">
-                    <select name="blood" class="form-control">
+                    <select name="blood" class="form-control" required onchange="this.setCustomValidity(validity.valueMissing ?  : '');" id="field_terms">
                         <option value="">--BLOOD--</option> 
                         <option>O</option>
                         <option>A</option>
@@ -632,29 +683,61 @@ body {
                     </select>
                 </div>
             </div>
+<<<<<<< refs/remotes/origin/tanawat
+<<<<<<< HEAD
             <center><div class=""><h2>กรอกข้อมูลการแข่งขัน</h2></div></center>
+=======
+        </form> 
+        
+        <!-- /form2 -->
+        <div class="b"><h2>2.กรอกข้อมูลการแข่งขัน<font color="red"> *</font></h2></div>
+        <form class="form-horizontal" role="form">
+>>>>>>> e2da5866d0e9ef41c10a53d7368878e64cae876b
+=======
+            <div class=""><h2>กรอกข้อมูลการแข่งขัน</h2></div>
+>>>>>>> local
             <div class="form-group">
                 <label class="control-label col-sm-3">ประเภท<font color="red"> *</font></label>
                 <div class="col-sm-6">
                     <div class="row">
                         <div class="col-sm-6">
+<<<<<<< refs/remotes/origin/tanawat
                             <label class="checkbox-inline">
-                                <input type="checkbox"  name="flag_full" id="fullmarathonCheckbox" value="1">Fullmarathon
+                                <input type="checkbox" id="fullmarathonCheckbox" value="Fullmarathon">Fullmarathon
                             </label>
                         </div>
                         <div class="col-sm-6">
                             <label class="checkbox-inline">
-                                <input type="checkbox" name="flag_half" id="halfmarathonCheckbox" value="1">Halfmarathon
+                                <input type="checkbox" id="halfmarathonCheckbox" value="Halfmarathon">Halfmarathon
                             </label>
                         </div>
                         <div class="col-sm-6">
                             <label class="checkbox-inline">
-                                <input type="checkbox" name="flag_mini"  id="minimarathonCheckbox" value="1">Minimarathon
+                                <input type="checkbox" id="minimarathonCheckbox" value="Minimarathon">Minimarathon
                             </label>
                         </div>
                         <div class="col-sm-6">
                             <label class="checkbox-inline">
-                                <input type="checkbox" name="flag_fun" id="funrunCheckbox" value="1">Funrun
+                                <input type="checkbox" id="funrunCheckbox" value="Funrun">Funrun
+=======
+                            <label class="radio-inline">
+                                <input type="radio"  name="flag" id="fullmarathonRadio" value="1" required onchange="this.setCustomValidity(validity.valueMissing ?  : '');">Fullmarathon
+                            </label>
+                        </div>
+                        <div class="col-sm-6">
+                            <label class="radio-inline">
+                                <input type="radio" name="flag" id="halfmarathonRadio" value="2">Halfmarathon
+                            </label>
+                        </div>
+                        <div class="col-sm-6">
+                            <label class="radio-inline">
+                                <input type="radio" name="flag"  id="minimarathonRadio" value="3">Minimarathon
+                            </label>
+                        </div>
+                        <div class="col-sm-6">
+                            <label class="radio-inline">
+                                <input type="radio" name="flag" id="funrunRadio" value="4">Funrun
+>>>>>>> local
                             </label>
                         </div>
                     </div>
@@ -662,67 +745,112 @@ body {
             </div>
             
             <!-- /.form-group-generation-->
-            <div class="form-group">
+            <!-- <div class="form-group">
                 <label class="control-label col-sm-3">รุ่นการแข่งขัน<font color="red"> *</font></label>
                 <div class="col-sm-6">
                     <div class="row">
                         <div class="col-sm-6">
+<<<<<<< refs/remotes/origin/tanawat
                             <label class="checkbox-inline">
-                                <input type="checkbox" id="male16-19Checkbox"  name="generation_compete" value="ชาย 16-19">ชาย 16-19 ปี
+                                <input type="checkbox" id="male16-19Checkbox" value="16-19">ชาย 16-19 ปี
                             </label>
                         </div>
                         <div class="col-sm-6">
                             <label class="checkbox-inline">
-                                <input type="checkbox" id="female16-19Checkbox" name="generation_compete" value="หญิง 16-19">หญิง 16-19 ปี
-                            </label>
-                        </div><div class="col-sm-6">
-                            <label class="checkbox-inline">
-                                <input type="checkbox" id="male30-39Checkbox" name="generation_compete" value="ชาย 20-29">ชาย 20-29 ปี
+                                <input type="checkbox" id="female16-19Checkbox" value="16-19">หญิง 16-19 ปี
                             </label>
                         </div>
                         <div class="col-sm-6">
                             <label class="checkbox-inline">
-                                <input type="checkbox" id="female30-39Checkbox" name="generation_compete" value="หญิง 20-29">หญิง 20-29 ปี
+                                <input type="checkbox" id="male30-39Checkbox" value="30-39">ชาย 30-39 ปี
                             </label>
                         </div>
                         <div class="col-sm-6">
                             <label class="checkbox-inline">
-                                <input type="checkbox" id="male30-39Checkbox" name="generation_compete" value="ชาย 30-39">ชาย 30-39 ปี
+                                <input type="checkbox" id="female30-39Checkbox" value="30-39">หญิง 30-39 ปี
                             </label>
                         </div>
                         <div class="col-sm-6">
                             <label class="checkbox-inline">
-                                <input type="checkbox" id="female30-39Checkbox" name="generation_compete" value="หญิง 30-39">หญิง 30-39 ปี
+                                <input type="checkbox" id="male40-49Checkbox" value="40-49">ชาย 40-49 ปี
                             </label>
                         </div>
                         <div class="col-sm-6">
                             <label class="checkbox-inline">
-                                <input type="checkbox" id="male40-49Checkbox" name="generation_compete" value="ชาย 40-49">ชาย 40-49 ปี
+                                <input type="checkbox" id="female40-49Checkbox" value="40-49">หญิง 40-49 ปี
                             </label>
                         </div>
                         <div class="col-sm-6">
                             <label class="checkbox-inline">
-                                <input type="checkbox" id="female40-49Checkbox"  name="generation_compete" value="หญิง 40-49">หญิง 40-49 ปี
+                                <input type="checkbox" id="male50-59Checkbox" value="50-59">ชาย 50-59 ปี
                             </label>
                         </div>
                         <div class="col-sm-6">
                             <label class="checkbox-inline">
-                                <input type="checkbox" id="male50-59Checkbox" name="generation_compete" value="ชาย 50-59">ชาย 50-59 ปี
-                            </label>
-                        </div>
-                        <div class="col-sm-6">
-                            <label class="checkbox-inline">
-                                <input type="checkbox" id="female50-59Checkbox" name="generation_compete" value="หญิง 50-59">หญิง 50-59 ปี
+                                <input type="checkbox" id="female50-59Checkbox" value="50-59">หญิง 50-59 ปี
                             </label>
                         </div>
                         <div class="col-sm-9">
                             <label class="checkbox-inline">
-                                <input type="checkbox" id="male60upCheckbox" name="generation_compete" value="ชาย 60up">ชาย 60ปีขึ้นไป
+                                <input type="checkbox" id="male60upCheckbox" value="60up">ชาย 60ปีขึ้นไป
+=======
+                            <label class="radio-inline">
+                                <input type="radio" id="male16-19Radio"  name="generation_compete" value="ชาย 16-19">ชาย 16-19 ปี
+                            </label>
+                        </div>
+                        <div class="col-sm-6">
+                            <label class="radio-inline">
+                                <input type="radio" id="female16-19Radio" name="generation_compete" value="หญิง 16-19">หญิง 16-19 ปี
+                            </label>
+                        </div><div class="col-sm-6">
+                            <label class="radio-inline">
+                                <input type="radio" id="male30-39Radio" name="generation_compete" value="ชาย 20-29">ชาย 20-29 ปี
+                            </label>
+                        </div>
+                        <div class="col-sm-6">
+                            <label class="radio-inline">
+                                <input type="radio" id="female30-39Radio" name="generation_compete" value="หญิง 20-29">หญิง 20-29 ปี
+                            </label>
+                        </div>
+                        <div class="col-sm-6">
+                            <label class="radio-inline">
+                                <input type="radio" id="male30-39Radio" name="generation_compete" value="ชาย 30-39">ชาย 30-39 ปี
+                            </label>
+                        </div>
+                        <div class="col-sm-6">
+                            <label class="radio-inline">
+                                <input type="radio" id="female30-39Radio" name="generation_compete" value="หญิง 30-39">หญิง 30-39 ปี
+                            </label>
+                        </div>
+                        <div class="col-sm-6">
+                            <label class="radio-inline">
+                                <input type="radio" id="male40-49Radio" name="generation_compete" value="ชาย 40-49">ชาย 40-49 ปี
+                            </label>
+                        </div>
+                        <div class="col-sm-6">
+                            <label class="radio-inline">
+                                <input type="radio" id="female40-49Radio"  name="generation_compete" value="หญิง 40-49">หญิง 40-49 ปี
+                            </label>
+                        </div>
+                        <div class="col-sm-6">
+                            <label class="radio-inline">
+                                <input type="radio" id="male50-59Radio" name="generation_compete" value="ชาย 50-59">ชาย 50-59 ปี
+                            </label>
+                        </div>
+                        <div class="col-sm-6">
+                            <label class="radio-inline">
+                                <input type="radio" id="female50-59Radio" name="generation_compete" value="หญิง 50-59">หญิง 50-59 ปี
+                            </label>
+                        </div>
+                        <div class="col-sm-9">
+                            <label class="radio-inline">
+                                <input type="radio" id="male60upRadio" name="generation_compete" value="ชาย 60up">ชาย 60ปีขึ้นไป
+>>>>>>> local
                             </label>
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
             <!-- /.form-group-type-shirt-->
             <div class="form-group">
@@ -730,17 +858,66 @@ body {
                 <div class="col-sm-6">
                     <div class="row">
                         <div class="col-sm-12">
+<<<<<<< refs/remotes/origin/tanawat
                             <label class="checkbox-inline">
-                                <input type="checkbox" id="longCheckbox" name="type_shirt" value="1">เสื้อแขนยาว
+                                <input type="checkbox" id="longCheckbox" value="long">เสื้อแขนยาว
+=======
+                            <label class="radio-inline">
+                                <input type="radio" id="longRadio" name="type_shirt" value="1" required onchange="this.setCustomValidity(validity.valueMissing ?  : '');">เสื้อแขนยาว
+>>>>>>> local
                             </label>
-                            <img id="myImg" src="picture/longarm.jpg" alt="" width="300" height="200">
+                            <img id="myImg" alt="เสื้อแขนยาว" src="picture/longarm.jpg" width="300" height="200">
                         </div>
                         <div class="col-sm-12">  
-                            <label class="checkbox-inline">
-                                <input type="checkbox"  id="shortCheckbox" name="type_shirt" value="2">เสื้อแขนสั้น
+                            <label class="radio-inline">
+<<<<<<< refs/remotes/origin/tanawat
+                                <input type="checkbox"  id="shortCheckbox" value="short">เสื้อแขนสั้น
+=======
+                                <input type="radio"  id="shortRadio" name="type_shirt" value="2" required onchange="this.setCustomValidity(validity.valueMissing ?  : '');">เสื้อแขนสั้น
+>>>>>>> local
                             </label>
                             <!-- <img id="myImg" src="picture/longarm.jpg" alt="" width="300" height="200"> -->
-                            <img id="myImg" src="picture/shortarm.jpg" alt="" width="300" height="200">
+                            <img id="myImg1" alt="เสื้อแขนสั้น" src="picture/shortarm.jpg" width="300" height="200">
+                            <br><br><font color="red"> * คลิ๊กที่รูปเพื่อดูรูปขนาดใหญ่</font>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- /.form-group-size-shirt-->
+            <div class="form-group">
+                <label class="control-label col-sm-3">ไซต์เสื้อ<font color="red"> *</font></label>
+                <div class="col-sm-6">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <label class="radio-inline">
+                                <input type="radio" id="SSRadio" name="size_shirt" value="1" required onchange="this.setCustomValidity(validity.valueMissing ?  : '');">SS
+                            </label>
+                        </div>
+                        <div class="col-sm-4">  
+                            <label class="radio-inline">
+                                <input type="radio"  id="SRadio" name="size_shirt" value="2" required onchange="this.setCustomValidity(validity.valueMissing ?  : '');">S
+                            </label>
+                        </div>
+                        <div class="col-sm-4">  
+                            <label class="radio-inline">
+                                <input type="radio"  id="MRadio" name="size_shirt" value="3" required onchange="this.setCustomValidity(validity.valueMissing ?  : '');">M
+                            </label>
+                        </div>
+                        <div class="col-sm-4">  
+                            <label class="radio-inline">
+                                <input type="radio"  id="LRadio" name="size_shirt" value="4" required onchange="this.setCustomValidity(validity.valueMissing ?  : '');">L
+                            </label>
+                        </div>
+                        <div class="col-sm-4">  
+                            <label class="radio-inline">
+                                <input type="radio"  id="XLRadio" name="size_shirt" value="5" required onchange="this.setCustomValidity(validity.valueMissing ?  : '');">XL
+                            </label>
+                        </div>
+                        <div class="col-sm-4">  
+                            <label class="radio-inline">
+                                <input type="radio"  id="XXLRadio" name="size_shirt" value="6" required onchange="this.setCustomValidity(validity.valueMissing ?  : '');">XXL
+                            </label>
                         </div>
                     </div>
                 </div>
@@ -748,17 +925,27 @@ body {
 
             <!-- /.form-group-how-to-receive-shirt-->
             <div class="form-group">
-                <label class="control-label col-sm-3">ท่านสะดวกวิธีไหน<font color="red"> *</font></label>
+                <label class="control-label col-sm-3">ท่านสะดวกรับเสื้อด้วยวิธีไหน<font color="red"> *</font></label>
                 <div class="col-sm-6">
                     <div class="row">
                         <div class="col-sm-12">
+<<<<<<< refs/remotes/origin/tanawat
                             <label class="checkbox-inline">
-                                <input type="checkbox" id="longCheckbox" name="getting" value="0">รับด้วยตัวเองที่สถานที่จัดงาน
+                                <input type="checkbox" id="longCheckbox" value="long">รับด้วยตัวเองที่สถานที่จัดงาน
                             </label>
                         </div>
                         <div class="col-sm-12">  
                             <label class="checkbox-inline">
-                                <input type="checkbox"  id="shortCheckbox"  name="getting" value="1">ส่งไปรษณีย์ (ค่าส่ง 100 บาท)
+                                <input type="checkbox"  id="shortCheckbox" value="short">ส่งไปรษณีย์ (ค่าส่ง 100 บาท)
+=======
+                            <label class="radio-inline">
+                                <input type="radio" id="longRadio" name="getting" value="0" required onchange="this.setCustomValidity(validity.valueMissing ?  : '');">รับด้วยตัวเองที่สถานที่จัดงาน
+                            </label>
+                        </div>
+                        <div class="col-sm-12">  
+                            <label class="radio-inline">
+                                <input type="radio"  id="shortRadio"  name="getting" value="1" required onchange="this.setCustomValidity(validity.valueMissing ?  : '');">ส่งไปรษณีย์ (ค่าส่ง 100 บาท)
+>>>>>>> local
                             </label>
                         </div>
                     </div>
@@ -768,7 +955,7 @@ body {
              <!-- /.form-group -->
              <div class="form-group">
                 <div class="col-sm-6 col-sm-offset-3">
-                    <br><br><button type="submit" class="btn btn-primary btn-block" value="Submit">บันทึก</a></button>
+                    <br><br><button type="submit" class="btn btn-primary btn-block"><a href="register2.5.1.php">บันทึก</a></button>
                 </div>
             </div>
         </form> 
@@ -779,13 +966,16 @@ body {
         <img class="modal-content" id="img01">
         <div id="caption"></div>
     </div>
-    <script src="javascript/java.js"></script>
 
-    <!-- <div id="myModal1" class="modal">
+    <div id="myModal" class="modal">
         <span class="close">&times;</span>
         <img class="modal-content" id="img02">
         <div id="caption"></div>
     </div>
-    <script src="javascript/js2.js"></script> -->
+
+    <!--script-modal-->
+    <script src="javascript/imgModal.js"></script>
+    <script src="javascript/java.js"></script>
+   
 
 <?php require_once("footer.php"); ?>   
