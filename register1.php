@@ -118,7 +118,7 @@ body {
             <div class="form-group">
                 <label for="essn" class="col-sm-3 control-label">เลขบัตรประชาชน</label>
                 <div class="col-sm-9">
-                    <input type="id" name="essn" placeholder="1 2345 67890 12 3" class="form-control"  maxlength="13">
+                    <input type="id" name="essn" placeholder="1234567890123" class="form-control"  maxlength="13">
                 </div>
             </div>
 
@@ -290,7 +290,7 @@ body {
                     <select name="country" class="form-control">
                         <option value="">---------------------------ประเทศ---------------------------</option>
                         <option value="TH">Thailand</option>
-                        <option value="0000">---------------------------------------------------</option>
+                        <option value="">---------------------------------------------------</option>
                         <option value="AF">Afghanistan</option>
                         <option value="AX">Åland Islands</option>
                         <option value="AL">Albania</option>
@@ -551,7 +551,7 @@ body {
             <div class="form-group">
                 <label for="phone" class="col-sm-3 control-label">โทรศัพท์<font color="red"> *</font></label>
                 <div class="col-sm-9">
-                    <input type="text" name="phone" placeholder="000-00000-00" class="form-control" autofocus>
+                    <input type="text" name="phone" placeholder="0000000000" class="form-control" autofocus>
                 </div>
             </div>
 
@@ -649,7 +649,7 @@ body {
                         </div>
                         <div class="col-sm-6">
                             <label class="checkbox-inline">
-                                <input type="checkbox"name="flag_mini"  id="minimarathonCheckbox" value="1">Minimarathon
+                                <input type="checkbox" name="flag_mini"  id="minimarathonCheckbox" value="1">Minimarathon
                             </label>
                         </div>
                         <div class="col-sm-6">
@@ -668,47 +668,56 @@ body {
                     <div class="row">
                         <div class="col-sm-6">
                             <label class="checkbox-inline">
-                                <input type="checkbox" id="male16-19Checkbox" value="16-19">ชาย 16-19 ปี
+                                <input type="checkbox" id="male16-19Checkbox"  name="generation_compete" value="ชาย 16-19">ชาย 16-19 ปี
                             </label>
                         </div>
                         <div class="col-sm-6">
                             <label class="checkbox-inline">
-                                <input type="checkbox" id="female16-19Checkbox" value="16-19">หญิง 16-19 ปี
+                                <input type="checkbox" id="female16-19Checkbox" name="generation_compete" value="หญิง 16-19">หญิง 16-19 ปี
+                            </label>
+                        </div><div class="col-sm-6">
+                            <label class="checkbox-inline">
+                                <input type="checkbox" id="male30-39Checkbox" name="generation_compete" value="ชาย 20-29">ชาย 20-29 ปี
                             </label>
                         </div>
                         <div class="col-sm-6">
                             <label class="checkbox-inline">
-                                <input type="checkbox" id="male30-39Checkbox" value="30-39">ชาย 30-39 ปี
+                                <input type="checkbox" id="female30-39Checkbox" name="generation_compete" value="หญิง 20-29">หญิง 20-29 ปี
                             </label>
                         </div>
                         <div class="col-sm-6">
                             <label class="checkbox-inline">
-                                <input type="checkbox" id="female30-39Checkbox" value="30-39">หญิง 30-39 ปี
+                                <input type="checkbox" id="male30-39Checkbox" name="generation_compete" value="ชาย 30-39">ชาย 30-39 ปี
                             </label>
                         </div>
                         <div class="col-sm-6">
                             <label class="checkbox-inline">
-                                <input type="checkbox" id="male40-49Checkbox" value="40-49">ชาย 40-49 ปี
+                                <input type="checkbox" id="female30-39Checkbox" name="generation_compete" value="หญิง 30-39">หญิง 30-39 ปี
                             </label>
                         </div>
                         <div class="col-sm-6">
                             <label class="checkbox-inline">
-                                <input type="checkbox" id="female40-49Checkbox" value="40-49">หญิง 40-49 ปี
+                                <input type="checkbox" id="male40-49Checkbox" name="generation_compete" value="ชาย 40-49">ชาย 40-49 ปี
                             </label>
                         </div>
                         <div class="col-sm-6">
                             <label class="checkbox-inline">
-                                <input type="checkbox" id="male50-59Checkbox" value="50-59">ชาย 50-59 ปี
+                                <input type="checkbox" id="female40-49Checkbox"  name="generation_compete" value="หญิง 40-49">หญิง 40-49 ปี
                             </label>
                         </div>
                         <div class="col-sm-6">
                             <label class="checkbox-inline">
-                                <input type="checkbox" id="female50-59Checkbox" value="50-59">หญิง 50-59 ปี
+                                <input type="checkbox" id="male50-59Checkbox" name="generation_compete" value="ชาย 50-59">ชาย 50-59 ปี
+                            </label>
+                        </div>
+                        <div class="col-sm-6">
+                            <label class="checkbox-inline">
+                                <input type="checkbox" id="female50-59Checkbox" name="generation_compete" value="หญิง 50-59">หญิง 50-59 ปี
                             </label>
                         </div>
                         <div class="col-sm-9">
                             <label class="checkbox-inline">
-                                <input type="checkbox" id="male60upCheckbox" value="60up">ชาย 60ปีขึ้นไป
+                                <input type="checkbox" id="male60upCheckbox" name="generation_compete" value="ชาย 60up">ชาย 60ปีขึ้นไป
                             </label>
                         </div>
                     </div>
@@ -722,13 +731,13 @@ body {
                     <div class="row">
                         <div class="col-sm-12">
                             <label class="checkbox-inline">
-                                <input type="checkbox" id="longCheckbox" value="long">เสื้อแขนยาว
+                                <input type="checkbox" id="longCheckbox" name="type_shirt" value="1">เสื้อแขนยาว
                             </label>
                             <img id="myImg" src="picture/longarm.jpg" alt="" width="300" height="200">
                         </div>
                         <div class="col-sm-12">  
-                            <label class="radio-inline">
-                                <input type="checkbox"  id="shortCheckbox" value="short">เสื้อแขนสั้น
+                            <label class="checkbox-inline">
+                                <input type="checkbox"  id="shortCheckbox" name="type_shirt" value="2">เสื้อแขนสั้น
                             </label>
                             <!-- <img id="myImg" src="picture/longarm.jpg" alt="" width="300" height="200"> -->
                             <img id="myImg" src="picture/shortarm.jpg" alt="" width="300" height="200">
@@ -744,12 +753,12 @@ body {
                     <div class="row">
                         <div class="col-sm-12">
                             <label class="checkbox-inline">
-                                <input type="checkbox" id="longCheckbox" value="long">รับด้วยตัวเองที่สถานที่จัดงาน
+                                <input type="checkbox" id="longCheckbox" name="getting" value="0">รับด้วยตัวเองที่สถานที่จัดงาน
                             </label>
                         </div>
                         <div class="col-sm-12">  
                             <label class="checkbox-inline">
-                                <input type="checkbox"  id="shortCheckbox" value="short">ส่งไปรษณีย์ (ค่าส่ง 100 บาท)
+                                <input type="checkbox"  id="shortCheckbox"  name="getting" value="1">ส่งไปรษณีย์ (ค่าส่ง 100 บาท)
                             </label>
                         </div>
                     </div>
