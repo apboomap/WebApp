@@ -21,9 +21,9 @@
 
     <div class="container">
         <!-- /form1 -->
+        <center><div class=""><h2>กรอกข้อมูลผู้เข้าแข่งขัน</h2></div></center>
         <form class="form-horizontal" role="form" action="add/addregister.php" method="POST"  enctype="multipart/form-data">
-            <div class=""><h2>กรอกข้อมูลผู้เข้าแข่งขัน</h2></div>
-            <!-- /.form-group-first-last-gender-email -->
+            <!-- /.form-group-firstname-lastname -->
             <div class="form-group">
                 <label for="first_name" class="col-sm-3 control-label">ชื่อ<font color="red"> *</font></label>
                 <div class="col-sm-9">
@@ -36,26 +36,29 @@
                     <input type="text" name="last_name" placeholder="นามสกุล" class="form-control" autofocus required id = "txt" onkeyup = "Validate(this)">
                     <span class="help-block">Last Name, eg.: Tom</span>
                 </div>
-            
+            </div>      
 
-                <!-- /.form-group-gender -->
-                <div class="form-group">
-                    <label class="control-label col-sm-3">เพศ<font color="red"> *</font></label>
-                    <div class="col-sm-6">
-                        <div class="row">
-                            <div class="col-sm-4">
-                                <label class="radio-inline">
-                                    <input type="radio" name="sex" id="maleRadio" value="M" required onchange="this.setCustomValidity(validity.valueMissing ?  : '');" id="field_terms">ชาย
-                                </label>
-                            </div>
-                            <div class="col-sm-4">
-                                <label class="radio-inline">
-                                    <input type="radio" name="sex" id="femaleRadio" value="F">หญิง
-                                </label>
-                            </div> 
+            <!-- /.form-group-gender -->
+            <div class="form-group">
+                <label class="control-label col-sm-3">เพศ<font color="red"> *</font></label>
+                <div class="col-sm-6">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <label class="radio-inline">
+                                <input type="radio" name="sex" id="maleRadio" value="M" required onchange="this.setCustomValidity(validity.valueMissing ?  : '');" id="field_terms">ชาย
+                            </label>
                         </div>
+                        <div class="col-sm-4">
+                            <label class="radio-inline">
+                                <input type="radio" name="sex" id="femaleRadio" value="F">หญิง
+                            </label>
+                        </div> 
                     </div>
                 </div>
+            </div>
+
+            <!-- /.form-group-email-->
+            <div class="form-group">
                 <label for="email" class="col-sm-3 control-label">Email<font color="red"> *</font></label>
                 <div class="col-sm-9">
                     <input type="email" name="email" placeholder="example@gmail.com" class="form-control" required id = "email"  onchange="email_validate(this.value);" />
@@ -549,26 +552,26 @@
         
             <!-- /.form-group-disease -->
             <div class="form-group">
-                <label for="disease" class="col-sm-3 control-label">โรคประจำตัว<font color="red"> *</font></label>
+                <label for="disease" class="col-sm-3 control-label">โรคประจำตัว</label>
                 <div class="col-sm-6">
-                    <input type="text" name="disease" placeholder="" class="form-control" autofocus required id = "txt" onkeyup = "Validate(this)">
+                    <input type="text" name="disease" placeholder="" class="form-control" autofocus>
                 </div>
             </div>
 
             <!-- /.form-group-allergy -->
             <div class="form-group">
-                <label for="allergic_drug" class="col-sm-3 control-label">การแพ้ยา<font color="red"> *</font></label>
+                <label for="allergic_drug" class="col-sm-3 control-label">การแพ้ยา</label>
                 <div class="col-sm-6">
-                    <input type="text" name="allergic_drug" placeholder="" class="form-control" autofocus required id = "txt" onkeyup = "Validate(this)">
+                    <input type="text" name="allergic_drug" placeholder="" class="form-control" autofocus>
                 </div>
             </div>
 
             <!-- /.form-group-regular-drugs -->
             <div class="form-group">
 
-                <label for="medicine" class="col-sm-3 control-label">ยาที่ใช้ประจำ<font color="red"> *</font></label>
+                <label for="medicine" class="col-sm-3 control-label">ยาที่ใช้ประจำ</label>
                 <div class="col-sm-6">
-                    <input type="text" name="medicine" placeholder="" class="form-control" autofocus required id = "txt" onkeyup = "Validate(this)">
+                    <input type="text" name="medicine" placeholder="" class="form-control" autofocus>
                 </div>
             </div>
 
@@ -585,8 +588,6 @@
                     </select>
                 </div>
             </div>
-
-            <div class=""><h2>กรอกข้อมูลการแข่งขัน</h2></div>
 
             <!-- /.form-group-typeRace -->
             <div class="form-group">
@@ -777,6 +778,4 @@
 
     <!--script-modal-->
     <script src="javascript/imgModal.js"></script>
-    <script src="javascript/java.js"></script>
-   
-<?php require_once("footer.php"); ?>   
+    <script src="javascript/java.js"></script>   
