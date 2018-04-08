@@ -218,13 +218,13 @@
 
     header {
   width: 20ch;
-  background-color: rgb(28, 98, 248);
+  background-color: rgb(100, 178, 241);
   border: 1px solid #DDD
 }
 
 #logo {
   float: left;
-  background-color: rgb(28, 98, 248);
+  background-color: rgb(100, 178, 241);
   padding: 10px;
   position: relative;
 }
@@ -246,7 +246,7 @@
 }
 
 #logo:hover {
-	background-color: rgb(28, 98, 248);  
+	background-color: rgb(100, 178, 241);  
 }
 
 #logo:active {
