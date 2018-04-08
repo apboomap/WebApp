@@ -44,8 +44,8 @@ $flag_half = (isset($_POST['flag'])) ? 1 : 0;
 $flag_mini = (isset($_POST['flag'])) ? 1 : 0;
 $flag_fun = (isset($_POST['flag'])) ? 1 : 0;
 
-$sql1 = "INSERT INTO runners_bills (bill_id, run_id, flag_full, flag_half, flag_mini, flag_fun, generation_compete, getting, size, type_shirt)
-        VALUES ('".$bill_id."', '".$last_id."','".$flag_full."','".$flag_half."','".$flag_mini."','".$flag_fun."','".$_POST["generation_compete"]."','".$_POST["getting"]."','".$_POST["size"]."','".$_POST["type_shirt"]."')";
+$sql1 = "INSERT INTO runners_bills (bill_id, run_id, flag_full, flag_half, flag_mini, flag_fun, getting, size, type_shirt)
+        VALUES ('".$bill_id."', '".$last_id."','".$flag_full."','".$flag_half."','".$flag_mini."','".$flag_fun."','".$_POST["getting"]."','".$_POST["size"]."','".$_POST["type_shirt"]."')";
 
 
 if ($conn->query($sql1) === TRUE) {
