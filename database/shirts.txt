@@ -1,0 +1,7 @@
+CREATE TABLE shirts(
+    shirts_id int UNSIGNED NOT NULL AUTO_INCREMENT,
+    event_id  int UNSIGNED NOT NULL ,
+    img1 varchar(60),
+    img2 varchar(60),
+    PRIMARY KEY(shirts_id)
+)
