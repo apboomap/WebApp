@@ -66,23 +66,12 @@ $conn->close();
             <!--rule-->
             <div id="detail" class="tabcontent">
                 <h2><u>กำหนดการ</u></h2>
-                <img src="<?=$row["schedule_event"]?>" style="width:400px; height:200px" class="img-responsive">
+                <img src="<?=$row["img"]?>" style="width:400px; height:200px" class="img-responsive">
                 <h2>ค่าธรรมเนียม</h2>
                 <img src="<?=$row["charge"]?>" style="width:400px; height:170px" class="img-responsive">
-                <?php 
-                    if($row["shirtimg1"] != "none" or $row["shirtimg2"] != "none"){ 
-                ?>
                 <h2>เสื้อที่จะได้ในรายการแข่งขัน</h2>
-                <?php 
-                    }if($row["shirtimg1"] != "none"){ 
-                ?>
-                <img src="<?=$row["shirtimg1"]?>" style="width:400px; height:250px" class="img-responsive"><br>
-                <?php 
-                    }
-                    if($row["shirtimg2"] != "none"){
-                ?>
-                <img src="<?=$row["shirtimg2"]?>" style="width:400px; height:250px" class="img-responsive">
-                    <?php } ?>
+                <img src="<?=$rowa["img1"]?>" style="width:400px; height:250px" class="img-responsive"><br>
+                <img src="<?=$rowa["img2"]?>" style="width:400px; height:250px" class="img-responsive">
                 <h2>กติกา</h2>
                 <?php
                     $text = file($row["rules"]);
