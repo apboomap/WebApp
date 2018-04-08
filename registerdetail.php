@@ -42,7 +42,7 @@ $conn->close();
                 <!-- Wrapper for slides -->
                 <div class="carousel-inner">
                     <div class="item active" > 
-                        <center><img src="<?=$row["img"]?>" style="width:60%; height:auto"></center>
+                        <center><img src="<?=$row["img"]?>" style="width:820px; height:350px" class="img-responsive"></center>
                         <br>
                     </div>
                     <form name="test" method="post" action="add/addbill.php">
@@ -51,20 +51,30 @@ $conn->close();
                 </div>
 
             <!-- tab bar -->
-            <div class="tab">
-                <button class="tablinks" onclick="openCity(event, 'detail')">รายละเอียด</button>
+            <!-- <div class="tab">
+            <button class="tablinks" onclick="openCity(event, 'detail')">รายละเอียด</button>
                 <button class="tablinks" onclick="openCity(event, 'map')">แผนที่</button>
                 <button class="tablinks" onclick="openCity(event, 'typeRace')">ประเภทการเเข่ง</button>
+            </div> -->
+            <div class="topnav" id="myTopnav">
+                <a class="tablinks" onclick="openCity(event, 'detail')">รายละเอียด</a>
+                <a class="tablinks" onclick="openCity(event, 'map')">แผนที่</a>
+                <a class="tablinks" onclick="openCity(event, 'typeRace')">ประเภทการเเข่ง</a>
+                <a class="tablinks" onclick="openCity(event, 'typeRace')">รายชื่อนักวิ่ง</a>
+                <a class="tablinks" onclick="openCity(event, 'typeRace')">สถานะการชำระเงิน</a>
+                <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="myFunction()">&#9776;</a>
             </div>
+
+        
             <!--rule-->
             <div id="detail" class="tabcontent">
                 <h2><u>กำหนดการ</u></h2>
-                <img src="<?=$row["img"]?>" style="width:50%; height:50%" class="center">
+                <img src="<?=$row["img"]?>" style="width:400px; height:200px" class="img-responsive">
                 <h2>ค่าธรรมเนียม</h2>
-                <img src="<?=$row["charge"]?>" style="width:50%; height:50%" class="center">
+                <img src="<?=$row["charge"]?>" style="width:400px; height:170px" class="img-responsive">
                 <h2>เสื้อที่จะได้ในรายการแข่งขัน</h2>
-                <img src="<?=$rowa["img1"]?>" style="width:50%; height:50%" class="center"><br>
-                <img src="<?=$rowa["img2"]?>" style="width:50%; height:50%" class="center">
+                <img src="<?=$rowa["img1"]?>" style="width:400px; height:250px" class="img-responsive"><br>
+                <img src="<?=$rowa["img2"]?>" style="width:400px; height:250px" class="img-responsive">
                 <h2>กติกา</h2>
                 <?php
                     $text = file($row["rules"]);
@@ -72,19 +82,19 @@ $conn->close();
                         echo $value."<br />";
                     }
                 ?>
-                <br><br><br>
+                
                 <form name="test" method="post" action="add/addbill.php">
-                        <button class="btn1" >สมัครเลย</button>
-                    </form>
+                    <button class="btnn" >สมัครเลย</button>
+                </form>
             </div>
 
             <!--map-->
             <div id="map" class="tabcontent">
-                <center><img src="<?=$row["map"]?>" style="width:50%; height:50%"></center>
+                <center><img src="<?=$row["map"]?>" style="width:500px; height:500px" class="img-responsive"></center>
                 <br><br><br>
                 <form name="test" method="post" action="add/addbill.php">
-                        <button class="btn1" >สมัครเลย</button>
-                    </form>
+                        <button class="btnn1" >สมัครเลย</button>
+                </form>
             </div>
             
             <!--type-of-race-->
@@ -97,10 +107,9 @@ $conn->close();
                 ?>
                 <br><br><br>
                 <form name="test" method="post" action="add/addbill.php">
-                        <button class="btn1" >สมัครเลย</button>
+                        <button class="btnn2" >สมัครเลย</button>
                     </form>
             </div>
      
     </div>
-    <script src="javascript/registerdetail.js"></script>
-<?php require_once("footer.php"); ?> 
+    <script src="javascript/registerdetail.js"></script> 
