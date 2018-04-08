@@ -1,3 +1,27 @@
+<?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "marathon";
+$conn = new mysqli($servername, $username, $password,$dbname);
+mysqli_set_charset($conn, "utf8");
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+} 
+
+
+session_start();
+$event_id = $_SESSION['event_id'];
+
+$sql = "SELECT * FROM events  WHERE event_id = $event_id";
+$result = $conn->query($sql);
+$row = $result->fetch_assoc();
+
+$conn->close();
+
+?>
 <!doctype html>
 <?php require_once("header.php"); ?>
 <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -27,7 +51,7 @@
             <div class="form-group">
                 <label for="first_name" class="col-sm-3 control-label">ชื่อ<font color="red"> *</font></label>
                 <div class="col-sm-9">
-                    <input type="text" name="frist_name" placeholder="ชื่อจริง" class="form-control" autofocus required id = "txt" onkeyup = "Validate(this)">
+                    <input type="text" name="frist_name" placeholder="ชื่อจริง"   class="form-control" autofocus required id = "txt" onkeyup = "Validate(this)">
                     <span class="help-block">First Name, eg.: Harry</span>
                 </div>
                 <label for="lastName" class="col-sm-3 control-label">นามสกุล<font color="red"> *</font></label>
@@ -594,26 +618,42 @@
                 <label class="control-label col-sm-3">ประเภท<font color="red"> *</font></label>
                 <div class="col-sm-6">
                     <div class="row">
+                        <?php 
+                            if(!empty($row['flag_full'])){
+                        ?>
                         <div class="col-sm-6">
                             <label class="radio-inline">
                                 <input type="radio"  name="flag" id="fullmarathonRadio" value="1" required onchange="this.setCustomValidity(validity.valueMissing ?  : '');">Fullmarathon
                             </label>
                         </div>
+                        <?php 
+                            }
+                            if(!empty($row['flag_half'])){
+                        ?>
                         <div class="col-sm-6">
                             <label class="radio-inline">
                                 <input type="radio" name="flag" id="halfmarathonRadio" value="2">Halfmarathon
                             </label>
                         </div>
+                        <?php 
+                            }
+                            if(!empty($row['flag_mini'])){
+                        ?>
                         <div class="col-sm-6">
                             <label class="radio-inline">
                                 <input type="radio" name="flag"  id="minimarathonRadio" value="3">Minimarathon
                             </label>
                         </div>
+                        <?php 
+                            }
+                            if(!empty($row['flag_fun'])){
+                        ?>
                         <div class="col-sm-6">
                             <label class="radio-inline">
                                 <input type="radio" name="flag" id="funrunRadio" value="4">Funrun
                             </label>
                         </div>
+                            <?php } ?>
                     </div>
                 </div>
             </div>
@@ -673,27 +713,34 @@
             </div> -->
 
             <!-- /.form-group-type-shirt-->
+            <?php if( $row['shirtimg1'] != "none" or $row['shirtimg2'] != "none" ){ ?>
             <div class="form-group">
                 <label class="control-label col-sm-3">รูปแบบเสื้อ<font color="red"> *</font></label>
                 <div class="col-sm-6">
                     <div class="row">
+                        <?php if( $row['shirtimg1'] != "none"){?>
                         <div class="col-sm-12">
                             <label class="radio-inline">
-                                <input type="radio" id="longRadio" name="type_shirt" value="1" required onchange="this.setCustomValidity(validity.valueMissing ?  : '');">เสื้อแขนยาว
-                            </label>
-                            <img id="myImg" alt="เสื้อแขนยาว" src="picture/longarm.jpg" width="300" height="200">
+                                <input type="radio" id="longRadio" name="type_shirt" value="1" required onchange="this.setCustomValidity(validity.valueMissing ?  : '');">แบบที่ 1
+                            </label> 
+                            <img id="myImg" alt="แบบที่ 1"src="<?=$row['shirtimg1']?>" width="300" height="200">
                         </div>
+                        <?php 
+                            }
+                            if( $row['shirtimg2'] != "none"){
+                        ?>
                         <div class="col-sm-12">  
                             <label class="radio-inline">
-                                <input type="radio"  id="shortRadio" name="type_shirt" value="2">เสื้อแขนสั้น
+                                <input type="radio"  id="shortRadio" name="type_shirt" value="2">แบบที่ 2
                             </label>
                             <!-- <img id="myImg" src="picture/longarm.jpg" alt="" width="300" height="200"> -->
-                            <img id="myImg1" alt="เสื้อแขนสั้น" src="picture/shortarm.jpg" width="300" height="200">
+                            <img id="myImg1" alt="แบบที่ 2" src="<?=$row['shirtimg2']?>" width="300" height="200">
                             <br><br><font color="red"> * คลิ๊กที่รูปเพื่อดูรูปขนาดใหญ่</font>
                         </div>
+                            <?php } ?>
                     </div>
                 </div>
-            </div>
+            </div>             
 
             <!-- /.form-group-size-shirt-->
             <div class="form-group">
@@ -702,37 +749,39 @@
                     <div class="row">
                         <div class="col-sm-4">
                             <label class="radio-inline">
-                                <input type="radio" id="SSRadio" name="size_shirt" value="1" required onchange="this.setCustomValidity(validity.valueMissing ?  : '');">SS
+                                <input type="radio" id="SSRadio" name="size" value="1" required onchange="this.setCustomValidity(validity.valueMissing ?  : '');">SS
                             </label>
                         </div>
                         <div class="col-sm-4">  
                             <label class="radio-inline">
-                                <input type="radio"  id="SRadio" name="size_shirt" value="2">S
+                                <input type="radio"  id="SRadio" name="size" value="2">S
                             </label>
                         </div>
                         <div class="col-sm-4">  
                             <label class="radio-inline">
-                                <input type="radio"  id="MRadio" name="size_shirt" value="3">M
+                                <input type="radio"  id="MRadio" name="size" value="3">M
                             </label>
                         </div>
                         <div class="col-sm-4">  
                             <label class="radio-inline">
-                                <input type="radio"  id="LRadio" name="size_shirt" value="4">L
+                                <input type="radio"  id="LRadio" name="size" value="4">L
                             </label>
                         </div>
                         <div class="col-sm-4">  
                             <label class="radio-inline">
-                                <input type="radio"  id="XLRadio" name="size_shirt" value="5">XL
+                                <input type="radio"  id="XLRadio" name="size" value="5">XL
                             </label>
                         </div>
                         <div class="col-sm-4">  
                             <label class="radio-inline">
-                                <input type="radio"  id="XXLRadio" name="size_shirt" value="6">XXL
+                                <input type="radio"  id="XXLRadio" name="size" value="6">XXL
                             </label>
                         </div>
                     </div>
                 </div>
             </div>
+
+              <?php } ?>
 
             <!-- /.form-group-how-to-receive-shirt-->
             <div class="form-group">

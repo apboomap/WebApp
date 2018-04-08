@@ -11,7 +11,10 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
 
-$sql = "INSERT INTO bills () VALUES ()";
+session_start();
+$event_id = $_SESSION['event_id'];
+
+$sql = "INSERT INTO bills (event_id) VALUES ('".$event_id."')";
 
 if ($conn->query($sql) === TRUE) {
     $last_id = $conn->insert_id;
