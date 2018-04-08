@@ -1,13 +1,28 @@
+<?php 
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "marathon";
+$conn = new mysqli($servername, $username, $password,$dbname);
+mysqli_set_charset($conn, "utf8");
 
-<link href="css/testtrue.css" rel="stylesheet">
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+} 
+
+session_start();
+$bill_id = $_SESSION['bill_id'];
+$event_id = $_SESSION['event_id'];
 
 
-<div class="gallery">
-    <img src="picture/img1.jpg" onclick="lightbox(0)" style="width:auto; height:140px;" />
-    <img src="picture/img1.jpg" onclick="lightbox(1)" style="width:auto; height:140px;" /><br />
-    <img src="picture/img1.jpg" onclick="lightbox(2)" />
-    <img src="picture/img1.jpg" onclick="lightbox(3)" />
-    <img src="picture/img1.jpg" onclick="lightbox(4)" />
-</div>
+$sql = "SELECT * FROM runners_bills WHERE bill_id = $bill_id";
+$result = $conn->query($sql);
 
-<script src="javascript/testtrue.js"></script>
+while($row =  $result->fetch_assoc()):
+    $sqlA = "SELECT * FROM runners WHERE run_id = ".$row['run_id'];
+    $resultA = $conn->query($sqlA);
+    $rowA = $resultA->fetch_assoc();
+endwhile;
+?>
