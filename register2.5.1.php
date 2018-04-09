@@ -19,6 +19,9 @@ $event_id = $_SESSION['event_id'];
 $sql = "SELECT * FROM runners_bills WHERE bill_id = $bill_id";
 $result = $conn->query($sql);
 
+$sqlB = "SELECT * FROM events  WHERE event_id = $event_id";
+$resultB = $conn->query($sqlB);
+$rowB = $resultB->fetch_assoc();
 
 ?>
 
@@ -45,7 +48,7 @@ $result = $conn->query($sql);
 </div>
     <center><div class="container" >
 <?php while($row = $result->fetch_assoc()): ?>    
-    
+
         <header class="clearfix">
             <div id="logo" class="col-md-4 col-xs-12">
             <?php
@@ -54,8 +57,7 @@ $result = $conn->query($sql);
                 $rowA = $resultA->fetch_assoc();
             ?>
                 <h3><?=$rowA["frist_name"]?></h3>
-                <a href="register1.1.php?id=<?=$rowA["run_id"]?>"><span></span></a>
-                <a onclick ="document.getElementById('id03').style.display='block'"><span></span></a>
+                <a onclick ="document.getElementById('<?=$rowA["run_id"]?>').style.display='block'"><span></span></a>
             </div>
                 <button type="button" class="close" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
@@ -167,18 +169,18 @@ $result = $conn->query($sql);
                 <div class="col-sm-3">
                     <select name="month" class="form-control" required onchange="this.setCustomValidity(validity.valueMissing ?  : '');" id="field_terms">
                         <option value="">--MM--</option> 
-                        <option value="0">มกราคม</option>
-                        <option value="1">กุมภาพันธ์</option>
-                        <option value="2">มีนาคม</option>
-                        <option value="3">เมษายน</option>
-                        <option value="4">พฤษภาคม</option>
-                        <option value="5">มิถุนายน</option>
-                        <option value="6">กรกฏาคม</option>
-                        <option value="7">สิงหาคม</option>
-                        <option value="8">กันยายน</option>
-                        <option value="9">ตุลาคม</option>
-                        <option value="10">พฤศจิกายน</option>
-                        <option value="11">ธันวาคม</option>
+                        <option value="1">มกราคม</option>
+                        <option value="2">กุมภาพันธ์</option>
+                        <option value="3">มีนาคม</option>
+                        <option value="4">เมษายน</option>
+                        <option value="5">พฤษภาคม</option>
+                        <option value="6">มิถุนายน</option>
+                        <option value="7">กรกฏาคม</option>
+                        <option value="8">สิงหาคม</option>
+                        <option value="9">กันยายน</option>
+                        <option value="10">ตุลาคม</option>
+                        <option value="11">พฤศจิกายน</option>
+                        <option value="12">ธันวาคม</option>
                     </select>
                 </div>
                 <div class="col-sm-3">
@@ -648,26 +650,42 @@ $result = $conn->query($sql);
                 <label class="control-label col-sm-3">ประเภท<font color="red"> *</font></label>
                 <div class="col-sm-6">
                     <div class="row">
+                        <?php 
+                            if(!empty($rowB['flag_full'])){
+                        ?>
                         <div class="col-sm-6">
                             <label class="radio-inline">
                                 <input type="radio"  name="flag" id="fullmarathonRadio" value="1" required onchange="this.setCustomValidity(validity.valueMissing ?  : '');">Fullmarathon
                             </label>
                         </div>
+                        <?php 
+                            }
+                            if(!empty($rowB['flag_half'])){
+                        ?>
                         <div class="col-sm-6">
                             <label class="radio-inline">
                                 <input type="radio" name="flag" id="halfmarathonRadio" value="2">Halfmarathon
                             </label>
                         </div>
+                        <?php 
+                            }
+                            if(!empty($rowB['flag_mini'])){
+                        ?>
                         <div class="col-sm-6">
                             <label class="radio-inline">
                                 <input type="radio" name="flag"  id="minimarathonRadio" value="3">Minimarathon
                             </label>
                         </div>
+                        <?php 
+                            }
+                            if(!empty($rowB['flag_fun'])){
+                        ?>
                         <div class="col-sm-6">
                             <label class="radio-inline">
                                 <input type="radio" name="flag" id="funrunRadio" value="4">Funrun
                             </label>
                         </div>
+                            <?php } ?>
                     </div>
                 </div>
             </div>
@@ -727,24 +745,31 @@ $result = $conn->query($sql);
             </div> -->
 
             <!-- /.form-group-type-shirt-->
+            <?php if( $rowB['shirtimg1'] != "none" or $rowB['shirtimg2'] != "none" ){ ?>
             <div class="form-group">
                 <label class="control-label col-sm-3">รูปแบบเสื้อ<font color="red"> *</font></label>
                 <div class="col-sm-6">
                     <div class="row">
+                        <?php if( $rowB['shirtimg1'] != "none"){?>
                         <div class="col-sm-12">
                             <label class="radio-inline">
-                                <input type="radio" id="longRadio" name="type_shirt" value="1" required onchange="this.setCustomValidity(validity.valueMissing ?  : '');">เสื้อแขนยาว
-                            </label>
-                            <img id="myImg" alt="เสื้อแขนยาว" src="picture/longarm.jpg" width="300" height="200">
+                                <input type="radio" id="longRadio" name="type_shirt" value="1" required onchange="this.setCustomValidity(validity.valueMissing ?  : '');">แบบที่ 1
+                            </label> 
+                            <img id="myImg" alt="แบบที่ 1"src="<?=$rowB['shirtimg1']?>" width="300" height="200">
                         </div>
+                        <?php 
+                            }
+                            if( $rowB['shirtimg2'] != "none"){
+                        ?>
                         <div class="col-sm-12">  
                             <label class="radio-inline">
-                                <input type="radio"  id="shortRadio" name="type_shirt" value="2">เสื้อแขนสั้น
+                                <input type="radio"  id="shortRadio" name="type_shirt" value="2">แบบที่ 2
                             </label>
                             <!-- <img id="myImg" src="picture/longarm.jpg" alt="" width="300" height="200"> -->
-                            <img id="myImg1" alt="เสื้อแขนสั้น" src="picture/shortarm.jpg" width="300" height="200">
+                            <img id="myImg1" alt="แบบที่ 2" src="<?=$rowB['shirtimg2']?>" width="300" height="200">
                             <br><br><font color="red"> * คลิ๊กที่รูปเพื่อดูรูปขนาดใหญ่</font>
                         </div>
+                            <?php } ?>
                     </div>
                 </div>
             </div>
@@ -787,6 +812,7 @@ $result = $conn->query($sql);
                     </div>
                 </div>
             </div>
+            <?php } ?>
 
             <!-- /.form-group-how-to-receive-shirt-->
             <div class="form-group">
@@ -840,23 +866,24 @@ $result = $conn->query($sql);
         </div>
     </div>
 </div>
-<div id="id03" class="w3-modal">
+
+<div id="<?=$rowA["run_id"]?>" class="w3-modal">
         <div class="w3-modal-content">
             <div class="w3-container">
-                <span onclick="document.getElementById('id03').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+                <span onclick="document.getElementById('<?=$rowA["run_id"]?>').style.display='none'" class="w3-button w3-display-topright">&times;</span>
                 <form class="form-horizontal" role="form" action="add/addregister.php" method="POST"  enctype="multipart/form-data">
             <div class=""><h2>กรอกข้อมูลผู้เข้าแข่งขัน</h2></div>
             <!-- /.form-group-first-last-gender-email -->
             <div class="form-group">
                 <label for="first_name" class="col-sm-3 control-label">ชื่อ<font color="red"> *</font></label>
                 <div class="col-sm-9">
-                    <input type="text" name="frist_name" placeholder="ชื่อจริง" class="form-control" autofocus required id = "txt" onkeyup = "Validate(this)">
+                    <input type="text" name="frist_name" placeholder="ชื่อจริง" class="form-control" autofocus required id = "txt" onkeyup = "Validate(this)" value="<?=$rowA["frist_name"]?>">
                     <span class="help-block">First Name, eg.: Harry</span>
                 </div>
                 <label for="lastName" class="col-sm-3 control-label">นามสกุล<font color="red"> *</font></label>
                 <div class="col-sm-9">
 
-                    <input type="text" name="last_name" placeholder="นามสกุล" class="form-control" autofocus required id = "txt" onkeyup = "Validate(this)">
+                    <input type="text" name="last_name" placeholder="นามสกุล" class="form-control" autofocus required id = "txt" onkeyup = "Validate(this)" value="<?=$rowA["last_name"]?>">
                     <span class="help-block">Last Name, eg.: Tom</span>
                 </div>
             
@@ -868,12 +895,12 @@ $result = $conn->query($sql);
                         <div class="row">
                             <div class="col-sm-4">
                                 <label class="radio-inline">
-                                    <input type="radio" name="sex" id="maleRadio" value="M" required onchange="this.setCustomValidity(validity.valueMissing ?  : '');" id="field_terms">ชาย
+                                    <input type="radio" name="sex" id="maleRadio" value="M" required onchange="this.setCustomValidity(validity.valueMissing ?  : '');" id="field_terms"  <?php echo ($rowA["sex"] == "M")?"checked":""; ?>>ชาย
                                 </label>
                             </div>
                             <div class="col-sm-4">
                                 <label class="radio-inline">
-                                    <input type="radio" name="sex" id="femaleRadio" value="F">หญิง
+                                    <input type="radio" name="sex" id="femaleRadio" value="F" <?php echo ($rowA["sex"] == "F")?"checked":""; ?>>หญิง
                                 </label>
                             </div> 
                         </div>
@@ -881,7 +908,7 @@ $result = $conn->query($sql);
                 </div>
                 <label for="email" class="col-sm-3 control-label">Email<font color="red"> *</font></label>
                 <div class="col-sm-9">
-                    <input type="email" name="email" placeholder="example@gmail.com" class="form-control" required id = "email"  onchange="email_validate(this.value);" />
+                    <input type="email" name="email" value="<?=$rowA["email"]?>" class="form-control" required id = "email"  onchange="email_validate(this.value);" />
                 </div>
             </div>
 
@@ -889,15 +916,18 @@ $result = $conn->query($sql);
             <div class="form-group">
                 <label for="essn" class="col-sm-3 control-label">เลขบัตรประชาชน<font color="red"> *</font></label>
                 <div class="col-sm-9">
-                    <input type="id" name="essn" placeholder="1234567890123" class="form-control" required minlength="7" maxlength="13" id = "pass1">
+                    <input type="id" name="essn" value="<?=$rowA["essn"]?>" class="form-control" required minlength="7" maxlength="13" id = "pass1">
                 </div>
             </div>
-
+            <?php 
+                 $date = explode('-', $rowA['brith_date']);
+            ?>
             <!-- /.form-group-birthdate -->
             <div class="form-group">
                 <label for="brith_date" class="col-sm-3 control-label">วัน/เดือน/ปีเกิด<font color="red"> *</font></label>
                 <div class="col-sm-3">
                     <select name="day" class="form-control" required onchange="this.setCustomValidity(validity.valueMissing ?  : '');" id="field_terms">
+                        <option value="<?=$date[2]?>"><?=$date[2]?></option> 
                         <option value="">--DD--</option> 
                         <option>1</option>
                         <option>2</option>
@@ -932,26 +962,46 @@ $result = $conn->query($sql);
                         <option>31</option>
                     </select>
                 </div>
+
+                <?php
+                    switch ($date[1])
+                    { 
+                    case 1 : $month="มกราคม"; break;
+                    case 2 : $month="กุมภาพันธ์"; break;
+                    case 3 : $month="มีนาคม"; break;
+                    case 4 : $month="เมษายน"; break;
+                    case 5 : $month="พฤษภาคม"; break;
+                    case 6 : $month="มิถุนายน"; break;
+                    case 7 : $month="กรกฎาคม"; break;
+                    case 8 : $month="สิงหาคม"; break;
+                    case 9 : $month="กันยายน"; break;
+                    case 10 : $month="ตุลาคม"; break;
+                    case 11 : $month="พฤศจิกายน"; break;
+                    case 12 : $month="ธันวาคม"; break;
+                    }
+                ?>
                 <div class="col-sm-3">
                     <select name="month" class="form-control" required onchange="this.setCustomValidity(validity.valueMissing ?  : '');" id="field_terms">
+                        <option value="<?=$month?>"><?=$month?></option> 
                         <option value="">--MM--</option> 
-                        <option value="0">มกราคม</option>
-                        <option value="1">กุมภาพันธ์</option>
-                        <option value="2">มีนาคม</option>
-                        <option value="3">เมษายน</option>
-                        <option value="4">พฤษภาคม</option>
-                        <option value="5">มิถุนายน</option>
-                        <option value="6">กรกฏาคม</option>
-                        <option value="7">สิงหาคม</option>
-                        <option value="8">กันยายน</option>
-                        <option value="9">ตุลาคม</option>
-                        <option value="10">พฤศจิกายน</option>
-                        <option value="11">ธันวาคม</option>
+                        <option value="1">มกราคม</option>
+                        <option value="2">กุมภาพันธ์</option>
+                        <option value="3">มีนาคม</option>
+                        <option value="4">เมษายน</option>
+                        <option value="5">พฤษภาคม</option>
+                        <option value="6">มิถุนายน</option>
+                        <option value="7">กรกฏาคม</option>
+                        <option value="8">สิงหาคม</option>
+                        <option value="9">กันยายน</option>
+                        <option value="10">ตุลาคม</option>
+                        <option value="11">พฤศจิกายน</option>
+                        <option value="12">ธันวาคม</option>
                     </select>
                 </div>
                 <div class="col-sm-3">
 
                     <select name="year" class="form-control" required onchange="this.setCustomValidity(validity.valueMissing ?  : '');" id="field_terms">
+                        <option value="<?=$date[0]?>"><?=$date[0]+543?></option> 
                         <option value="">--YY--</option> 
                         <option value="2017">2560</option>
                         <option value="2016">2559</option>
@@ -1062,9 +1112,10 @@ $result = $conn->query($sql);
                 <label for="country" class="col-sm-3 control-label">ประเทศ<font color="red"> *</font></label>
                 <div class="col-sm-9">
                     <select name="country" class="form-control" required onchange="this.setCustomValidity(validity.valueMissing ?  : '');" id="field_terms">
+                        <option value="<?=$rowA['country']?>"><?=$rowA['country']?></option>
                         <option value="">---------------------------ประเทศ---------------------------</option>
                         <option value="TH">Thailand</option>
-                        <option value="0000">---------------------------------------------------</option>
+                        <option value="">---------------------------------------------------</option>
                         <option value="AF">Afghanistan</option>
                         <option value="AX">Åland Islands</option>
                         <option value="AL">Albania</option>
@@ -1317,7 +1368,7 @@ $result = $conn->query($sql);
             <div class="form-group">
                 <label for="nationality" class="col-sm-3 control-label">สัญชาติ<font color="red"> *</font></label>
                 <div class="col-sm-9">
-                    <input type="text" name="nationality" placeholder="Thai" class="form-control" autofocus required id = "txt" onkeyup = "Validate(this)">
+                    <input type="text" name="nationality" value="<?=$rowA['nationality']?>" class="form-control" autofocus required id = "txt" onkeyup = "Validate(this)">
                 </div>
             </div>
 
@@ -1326,7 +1377,7 @@ $result = $conn->query($sql);
                 <label for="tel" class="col-sm-3 control-label">โทรศัพท์<font color="red"> *</font></label>
                 <div class="col-sm-9">
 
-                    <input type="text" name="phone" placeholder="012-3456789" class="form-control" autofocus required id="phone" maxlength="10" onkeyup="validatephone(this);">
+                    <input type="text" name="phone" value="<?=$rowA['phone']?>" class="form-control" autofocus required id="phone" maxlength="10" onkeyup="validatephone(this);">
                 </div>
             </div>
 
@@ -1334,7 +1385,7 @@ $result = $conn->query($sql);
             <div class="form-group">
                 <label for="address" class="col-sm-3 control-label">ที่อยู่<font color="red"> *</font></label>
                 <div class="col-sm-9">
-                    <input type="text" name="address" class="form-control" autofocus required id = "txt" onkeyup = "Validate(this)">
+                    <input type="text" name="address" class="form-control" autofocus required id = "txt" onkeyup = "Validate(this)"  value="<?=$rowA['address']?>">
                 </div>
             </div>
 
@@ -1342,7 +1393,7 @@ $result = $conn->query($sql);
             <div class="form-group">
                 <label for="province" class="col-sm-3 control-label">จังหวัด<font color="red"> *</font></label>
                 <div class="col-sm-9">
-                    <input type="text" name="province" class="form-control" autofocus required id = "txt" onkeyup = "Validate(this)">
+                    <input type="text" name="province" class="form-control" autofocus required id = "txt" onkeyup = "Validate(this)" value="<?=$rowA['province']?>">
                 </div>
             </div>
 
@@ -1350,7 +1401,7 @@ $result = $conn->query($sql);
             <div class="form-group">
                 <label for="postcode" class="col-sm-3 control-label">รหัสไปรษณีย์<font color="red"> *</font></label>
                 <div class="col-sm-9">
-                    <input type="text" name="postcode" class="form-control" autofocus required id="postcode" maxlength="5" onkeyup="validatephone(this);">
+                    <input type="text" name="postcode" class="form-control" autofocus required id="postcode" maxlength="5" onkeyup="validatephone(this);" value="<?=$rowA['postcode']?>">
                 </div>
             </div>
 
@@ -1358,7 +1409,7 @@ $result = $conn->query($sql);
             <div class="form-group">
                 <label for="Emergency Contacts" class="col-sm-3 control-label">ผู้ติดต่อกรณีฉุกเฉิน<font color="red"> *</font></label>
                 <div class="col-sm-9">
-                    <input type="text" name="emergency_contact_name" class="form-control" autofocus required id = "txt" onkeyup = "Validate(this)">
+                    <input type="text" name="emergency_contact_name" class="form-control" autofocus required id = "txt" onkeyup = "Validate(this)" value="<?=$rowA['emergency_contact_name']?>">
                 </div>
             </div>
 
@@ -1366,7 +1417,7 @@ $result = $conn->query($sql);
             <div class="form-group">
                 <label for="Emergency number" class="col-sm-3 control-label">เบอร์ติดต่อกรณีฉุกเฉิน<font color="red"> *</font></label>
                 <div class="col-sm-9">
-                    <input type="text" name="emergency_contact_phone" class="form-control" autofocus required id="phone" maxlength="10" onkeyup="validatephone(this);">
+                    <input type="text" name="emergency_contact_phone" class="form-control" autofocus required id="phone" maxlength="10" onkeyup="validatephone(this);" value="<?=$rowA['emergency_contact_phone']?>">
                 </div>
             </div>
         
@@ -1374,7 +1425,7 @@ $result = $conn->query($sql);
             <div class="form-group">
                 <label for="disease" class="col-sm-3 control-label">โรคประจำตัว<font color="red"> *</font></label>
                 <div class="col-sm-6">
-                    <input type="text" name="disease" placeholder="" class="form-control" autofocus required id = "txt" onkeyup = "Validate(this)">
+                    <input type="text" name="disease" placeholder="" class="form-control" autofocus required id = "txt" onkeyup = "Validate(this)" value="<?=$rowA['disease']?>">
                 </div>
             </div>
 
@@ -1382,7 +1433,7 @@ $result = $conn->query($sql);
             <div class="form-group">
                 <label for="allergic_drug" class="col-sm-3 control-label">การแพ้ยา<font color="red"> *</font></label>
                 <div class="col-sm-6">
-                    <input type="text" name="allergic_drug" placeholder="" class="form-control" autofocus required id = "txt" onkeyup = "Validate(this)">
+                    <input type="text" name="allergic_drug" placeholder="" class="form-control" autofocus required id = "txt" onkeyup = "Validate(this)" value="<?=$rowA['allergic_drug']?>">
                 </div>
             </div>
 
@@ -1391,15 +1442,16 @@ $result = $conn->query($sql);
 
                 <label for="medicine" class="col-sm-3 control-label">ยาที่ใช้ประจำ<font color="red"> *</font></label>
                 <div class="col-sm-6">
-                    <input type="text" name="medicine" placeholder="" class="form-control" autofocus required id = "txt" onkeyup = "Validate(this)">
+                    <input type="text" name="medicine" placeholder="" class="form-control" autofocus required id = "txt" onkeyup = "Validate(this)" value="<?=$rowA['medicine']?>">
                 </div>
             </div>
 
-            <!-- /.form-group-blood --> 
+            <!-- /.form-group-blood -->  
             <div class="form-group">
                 <label for="blood" class="col-sm-3 control-label">กรุ๊ปเลือด<font color="red"> *</font></label>
                 <div class="col-sm-3">
                     <select name="blood" class="form-control" required onchange="this.setCustomValidity(validity.valueMissing ?  : '');" id="field_terms">
+                        <option value="<?=$rowA['blood']?>"><?=$rowA['blood']?></option> 
                         <option value="">--BLOOD--</option> 
                         <option>O</option>
                         <option>A</option>
@@ -1411,31 +1463,47 @@ $result = $conn->query($sql);
 
             <div class=""><h2>กรอกข้อมูลการแข่งขัน</h2></div>
 
-            <!-- /.form-group-typeRace -->
-            <div class="form-group">
+             <!-- /.form-group-typeRace -->
+             <div class="form-group">
                 <label class="control-label col-sm-3">ประเภท<font color="red"> *</font></label>
                 <div class="col-sm-6">
                     <div class="row">
+                        <?php 
+                            if(!empty($rowB['flag_full'])){
+                        ?>
                         <div class="col-sm-6">
                             <label class="radio-inline">
-                                <input type="radio"  name="flag" id="fullmarathonRadio" value="1" required onchange="this.setCustomValidity(validity.valueMissing ?  : '');">Fullmarathon
+                                <input type="radio"  name="flag" id="fullmarathonRadio" value="1" <?php echo (!empty($rowA['flag_full']))? "checked":"" ;?> required onchange="this.setCustomValidity(validity.valueMissing ?  : '');">Fullmarathon
                             </label>
                         </div>
+                        <?php 
+                            }
+                            if(!empty($rowB['flag_half'])){
+                        ?>
                         <div class="col-sm-6">
                             <label class="radio-inline">
-                                <input type="radio" name="flag" id="halfmarathonRadio" value="2">Halfmarathon
+                                <input type="radio" name="flag" id="halfmarathonRadio" value="2" <?php echo (!empty($rowA['flag_half']))? "checked":"" ;?> >Halfmarathon
                             </label>
                         </div>
+                        <?php 
+                            }
+                            if(!empty($rowB['flag_mini'])){
+                        ?>
                         <div class="col-sm-6">
                             <label class="radio-inline">
-                                <input type="radio" name="flag"  id="minimarathonRadio" value="3">Minimarathon
+                                <input type="radio" name="flag"  id="minimarathonRadio" value="3" <?php echo (!empty($rowA['flag_mini']))? "checked":"" ;?> >Minimarathon
                             </label>
                         </div>
+                        <?php 
+                            }
+                            if(!empty($rowB['flag_fun'])){
+                        ?>
                         <div class="col-sm-6">
                             <label class="radio-inline">
-                                <input type="radio" name="flag" id="funrunRadio" value="4">Funrun
+                                <input type="radio" name="flag" id="funrunRadio" value="4" <?php echo (!empty($rowA['flag_fun']))? "checked":"" ;?> >Funrun
                             </label>
                         </div>
+                            <?php } ?>
                     </div>
                 </div>
             </div>
@@ -1495,24 +1563,31 @@ $result = $conn->query($sql);
             </div> -->
 
             <!-- /.form-group-type-shirt-->
+            <?php if( $rowB['shirtimg1'] != "none" or $rowB['shirtimg2'] != "none" ){ ?>
             <div class="form-group">
                 <label class="control-label col-sm-3">รูปแบบเสื้อ<font color="red"> *</font></label>
                 <div class="col-sm-6">
                     <div class="row">
+                        <?php if( $rowB['shirtimg1'] != "none"){?>
                         <div class="col-sm-12">
                             <label class="radio-inline">
-                                <input type="radio" id="longRadio" name="type_shirt" value="1" required onchange="this.setCustomValidity(validity.valueMissing ?  : '');">เสื้อแขนยาว
-                            </label>
-                            <img id="myImg" alt="เสื้อแขนยาว" src="picture/longarm.jpg" width="300" height="200">
+                                <input type="radio" id="longRadio" name="type_shirt" value="1"  <?php echo ($rowA['type_shirt'] == "1")? "checked":"" ;?> required onchange="this.setCustomValidity(validity.valueMissing ?  : '');">แบบที่ 1
+                            </label> 
+                            <img id="myImg" alt="แบบที่ 1"src="<?=$rowB['shirtimg1']?>" width="300" height="200">
                         </div>
+                        <?php 
+                            }
+                            if( $rowB['shirtimg2'] != "none"){
+                        ?>
                         <div class="col-sm-12">  
                             <label class="radio-inline">
-                                <input type="radio"  id="shortRadio" name="type_shirt" value="2">เสื้อแขนสั้น
+                                <input type="radio"  id="shortRadio" name="type_shirt" value="2" <?php echo ($rowA['type_shirt'] == "2")? "checked":"" ;?>>แบบที่ 2
                             </label>
                             <!-- <img id="myImg" src="picture/longarm.jpg" alt="" width="300" height="200"> -->
-                            <img id="myImg1" alt="เสื้อแขนสั้น" src="picture/shortarm.jpg" width="300" height="200">
+                            <img id="myImg1" alt="แบบที่ 2" src="<?=$rowB['shirtimg2']?>" width="300" height="200">
                             <br><br><font color="red"> * คลิ๊กที่รูปเพื่อดูรูปขนาดใหญ่</font>
                         </div>
+                            <?php } ?>
                     </div>
                 </div>
             </div>
@@ -1524,37 +1599,39 @@ $result = $conn->query($sql);
                     <div class="row">
                         <div class="col-sm-4">
                             <label class="radio-inline">
-                                <input type="radio" id="SSRadio" name="size_shirt" value="1" required onchange="this.setCustomValidity(validity.valueMissing ?  : '');">SS
+                                <input type="radio" id="SSRadio" name="size" value="1"  <?php echo ($rowA['size'] == "2")? "checked":"" ;?>required onchange="this.setCustomValidity(validity.valueMissing ?  : '');">SS
                             </label>
                         </div>
                         <div class="col-sm-4">  
                             <label class="radio-inline">
-                                <input type="radio"  id="SRadio" name="size_shirt" value="2">S
+                                <input type="radio"  id="SRadio" name="size" value="2" <?php echo ($rowA['size'] == "2")? "checked":"" ;?>>S
                             </label>
                         </div>
                         <div class="col-sm-4">  
                             <label class="radio-inline">
-                                <input type="radio"  id="MRadio" name="size_shirt" value="3">M
+                                <input type="radio"  id="MRadio" name="size" value="3" <?php echo ($rowA['size'] == "3")? "checked":"" ;?>>M
                             </label>
                         </div>
                         <div class="col-sm-4">  
                             <label class="radio-inline">
-                                <input type="radio"  id="LRadio" name="size_shirt" value="4">L
+                                <input type="radio"  id="LRadio" name="size" value="4" <?php echo ($rowA['size'] == "4")? "checked":"" ;?>>L
                             </label>
                         </div>
                         <div class="col-sm-4">  
                             <label class="radio-inline">
-                                <input type="radio"  id="XLRadio" name="size_shirt" value="5">XL
+                                <input type="radio"  id="XLRadio" name="size" value="5" <?php echo ($rowA['size'] == "5")? "checked":"" ;?>>XL
                             </label>
                         </div>
                         <div class="col-sm-4">  
                             <label class="radio-inline">
-                                <input type="radio"  id="XXLRadio" name="size_shirt" value="6">XXL
+                                <input type="radio"  id="XXLRadio" name="size" value="6" <?php echo ($rowA['size'] == "6")? "checked":"" ;?>>XXL
                             </label>
                         </div>
                     </div>
                 </div>
             </div>
+
+            <?php } ?>
 
             <!-- /.form-group-how-to-receive-shirt-->
             <div class="form-group">
@@ -1563,26 +1640,28 @@ $result = $conn->query($sql);
                     <div class="row">
                         <div class="col-sm-12">
                             <label class="radio-inline">
-                                <input type="radio" id="longRadio" name="getting" value="0" required onchange="this.setCustomValidity(validity.valueMissing ?  : '');">รับด้วยตัวเองที่สถานที่จัดงาน
+                                <input type="radio" id="longRadio" name="getting" value="0" <?php echo ($rowA['getting'] == "0")? "checked":"" ;?> required onchange="this.setCustomValidity(validity.valueMissing ?  : '');">รับด้วยตัวเองที่สถานที่จัดงาน
                             </label>
                         </div>
                         <div class="col-sm-12">  
                             <label class="radio-inline">
-                                <input type="radio"  id="shortRadio"  name="getting" value="1">ส่งไปรษณีย์ (ค่าส่ง 100 บาท)
+                                <input type="radio"  id="shortRadio"  name="getting" value="1" <?php echo ($rowA['getting'] == "1")? "checked":"" ;?>>ส่งไปรษณีย์ (ค่าส่ง 100 บาท)
                             </label>
                         </div>
                     </div>
                 </div>
             </div>
-
              <!-- /.form-group-button-->
-            <div class="form-group">
+             <div class="form-group">
                 <div class="col-sm-6 col-sm-offset-3">
                     <br><br><a href="register2.5.1.php"><button type="submit" class="btn btn-primary btn-block">บันทึก</button></a>
                 </div>
             </div>
         </form> 
     </div>
+
+
+
 
     <!-- The-Modal-img1 -->
     <div id="myModal" class="modal">
@@ -1608,6 +1687,8 @@ $result = $conn->query($sql);
         </div>
     </div>
 </div>
+
+
     <div id="id02" class="w3-modal">
         <div class="w3-modal-content">
             <div class="w3-container">
