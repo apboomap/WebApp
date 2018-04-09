@@ -11,7 +11,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
 
-$_POST['brith_date'] = date("Y-m-d", mktime(0,0,0,$_POST['year'],$_POST['month'], $_POST['day']));
+$_POST['brith_date'] = $_POST['year'].  "-"  .$_POST['month']. "-" .$_POST['day'];
 
 
 $sql = "INSERT INTO runners (essn, frist_name, last_name, sex, email, brith_date, blood, nationality, country, address, province,  postcode, phone, disease, medicine, allergic_drug, emergency_contact_name, emergency_contact_phone)
@@ -39,10 +39,7 @@ if($_POST['flag'] == "1"){
     $flag_fun = 1;
 }
 
-$flag_full = (isset($_POST['flag'])) ? 1 : 0;
-$flag_half = (isset($_POST['flag'])) ? 1 : 0;
-$flag_mini = (isset($_POST['flag'])) ? 1 : 0;
-$flag_fun = (isset($_POST['flag'])) ? 1 : 0;
+
 
 $sql1 = "INSERT INTO runners_bills (bill_id, run_id, flag_full, flag_half, flag_mini, flag_fun, getting, size, type_shirt)
         VALUES ('".$bill_id."', '".$last_id."','".$flag_full."','".$flag_half."','".$flag_mini."','".$flag_fun."','".$_POST["getting"]."','".$_POST["size"]."','".$_POST["type_shirt"]."')";
