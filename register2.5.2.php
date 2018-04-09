@@ -64,7 +64,8 @@ $rowB = $resultB->fetch_assoc();
     }else if(!empty($row["flag_fun"])){
       $text = "Funrun Marathon";
       $cost = $rowB["charge_fun"];
-    } 
+    }
+    if($row["getting"] == "1") {$sum += 100;}
     $sum += $cost;
 ?>
   <div class="row">
@@ -88,7 +89,7 @@ $rowB = $resultB->fetch_assoc();
                         else $gen = "หญิง";
 
                         $date = explode('-', $rowA['brith_date']);
-                        $age = date("Y") - (int)$date[0];
+                        $age = date("Y") - $date[0];
 
                         $generation_compete = "";
                         if ($age < 20) $generation_compete = "ต่ำกว่า 19 ปี";

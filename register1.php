@@ -139,18 +139,18 @@ $conn->close();
                 <div class="col-sm-3">
                     <select name="month" class="form-control" required onchange="this.setCustomValidity(validity.valueMissing ?  : '');" id="field_terms">
                         <option value="">--MM--</option> 
-                        <option value="0">มกราคม</option>
-                        <option value="1">กุมภาพันธ์</option>
-                        <option value="2">มีนาคม</option>
-                        <option value="3">เมษายน</option>
-                        <option value="4">พฤษภาคม</option>
-                        <option value="5">มิถุนายน</option>
-                        <option value="6">กรกฏาคม</option>
-                        <option value="7">สิงหาคม</option>
-                        <option value="8">กันยายน</option>
-                        <option value="9">ตุลาคม</option>
-                        <option value="10">พฤศจิกายน</option>
-                        <option value="11">ธันวาคม</option>
+                        <option value="1">มกราคม</option>
+                        <option value="2">กุมภาพันธ์</option>
+                        <option value="3">มีนาคม</option>
+                        <option value="4">เมษายน</option>
+                        <option value="5">พฤษภาคม</option>
+                        <option value="6">มิถุนายน</option>
+                        <option value="7">กรกฏาคม</option>
+                        <option value="8">สิงหาคม</option>
+                        <option value="9">กันยายน</option>
+                        <option value="10">ตุลาคม</option>
+                        <option value="11">พฤศจิกายน</option>
+                        <option value="12">ธันวาคม</option>
                     </select>
                 </div>
                 <div class="col-sm-3">
