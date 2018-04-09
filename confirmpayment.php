@@ -1,3 +1,7 @@
+<?php
+$sum = $_GET['pay']
+?>
+
 <!doctype html>
 <?php require_once("header.php"); ?>
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -324,7 +328,7 @@
 </div>
 
 <center>
-<button type="button" class="btn btn-warning"><a href="homepage.php">ส่งข้อมูล</a></button>
+<button type="button" class="btn btn-warning"><a href="add/sucess.php?pay=<?=$sum?>">ส่งข้อมูล</a></button>
 </center><br>
 
 <?php require_once("footer.php"); ?>  

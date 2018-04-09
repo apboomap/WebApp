@@ -104,7 +104,7 @@ $conn->close();
 							<span><h3>ราคารวมค่าบริการ</h3></span>
 							<span ><font color="red" ><h2><u> <?=$sum+24.5?> บาท</u></h2></font></span>
 						</div><br>
-						<button class="btn1 b"><a href="homepage.php">ชำระเลย</a></button><br>
+						<button class="btn1 b"><a href="add/sucess.php?pay=<?=$sum+24.5?>">ชำระเลย</a></button><br>
 					</div>
 				</div>
 			</div>
@@ -141,7 +141,7 @@ $conn->close();
 								<span><h3>ราคารวมค่าบริการ</h3></span>
 								<span ><font color="red" ><h2><u> <?=$sum+24.5?> บาท</u></h2></font></span>
 							</div><br>
-							<button class="btn1 b"><a href="homepage.php">ชำระเลย</a></button><br>
+							<button class="btn1 b"><a href="add/sucess.php?pay=<?=$sum+24.5?>">ชำระเลย</a></button><br>
 						</div>
 					</div>
 				</div>
@@ -177,7 +177,7 @@ $conn->close();
 								<span><h3>ราคารวมค่าบริการ</h3></span>
 								<span ><font color="red" ><h2><u> <?=$sum+24.5?> บาท</u></h2></font></span>
 							</div><br><br>
-							<button class="btn1 b"><a href="homepage.php">ชำระเลย</a></button><br>
+							<button class="btn1 b"><a href="add/sucess.php?pay=<?=$sum+24.5?>">ชำระเลย</a></button><br>
 						</div>
 					</div>
 				</div>
@@ -223,7 +223,7 @@ $conn->close();
 							<span><h3>ราคารวม</h3></span>
 							<span ><font color="red" ><h2><u> <?=$sum?> บาท</u></h2></font></span>
 						</div><br>
-						<button class="btn1 b"><a href="confirmpayment.php">แจ้งการโอนเงิน</button><br>
+						<button class="btn1 b"><a href="confirmpayment.php?pay=<?=$sum?>">แจ้งการโอนเงิน</button><br>
 					</div>
 				</div>
 			</div>
