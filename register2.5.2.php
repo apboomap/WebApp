@@ -26,10 +26,12 @@ $rowB = $resultB->fetch_assoc();
 ?>
 
 
+
 <!doctype html>
 <?php require_once("header.php"); ?>
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <!-- <link href="css/acss.css" rel="stylesheet"> -->
+<link href="css/scroll.css" rel="stylesheet">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -59,6 +61,11 @@ $rowB = $resultB->fetch_assoc();
     </center>
 
 <h4><center><strong>กรุณาตรวจสอบเเละยืนยันความถูกต้องของข้อมูลการสมัครของท่าน</strong></center></h4>
+
+<center>
+<div class="input-group col-md-6">
+<div class="ex1">
+<div class="w3-container">
 <?php while($row = $result->fetch_assoc()): 
     $text = "";
     $cost = 0;
@@ -78,8 +85,9 @@ $rowB = $resultB->fetch_assoc();
     if($row["getting"] == "1") {$sum += 100;}
     $sum += $cost;
 ?>
+
   <div class="row">
-      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
+      <div class="toppad" >
           <div class="panel panel-info">
               <div class="panel-heading">
                   <h4 class="panel-title"><strong>ประเภทการวิ่ง</strong>     <?php echo $text ?></h4>
@@ -156,9 +164,16 @@ $rowB = $resultB->fetch_assoc();
                 </div>
               </div>
           </div>
-      </div>
+      </div>      
   </div>
 <?php endwhile; ?>
+  </div>
+  </div>
+  </div>
+  </center>
+
+
+
 
 <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >

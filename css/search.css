@@ -1,10 +1,10 @@
 body{
-    background-color: lightblue;
+    background-color: rgb(84, 103, 109);
 }
 
 #custom-search-input {
     margin:0;
-    margin-top: 10px;
+    margin-top: 50px;
     padding: 0;
 }
 
@@ -34,12 +34,13 @@ body{
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     border-radius: 3px;
-    color:rgb(117, 0, 185);
+    color:rgb(12, 0, 185);
 }
 
 .search-query:focus + button {
     z-index: 3;   
 }
+
 
 /*Page link*/
 a.pagelink:link,
@@ -47,4 +48,23 @@ a.pagelink:visited,
 a.pagelink:active { color: rgb(0, 153, 255); text-decoration: none; }
 
 a.pagelink:hover { color: #ff7b00; text-decoration: underline; }
+
+
+/* table */
+.custab{
+    border: 1px solid #ccc;
+    padding: 5px;
+    margin: 5% 0;
+    box-shadow: 3px 3px 2px #ccc;
+    transition: 0.5s;
+    color: rgb(0, 255, 255);
+    }
+.custab:hover{
+    box-shadow: 3px 3px 0px transparent;
+    transition: 0.5s;
+    }
+
+.center{
+    margin: auto;
+}
 
