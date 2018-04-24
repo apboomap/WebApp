@@ -21,11 +21,12 @@ $conn->close();
 ?>
 <?php require_once("header.php"); ?>
 
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> -->
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <link href="css/payment.css" rel="stylesheet">
 <script src="javascript/payment.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="javascript/validateregister.js"></script>
 
 <style>
 	.b {
@@ -33,7 +34,7 @@ $conn->close();
 	}
 </style>
 <!-- process step bar -->
-<br><div class="container">
+<!-- <br><div class="container">
         <ul class="progressbar">
             <li class="active">ลงทะเบียน</li>
             <li class="active">ตรวจสอบ</li>
@@ -41,7 +42,17 @@ $conn->close();
             <li class="active">ชำระเงิน</li>
 			<li>เสร็จสิ้น</li>
         </ul>
+    </div> -->
+	<br>
+	<center><h4 style="color:green">ความคืบหน้าในการสมัคร</h4></center>
+	<center><div class="container">
+        <div class="progress" style="width:50%;background:gray;height:20px;margin-top:10px;">
+            <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width:80%;background:green">
+            80%
+            </div>
+        </div>
     </div>
+    </center>
 
 <!------ Include the above in your HEAD tag ---------->
 
@@ -49,10 +60,12 @@ $conn->close();
 	<div class="row">
 		<div class="paymentCont">
 			<div class="headingWrap">
-					<h3 class="headingTop text-center">กรุณาเลือกช่องทางการชำระเงิน</h3>	
-					<p class="text-center">กรุณาชำระเงินภายใน 72 ชั่วโมงหลังการสมัครเสร็จสิ้น</p>
+				<h3 class="headingTop text-center">กรุณาเลือกช่องทางการชำระเงิน</h3>	
+				<p class="text-center">กรุณาชำระเงินภายใน 72 ชั่วโมงหลังการสมัครเสร็จสิ้น</p><br>
 			</div>
-			
+		</div>
+	</div>
+</div>
 <!------ Include the above in your HEAD tag ---------->
 
 <div class="container">
@@ -104,7 +117,7 @@ $conn->close();
 							<span><h3>ราคารวมค่าบริการ</h3></span>
 							<span ><font color="red" ><h2><u> <?=$sum+24.5?> บาท</u></h2></font></span>
 						</div><br>
-						<button class="btn1 b"><a href="add/sucess.php?pay=<?=$sum+24.5?>">ชำระเลย</a></button><br>
+						<a href="add/sucess.php?pay=<?=$sum+24.5?>"><button class="btn1">ชำระเลย</button><br></a>
 					</div>
 				</div>
 			</div>
@@ -126,7 +139,7 @@ $conn->close();
 				<div class="w3-col m4 w3-center brand">
 					<div class="w3-col m8 instruction">
 						<div>
-							<h4>ขั้นตอนการชำระเงินผ่านอินเตอร์เน็ตแบงก์กิ้ง</h4>
+							<h4>ขั้นตอนการชำระเงินผ่านอินเตอร์เน็ตแบงก์กิ้ง</h4><br>
 							<ol>
 								<li>กดปุ่ม 'ชำระเลย' บริเวณด้านล่าง</li><br>
 								<li>เลือกธนาคารที่ท่านมีบัญชีใช้งานอินเตอร์เน็ตแบงก์กิ้ง</li><br>
@@ -141,7 +154,7 @@ $conn->close();
 								<span><h3>ราคารวมค่าบริการ</h3></span>
 								<span ><font color="red" ><h2><u> <?=$sum+24.5?> บาท</u></h2></font></span>
 							</div><br>
-							<button class="btn1 b"><a href="add/sucess.php?pay=<?=$sum+24.5?>">ชำระเลย</a></button><br>
+							<a href="add/sucess.php?pay=<?=$sum+24.5?>"><button class="btn1 b">ชำระเลย</button><br></a>
 						</div>
 					</div>
 				</div>
@@ -164,7 +177,7 @@ $conn->close();
 				<div class="w3-col m4 w3-center brand">
 					<div class="w3-col m8 instruction">
 						<div>
-							<h4>ขั้นตอนการชำระเงินผ่านเค้าน์เตอร์เซอร์วิส</h4>
+							<h4>ขั้นตอนการชำระเงินผ่านเค้าน์เตอร์เซอร์วิส</h4><br>
 							<ol>
 								<li>กดปุ่ม 'ชำระเลย' บริเวณด้านล่าง</li><br>
 								<li>ระบบจะส่งท่านไปยังเว็บไซต์ของเค้าน์เตอร์เซอร์วิส</li><br>
@@ -177,7 +190,7 @@ $conn->close();
 								<span><h3>ราคารวมค่าบริการ</h3></span>
 								<span ><font color="red" ><h2><u> <?=$sum+24.5?> บาท</u></h2></font></span>
 							</div><br><br>
-							<button class="btn1 b"><a href="add/sucess.php?pay=<?=$sum+24.5?>">ชำระเลย</a></button><br>
+							<a href="add/sucess.php?pay=<?=$sum+24.5?>"><button class="btn1 b">ชำระเลย</button><br></a>
 						</div>
 					</div>
 				</div>
@@ -186,7 +199,7 @@ $conn->close();
     </div>
 	<div class="row setup-content" id="step-4">
         <div class="col-xs-12">
-            <div class="col-md-12 well">
+            <div class="col-md-12 well" style="margin-bottom:60px;">
 				<center>
 					<div class="imglogo">
 						<img src="picture/banktransfer.png" alt="Logobanktransfer">
@@ -197,7 +210,7 @@ $conn->close();
 				</div>
 				<div class="w3-col m8 instruction">
 					<div>
-						<h4>ขั้นตอนการชำระเงินโดยการโอนเงินผ่านบัญชีธนาคาร</h4>
+						<h4>ขั้นตอนการชำระเงินโดยการโอนเงินผ่านบัญชีธนาคาร</h4><br>
 						<ol>
 							<li>โอนเงินไปบัญขีที่ระบุด้านล่างเต็มจำนวน โดยไม่หักค่าธรรมเนียมการโอน</li><br>
 							<li>เก็บหลักฐานการโอนเงิน พร้อมทั้งถ่ายภาพไว้</li><br>
@@ -223,7 +236,7 @@ $conn->close();
 							<span><h3>ราคารวม</h3></span>
 							<span ><font color="red" ><h2><u> <?=$sum?> บาท</u></h2></font></span>
 						</div><br>
-						<button class="btn1 b"><a href="confirmpayment.php?pay=<?=$sum?>">แจ้งการโอนเงิน</button><br>
+						<a href="confirmpayment.php?pay=<?=$sum?>"><button class="btn1 b">แจ้งการโอนเงิน</button><br></a>
 					</div>
 				</div>
 			</div>

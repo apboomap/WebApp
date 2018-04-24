@@ -21,7 +21,7 @@ $sql = "UPDATE bills SET payment='".$_GET['pay']."', flag_success = '1'  WHERE b
 
 if ($conn->query($sql) === TRUE) {
     echo "Record updated successfully";
-    header('Location:../homepage.php');
+    header('Location:../success.php');
 } else {
     echo "Error updating record: " . $conn->error;
 }

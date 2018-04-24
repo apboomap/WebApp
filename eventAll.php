@@ -38,26 +38,26 @@ $year = $_GET['year'] ;
 
 <br>
 <center>
-<div class="container">
-                <div class="row">
-                        <p class="lead"><h3>ค้นหางานวิ่งจากเดือน หรือ ปี</h3></p>    <br>                   
-													                  
-                                    <!-- Our Special dropdown has class show-on-hover -->
-                                    <div class="btn-group show-on-hover">
-                                    <button type="button" class=" btn-danger dropdown-toggle" data-toggle="dropdown">
-                                       <?=$year?> <span class="caret"></span>
-                                    </button>
-                                    <ul class="dropdown-menu" role="menu">
-										<li><a href="eventAll.php?year=2018">2018</a></li>
-                                        <li><a href="eventAll.php?year=2017">2017</a></li>
-                                        <li><a href="eventAll.php?year=2016">2016</a></li>
-                                        <li><a href="eventAll.php?year=2015">2015</a></li>
-                                        <li><a href="eventAll.php?year=2014">2014</a></li>
-                                        <li><a href="eventAll.php?year=2013">2013</a></li>
-									</ul>
-                                    </div>
-                </div>
+    <div class="container">
+        <div class="row">
+            <p class="lead"><h3>ค้นหางานวิ่งจากเดือน หรือ ปี</h3></p>    <br>                   
+                                                            
+            <!-- Our Special dropdown has class show-on-hover -->
+            <div class="btn-group show-on-hover">
+            <button type="button" class=" btn-primary dropdown-toggle" data-toggle="dropdown">
+                <?=$year?> <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+                <li><a href="eventAll.php?year=2018">2018</a></li>
+                <li><a href="eventAll.php?year=2017">2017</a></li>
+                <li><a href="eventAll.php?year=2016">2016</a></li>
+                <li><a href="eventAll.php?year=2015">2015</a></li>
+                <li><a href="eventAll.php?year=2014">2014</a></li>
+                <li><a href="eventAll.php?year=2013">2013</a></li>
+            </ul>
+            </div>
         </div>
+    </div>
 </center>
 
 <?php 
@@ -87,49 +87,56 @@ $day = $date[2];
 <br><br>
 <!--event-->
 <div class="container">
-            <div class="w3-col">
-                <div class="row">                
+            <div class="row">
+                <div class="w3-content">   
+                    <center>             
                     <ul class="event-list">
                         <!--cmu-->                                                
-                            <li>
-                                <time datetime=<?=$row['race_day']?>>
-                                    <span class="day"><?=$day?></span>
-                                    <span class="month"><?=$month?></span>
-                                    <span class="year"><?=$years?></span>
-                                    <span class="time">All Day</span>
-                                </time>
-                                <img  src="<?=$row["img"]?>"/>
-                                <div class="info">
-                                    <h2 class="title"><?=$row["name"]?></h2>
-                                    <ul>
-                                        <?php if(!empty($row['flag_full'])){?>
-                                        <li style="width:25%;"><span class="fa fa-male"></span> [42.195K]</li>
-                                        <?php } ?>
-                                        <?php if(!empty($row['flag_half'])){?>
-                                        <li style="width:25%;"><span class="fa fa-male"></span> [21.1K]</li>
-                                        <?php } ?>
-                                        <?php if(!empty($row['flag_mini'])){?>
-                                        <li style="width:25%;"><span class="fa fa-male"></span> [10.5K]</li>
-                                        <?php } ?>
-                                        <?php if(!empty($row['flag_fun'])){?>
-                                        <li style="width:25%;"><span class="fa fa-child"></span> [4.6K]</li>
-                                        <?php } ?>
-                                    </ul>
-                                </div>
-                                <div class="detail">
-                                    <ul>
-                                        <li class="additional" style="width:25%;"><a href="registerdetail.php?id=<?=$row['event_id']?>"> ข้อมูลเพิ่มเติม <span class="glyphicon glyphicon-info-sign"></span> </a></li>
-                                        <li class="register" style="width:25%;"><a href="registerdetail.php?id=<?=$row['event_id']?>"> สมัครวิ่ง <span class="glyphicon glyphicon-pencil"></span></a></li>
-                                        <li class="searchrunner" style="width:25%;"><a href="search.php"> ค้นหานักวิ่ง <span class="glyphicon glyphicon-search"></span></a></li>
-                                    </ul>
-                                </div>
-                            </li>
-<?php endwhile;?>
+                        <li> 
+                            <time datetime=<?=$row['race_day']?>>
+                                <span class="day"><?=$day?></span>
+                                <span class="month"><?=$month?></span>
+                                <span class="year"><?=$years?></span>
+                                <span class="time">All Day</span>
+                            </time>
+                            
+                            <p>
+                                <a href="registerdetail.php?id=<?=$row['event_id']?>">
+                                    <img src="<?=$row["img"]?>" />
+                                </a>
+                            </p>
+
+                            <div class="info">
+                                <h2 class="title"> <a href="registerdetail.php?id=<?=$row['event_id']?>"> <?=$row["name"]?> </a> </h2>
+                                <ul>
+                                    <?php if(!empty($row['flag_full'])){?>
+                                    <li style="width:30%;"><span class="glyphicon glyphicon-flag"></span> [42.195K]</li>
+                                    <?php } ?>
+                                    <?php if(!empty($row['flag_half'])){?>
+                                    <li style="width:24%;"><span class="glyphicon glyphicon-flag"></span> [21.1K]</li>
+                                    <?php } ?>
+                                    <?php if(!empty($row['flag_mini'])){?>
+                                    <li style="width:24%;"><span class="glyphicon glyphicon-flag"></span> [10.5K]</li>
+                                    <?php } ?>
+                                    <?php if(!empty($row['flag_fun'])){?>
+                                    <li style="width:24%;"><span class="glyphicon glyphicon-flag"></span> [4.6K]</li>
+                                    <?php } ?>
+                                </ul>
+                            </div>
+                            <div class="detail">
+                                <ul>
+                                    <li class="additional" style="width:30%;"><a href="registerdetail.php?id=<?=$row['event_id']?>"> ข้อมูลเพิ่มเติม <span class="glyphicon glyphicon-info-sign"></span> </a></li>
+                                    <li class="register" style="width:20%;"><a href="register1.php?id=<?=$row['event_id']?>"> สมัครวิ่ง <span class="glyphicon glyphicon-pencil"></span></a></li>
+                                    <li class="searchrunner" style="width:25%;"><a href="search.php"> ค้นหานักวิ่ง <span class="glyphicon glyphicon-search"></span></a></li>
+                                </ul>
+                            </div>
+                        </li>
                     </ul> 
+                    </center>
                 </div>          
             </div>
         </div>
-
+<?php endwhile;?>
 </body>
 </html>
 

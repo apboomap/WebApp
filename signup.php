@@ -31,28 +31,6 @@ $conn->close();
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <script src="javascript/validateregister.js"></script>
 
-  
-
-    <!-- process step bar -->
-    <!-- <br><div class="containerbar">
-        <ul class="progressbarbar">
-            <li class="active">ลงทะเบียน</li>
-            <li>ตรวจสอบ</li>
-            <li>ยืนยันข้อมูล</li>
-            <li>ชำระเงิน</li>
-            <li>เสร็จสิ้น</li>
-        </ul>
-    </div> -->
-    <center><h4 style="color:green">ความคืบหน้าในการสมัคร</h4></center>
-    <center><div class="container">
-        <div class="progress" style="width:50%;background:gray;height:20px;margin-top:10px;">
-            <div class="progress-bar" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width:20%;background:green">
-            20%
-            </div>
-        </div>
-    </div>
-    </center>
-
     <div class="container" style="background-color: white;margin-bottom:30px;">
         <div class="col-lg-12">
             <div class="row">
@@ -60,7 +38,7 @@ $conn->close();
                     <div class="col-sm-12">
 
                         <!-- form1 -->
-                        <br><center><h1 class="">1.กรอกข้อมูลผู้เข้าแข่งขัน</h1></center><br>
+                        <br><center><h1 class="">1.กรอกข้อมูลส่วนตัว</h1></center><br>
 
                         <!-- firstname and lastname -->
                         <div class="row">
@@ -800,170 +778,17 @@ $conn->close();
                                     </select>
                                 </div>
                             </div>
-                        </div>
-
-                        <!-- form4 -->
-                        <br><center><h1 class="">4.กรอกข้อมูลการแข่งขัน</h1></center><br>
-
-                        <!-- disease  -->
-                        <div class="row">
-                            <label>ประเภท<font color="red"> *</font></label>
-                            <div class="col-sm-12 form-group">
-                                <div class="col-sm-12">
-                                    <?php 
-                                        if(!empty($row['flag_full'])){
-                                    ?>
-                                    <div class="col-sm-4">
-                                        <label class="radio-inline">
-                                            <input type="radio"  name="flag" id="fullmarathonRadio" value="1" required onchange="this.setCustomValidity(validity.valueMissing ?  : '');">Fullmarathon
-                                        </label>
-                                    </div>
-                                    <?php 
-                                        }
-                                        if(!empty($row['flag_half'])){
-                                    ?>
-                                    <div class="col-sm-4">
-                                        <label class="radio-inline">
-                                            <input type="radio" name="flag" id="halfmarathonRadio" value="2">Halfmarathon
-                                        </label>
-                                    </div>
-                                    <?php 
-                                        }
-                                        if(!empty($row['flag_mini'])){
-                                    ?>
-                                    <div class="col-sm-4">
-                                        <label class="radio-inline">
-                                            <input type="radio" name="flag"  id="minimarathonRadio" value="3">Minimarathon
-                                        </label>
-                                    </div>
-                                    <?php 
-                                        }
-                                        if(!empty($row['flag_fun'])){
-                                    ?>
-                                    <div class="col-sm-4">
-                                        <label class="radio-inline">
-                                            <input type="radio" name="flag" id="funrunRadio" value="4">Funrun
-                                        </label>
-                                    </div>
-                                    <?php } ?>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- type_shirt -->
-                        <?php if( $row['shirtimg1'] != "none" or $row['shirtimg2'] != "none" ){ ?>
-                        <div class="form-group">
-                            <label>รูปแบบเสื้อ<font color="red"> *</font></label>
-                            <div class="col-sm-12">
-                                <div class="row">
-                                    <?php if( $row['shirtimg1'] != "none"){?>
-                                    <div class="col-sm-6">
-                                        <label class="radio-inline">
-                                            <input type="radio" id="longRadio" name="type_shirt" value="1" required onchange="this.setCustomValidity(validity.valueMissing ?  : '');">แบบที่ 1
-                                        </label> 
-                                        <img id="myImg" alt="แบบที่ 1"src="<?=$row['shirtimg1']?>" width="300" height="200">
-                                    </div>
-                                    <?php 
-                                        }
-                                        if( $row['shirtimg2'] != "none"){
-                                    ?>
-                                    <div class="col-sm-6">  
-                                        <label class="radio-inline">
-                                            <input type="radio"  id="shortRadio" name="type_shirt" value="2">แบบที่ 2
-                                        </label>
-                                        <!-- <img id="myImg" src="picture/longarm.jpg" alt="" width="300" height="200"> -->
-                                        <img id="myImg1" alt="แบบที่ 2" src="<?=$row['shirtimg2']?>" width="300" height="200">
-                                    </div>
-                                    <?php } ?> 
-                                </div>
-                            </div>
-                            <center><font color="red"> * คลิ๊กที่รูปเพื่อดูรูปขนาดใหญ่</font></center>
-                        </div>   
-
-                        <!-- disease and allergic_drug -->
-                        <div class="row">
-                            <label>ไซต์เสื้อ<font color="red"> *</font></label>
-                            <div class="col-sm-12 form-group">
-                                <div class="col-sm-12">
-                                    <div class="col-sm-4">
-                                        <label class="radio-inline">
-                                            <input type="radio" id="SSRadio" name="size" value="1" required onchange="this.setCustomValidity(validity.valueMissing ?  : '');">SS
-                                        </label>
-                                    </div>
-                                    <div class="col-sm-4">  
-                                        <label class="radio-inline">
-                                            <input type="radio"  id="SRadio" name="size" value="2">S
-                                        </label>
-                                    </div>
-                                    <div class="col-sm-4">  
-                                        <label class="radio-inline">
-                                            <input type="radio"  id="MRadio" name="size" value="3">M
-                                        </label>
-                                    </div>
-                                    <div class="col-sm-4">  
-                                        <label class="radio-inline">
-                                            <input type="radio"  id="LRadio" name="size" value="4">L
-                                        </label>
-                                    </div>
-                                    <div class="col-sm-4">  
-                                        <label class="radio-inline">
-                                            <input type="radio"  id="XLRadio" name="size" value="5">XL
-                                        </label>
-                                    </div>
-                                    <div class="col-sm-4">  
-                                        <label class="radio-inline">
-                                            <input type="radio"  id="XXLRadio" name="size" value="6">XXL
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>                
-                        <?php } ?>
-
-                        <!-- disease and allergic_drug -->
-                        <div class="row">
-                            <label>ท่านสะดวกรับเสื้อด้วยวิธีไหน<font color="red"> *</font></label>
-                            <div class="col-sm-12 form-group">
-                                <div class="col-sm-12">
-                                    <label class="radio-inline">
-                                        <input type="radio" id="longRadio" name="getting" value="0" required onchange="this.setCustomValidity(validity.valueMissing ?  : '');">รับด้วยตัวเองที่สถานที่จัดงาน
-                                    </label>
-                                </div>
-                                <div class="col-sm-12">  
-                                    <label class="radio-inline">
-                                        <input type="radio"  id="shortRadio"  name="getting" value="1">ส่งไปรษณีย์ (ค่าส่ง 100 บาท)
-                                    </label>
-                                </div>
-                            </div>
-                        </div>					
+                        </div>		
                     </div>
                     <!-- /.form-group-button-->
                     <div class="form-group" style="margin-bottom:30px;">
                             <div class="col-sm-6 col-sm-offset-3">
-                                <br><br><a href="register2.5.1.php"><button type="submit" class="btn">บันทึก</button></a>
+                                <br><br><a href="homepage.php"><button type="submit" class="btn">บันทึก</button></a>
                             </div>
                     </div>
                 </form> 
             </div>
         </div>
     </div>
-
-    <!-- The-Modal-img1 -->
-    <div id="myModal" class="modal">
-        <span class="close">&times;</span>
-        <img class="modal-content" id="img01">
-        <div id="caption"></div>
-    </div>
-
-    <!-- The-Modal-img2 -->
-    <div id="myModal" class="modal">
-        <span class="close">&times;</span>
-        <img class="modal-content" id="img02">
-        <div id="caption"></div>
-    </div>
-
-    <!--script-modal-->
-    <script src="javascript/imgModal.js"></script>
-    <script src="javascript/java.js"></script> 
 
     <?php require_once("footer.php"); ?>      

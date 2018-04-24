@@ -60,9 +60,9 @@
       }
       $go = "www.google.com";
       $output .= '
-       <img src='.$row["img"].' style="width:100%; height:70ch"  class="center" />
+       <img src='.$row["img"].' style="width:100%; height:50ch"  class="center" />
        <form name="test" method="post" action="registerdetail.php?id='.$row["event_id"].'">
-            <button id="myButton"  type="submit" class="btn" >REGISTRATION IS NOW OPEN</button>
+            <button id="myButton"  type="submit" class="btn" >REGISTRATION NOW</button>
         </form>
       </div>
       ';
@@ -79,9 +79,9 @@
 
 <?php require_once("header.php"); ?>
     <!-- slide -->
-
+    <link href="css/css_new.css" rel="stylesheet">
     
-    <div class="container bg-2">
+    <div class="container">
         <div id="dynamic_slide_show" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
             <?php echo make_slide_indicators($connect); ?>
@@ -113,4 +113,4 @@
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   
- 
+<?php require_once("footer.php"); ?>

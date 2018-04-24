@@ -13,26 +13,31 @@
     /* Style the button and place it in the middle of the container/image */
     .container .btn1 {
     position: absolute;
-    top: 81%;
+    top: 87%;
     left: 76%;
     transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
-    background-color: rgb(92, 1, 1);
+    background-color: rgb(47, 61, 255);
     color: white;
     font-size: 16px;
     padding: 12px 24px;
     border: none;
     cursor: pointer;
     border-radius: 5px;
+    }
+
+    .container .btn1:hover {
+      background-color: #47cf73;
+      color: rgb(47, 61, 255);
     }
 
     .container .btnn {
     position: absolute;
-    top: 103%;
+    top: 98%;
     left: 50%;
     transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
-    background-color: rgb(92, 1, 1);
+    background-color: rgb(47, 61, 255);
     color: white;
     font-size: 16px;
     padding: 12px 24px;
@@ -41,28 +46,38 @@
     border-radius: 5px;
     }
 
+    .container .btnn:hover {
+      background-color: #47cf73;
+      color: rgb(47, 61, 255);
+    }
+
     .container .btnn1 {
         position: absolute;
-        top: 97%;
+        top: 96%;
         left: 50%;
         transform: translate(-50%, -50%);
         -ms-transform: translate(-50%, -50%);
-        background-color: rgb(92, 1, 1);
+        background-color: rgb(47, 61, 255);
         color: white;
         font-size: 16px;
         padding: 12px 24px;
         border: none;
         cursor: pointer;
         border-radius: 5px;
+    }
+
+    .container .btnn1:hover {
+      background-color: #47cf73;
+      color: rgb(47, 61, 255);
     }
 
     .container .btnn2 {
         position: absolute;
-        top: 98%;
+        top: 94%;
         left: 50%;
         transform: translate(-50%, -50%);
         -ms-transform: translate(-50%, -50%);
-        background-color: rgb(92, 1, 1);
+        background-color: rgb(47, 61, 255);
         color: white;
         font-size: 16px;
         padding: 12px 24px;
@@ -71,16 +86,21 @@
         border-radius: 5px;
     }
 
-    .container .btn:hover {
-    background-color: black;
+    .container .btnn2:hover {
+      background-color: #47cf73;
+      color: rgb(47, 61, 255);
     }
 
+    .container .carousel-inner{
+      padding-top: 20px;
+    }
     
+
     body{ margin-top:20px; }
     /* Style the tab */
     .tab1 {
         overflow: hidden;
-        border: 1px solid #ccc;
+        border: 1px solid rgb(233, 11, 11);
         background-color: #f1f1f1;
     }
 
@@ -98,7 +118,7 @@
 
     /* Change background color of buttons on hover */
     .tab button:hover {
-        background-color: #ddd;
+        background-color: rgb(255, 255, 255);
     }
 
     /* Create an active/current tablink class */
@@ -109,9 +129,11 @@
     /* Style the tab content */
     .tabcontent {
         display: none;
-        padding: 6px 12px;
-        border: 1px solid #ccc;
+        padding: 60px 12px;
+        padding-left: 30px;
+        border: 1px solid #efefef;
         border-top: none;
+        background-color: rgb(255, 255, 255);
     }
 
     /*new bar 8-4-61*/
@@ -122,13 +144,14 @@
       
       .topnav {
         overflow: hidden;
-        background-color: rgb(39, 17, 236);
+        background-color: rgb(81, 62, 248);
       }
       
+
       .topnav a {
         float: left;
         display: block;
-        color: #f2f2f2;
+        color: #000000;
         text-align: center;
         padding: 14px 16px;
         text-decoration: none;
@@ -136,13 +159,13 @@
       }
       
       .topnav a:hover {
-        background-color: #ddd;
+        background-color: #47cf73;
         color: black;
       }
       
       .active {
-        background-color: rgb(247, 132, 247);
-        color: white;
+        background-color: #efefef;
+        
       }
       
       .topnav .icon {
