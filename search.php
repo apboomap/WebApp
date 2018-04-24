@@ -1,5 +1,8 @@
 <!DOCTYPE html>
 <html>
+<?php 
+$event_id = $_GET['id'];s
+?>
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,167 +13,267 @@
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <script src="javascript/search.js"></script>
     
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
     <link rel="stylesheet" type="text/css" media="screen" href="search.css" />
+
     <style>
-        table {
-            border-collapse: collapse;
-            width: 100%;
-        }
+    #show1{
+        display:none;
+    }
 
-        th, td {
-            text-align: left;
-            padding: 8px;
-        }
+    #show2{
+        display:none;
+    }
+    #show3{
+        display:none;
+    }
 
-        tr:nth-child(even){background-color: #f2f2f2}
-
-        th {
-            background-color: #9b41db;
-            color: white;
-        }
     </style>
-    
+
 </head>
-<body>
-    
+
 <?php require_once("header.php"); ?>
 
-<div class="container">
-	<div class="row">
-		<center> <h2>ค้นหานักวิ่ง</h2> </center>
-           <div id="custom-search-input">
-               <center>
-                            <div class="input-group col-md-6">
-                                <input type="text" class="  search-query form-control" placeholder="ค้นหาจากชื่อ-นามสกุล" size="100"/>
-                                <span class="input-group-btn">
-                                    <button class="btn btn-danger" type="button">
-                                        <span class=" glyphicon glyphicon-search"></span>
-                                    </button>
-                                </span>
-                            </div>
-                
-                            <br>
 
-                            <div class="input-group col-md-6">
-                                <input type="text" class="  search-query form-control" placeholder="ค้นหาจากเลขที่ใบสมัคร" />
-                                <span class="input-group-btn">
-                                    <button class="btn btn-danger" type="button">
-                                        <span class=" glyphicon glyphicon-search"></span>
-                                    </button>
-                                </span>
-                            </div>
-                            <br>
-
-                            <div class="input-group col-md-6">
-                                <input type="text" class="  search-query form-control" placeholder="ค้นหาจากเลขบัตรประชาชนหรือพาสปอร์ต" />
-                                <span class="input-group-btn">
-                                    <button class="btn btn-danger" type="button">
-                                        <span class=" glyphicon glyphicon-search"></span>
-                                    </button>
-                                </span>
-                            </div>
-                </center>
-            </div>
-	</div>
-</div>
+<body>
 <br>
 
-<!--dropdown-->
+<center>
+    <div class="w3-container">
+        <div class="w3-row">
+                <center> <h2>ค้นหานักวิ่ง</h2> </center>   <br>
+                        <div id="custom-search-input">
+                                <div class="dropdown btn-group">
+                                    <button id="name1" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" placeholder="ประเภทการค้นหา">
+                                        ประเภทการค้นหา 
+                                        <span class="caret"></span>
+                                    </button>
 
-<div class="container">
-    <center>
-	<div class="row">
-		<!-- Our Special dropdown has class show-on-hover -->
-        <div class="btn-group show-on-hover">
-          <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-            เลือกประเภทการวิ่ง <span class="caret"></span>
-          </button>
-            <ul class="dropdown-menu" role="menu">
-                <li><a href="#">All</a></li>
-                <li><a href="#">Full Marathon</a></li>
-                <li><a href="#">Half Marathon</a></li>
-                <li><a href="#">Mini Marathom</a></li>
-                <li><a href="#">Fun run</a></li>
-            </ul>
+                                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+                                    
+                                        <li id="press1"><a href="#"> ค้นหาจากชื่อ-นามสกุล </a></li>
+                                        <li id="press2"><a href="#"> ค้นหาจากเลขบัตรประชาชนหรือพาสปอร์ต </a></li> 
+                                        <li id="press3"><a href="#"> ค้นหาจากเลขที่ใบสมัคร </a></li>
+                                                                                                       
+                                    </ul>
+                                </div>
+                        </div>
+
+                        <br>
+                        <p> <h4 id="noti"> โปรดเลือกวิธีการค้นหา </h4></p>
+                                                               
+                </div>
         </div>
+</center>
+
+<center>
+    <div class="w3-container">
+        <div class="w3-row">
+                                <div id="show1">
+                                <form action="search.php?search=first" method="post">
+                                    <div class="input-group col-md-4">
+                                            <input type="text" name ="name" class="search-query form-control" placeholder="ค้นหาจากชื่อ-นามสกุล" />
+                                                <span class="input-group-btn">
+                                                    <button class="btn btn-primary" type="submit">
+                                                        <span class=" glyphicon glyphicon-search" style="color:rgb(255,255,255)"></span>
+                                                    </button>
+                                                </span>   
+                                                                       
+                                        </div>
+                                        </form> 
+                                </div>
+
+                                <div id="show2">
+                                    <form action="search.php?search=essn" method="post">
+                                        <div class="input-group col-md-4">
+                                        
+                                            <input type="text" name ="name" class="search-query form-control" placeholder="ค้นหาจากเลขบัตรประชาชนหรือพาสปอร์ต" />
+                                            <span class="input-group-btn">
+                                                <button class="btn btn-primary" type="submit">
+                                                    <span class=" glyphicon glyphicon-search" style="color:rgb(255,255,255)"></span>
+                                                </button>
+                                            </span>
+                                        </div>    
+                                    </form> 
+                                </div> 
+
+                                <div id="show3">
+                                    <form action="search.php?search=num" method="post">
+                                        <div class="input-group col-md-4">
+                                            <input type="text" name ="name" class="search-query form-control" placeholder="ค้นหาจากเลขที่ใบสมัคร" />
+                                            <span class="input-group-btn">
+                                                <button class="btn btn-primary" type="submit">
+                                                    <span class=" glyphicon glyphicon-search" style="color:rgb(255,255,255)"></span>
+                                                </button>
+                                            </span>
+                                        </div>
+                                    </form>
+                                <div>                    
+            </div>
+        </div>
+</center>
+
+<br>
+<br>
+
+<center>
+    <div class="w3-container">
+        <div class="w3-row">
+            <div class="dropdown btn-group">
+                <button  id="name2" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                    เลือกประเภทการวิ่ง 
+                    <span class="caret"></span>
+                </button>
+                
+                    <ul class="dropdown-menu" role="menu">                       
+                        <li id="type1"><a href="search.php?type=All">All</a></li>
+                        <li id="type2"><a href="search.php?type=Full">Full Marathon</a></li>
+                        <li id="type3"><a href="search.php?type=Half">Half Marathon</a></li>
+                        <li id="type4"><a href="search.php?type=Mini">Mini Marathom</a></li>
+                        <li id="type5"><a href="search.php?type=Fun">Fun run</a></li>                       
+                    </ul>   
+            </div>   
+
+            <button href="" type="button" class="w3-btn w3-ripple w3-round-xlarge w3-border w3-red">
+                <a href="#" class="w3-text-white"> สมัครเลย </a>               
+            </button>  
+
+        </div> 
     </div>
 </center>
-</div>
 
-<!--table-->
-<div class="container">
-  <h3><p>ผลลัพธ์</p></h3>                                                                                   
-  <div class="table-responsive">          
-  <table class="table">
-    <thead>
-      <tr>
-        <th>#</th>
-        <th>ชื่อ</th>
-        <th>นามสกุล</th>
-        <th>อายุ</th>
-        <th>สัญชาติ</th>
-        <th>ประเภทการวิ่ง</th>
-        <th>Waiver</th>
-        
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>1</td>
-        <td>AAA</td>
-        <td>BBB</td>
-        <td>35</td>
-        <td>TH</td>
-        <td>Mini marathon</td>
-        <td><a href="#"><span class="glyphicon glyphicon-list-alt"></span></a></td>
-      </tr>
-
-      <tr>
-        <td>2</td>
-        <td>XXX</td>
-        <td>YYY</td>
-        <td>24</td>
-        <td>TH</td>
-        <td>Half Marathon</td>
-        <td><a href="#"><span class="glyphicon glyphicon-list-alt"></span></a></td>
-      </tr>
-
-      <tr>
-        <td>3</td>
-        <td>ABC</td>
-        <td>XYZ</td>
-        <td>22</td>
-        <td>TH</td>
-        <td>Full Marathon</td>
-        <td><a href="#"><span class="glyphicon glyphicon-list-alt"></span></a></td>
-      </tr>
-    </tbody>
-  </table>
-  </div>
-</div>
 <br>
 
-<!--Pagination-->
-<center>
-<nav aria-label="Page navigation example">
-  <ul class="pagination">
-    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-    <li class="page-item"><a class="page-link" href="#">1</a></li>
-    <li class="page-item"><a class="page-link" href="#">2</a></li>
-    <li class="page-item"><a class="page-link" href="#">3</a></li>
-    <li class="page-item"><a class="page-link" href="#">4</a></li>
-    <li class="page-item"><a class="page-link" href="#">5</a></li>
-    <li class="page-item"><a class="page-link" href="#">6</a></li>
-    <li class="page-item"><a class="page-link" href="#">7</a></li>
-    <li class="page-item"><a class="page-link" href="#">8</a></li>
-    <li class="page-item"><a class="page-link" href="#">Next</a></li>
-  </ul>
-</nav>
-</center>
+<!--table-->
+<div class="w3-container">
+    <center><h3><p>ผลลัพธ์</p></h3></center>  <br>                                                                                        
+                <div class="w3-responsive">
+                    <div class="w3-row">                       
+                        <div class="col-md-8 col-md-offset-2">
+                            <table class="w3-table-all w3-border w3-centered w3-hoverable w3-card-4">
+                                <thead>
+                                    <tr class="w3-blue">
+                                        <th>ชื่อ</th>
+                                        <th>นามสกุล</th>
+                                        <th>อายุ</th>
+                                        <th>สัญชาติ</th>
+                                        <th>ประเภทการวิ่ง</th>
+                                        <th>Waiver</th>      
+                                    </tr>
+                                </thead>
+                            </table>
+                    </div>
+                    <div class="col-md-8 col-md-offset-2 " style="height:300px; overflow:scroll;">
+                            <table class="w3-table-all w3-border w3-centered w3-hoverable w3-card-4">
+                            <?php
+                                    $servername = "localhost";
+                                    $username = "root";
+                                    $password = "";
+                                    $dbname = "marathon";
+                                    $conn = new mysqli($servername, $username, $password,$dbname);
+                                    mysqli_set_charset($conn, "utf8");
+                                    
+                                    // Check connection
+                                    if ($conn->connect_error) {
+                                        die("Connection failed: " . $conn->connect_error);
+                                    } 
+                                    
+                                    if(empty($_GET['search'])){
+                                        if(empty($_GET['type']) or $_GET['type'] == "All" ){
+                                        $sql = "SELECT runners.frist_name, runners.last_name, runners.brith_date, runners.nationality, runners_bills.flag_full , runners_bills.flag_half , runners_bills.flag_mini , runners_bills.flag_fun
+                                                FROM runners, runners_bills , bills
+                                                WHERE bills.event_id = $event_id AND bills.flag_success = 1 AND bills.bill_id = runners_bills.bill_id AND runners_bills.run_id = runners.run_id
+                                                ORDER by runners.frist_name ASC";
+                                        }else if($_GET['type'] == "Full"){
+                                            $sql = "SELECT runners.frist_name, runners.last_name, runners.brith_date, runners.nationality, runners_bills.flag_full , runners_bills.flag_half , runners_bills.flag_mini , runners_bills.flag_fun
+                                            FROM runners, runners_bills , bills
+                                            WHERE bills.event_id = $event_id AND bills.flag_success = 1 AND bills.bill_id = runners_bills.bill_id AND runners_bills.run_id = runners.run_id  AND runners_bills.flag_full = 1
+                                            ORDER by runners.frist_name ASC";
+                                        }else if($_GET['type'] == "Half"){
+                                            $sql = "SELECT runners.frist_name, runners.last_name, runners.brith_date, runners.nationality, runners_bills.flag_full , runners_bills.flag_half , runners_bills.flag_mini , runners_bills.flag_fun
+                                            FROM runners, runners_bills , bills
+                                            WHERE bills.event_id = $event_id AND bills.flag_success = 1 AND bills.bill_id = runners_bills.bill_id AND runners_bills.run_id = runners.run_id AND runners_bills.flag_half = 1
+                                            ORDER by runners.frist_name ASC";
+                                        }else if($_GET['type'] == "Mini"){
+                                            $sql = "SELECT runners.frist_name, runners.last_name, runners.brith_date, runners.nationality, runners_bills.flag_full , runners_bills.flag_half , runners_bills.flag_mini , runners_bills.flag_fun
+                                            FROM runners, runners_bills , bills
+                                            WHERE bills.event_id = $event_id AND bills.flag_success = 1 AND bills.bill_id = runners_bills.bill_id AND runners_bills.run_id = runners.run_id AND runners_bills.flag_mini = 1
+                                            ORDER by runners.frist_name ASC";
+                                        }else if($_GET['type'] == "Fun"){
+                                            $sql = "SELECT runners.frist_name, runners.last_name, runners.brith_date, runners.nationality, runners_bills.flag_full , runners_bills.flag_half , runners_bills.flag_mini , runners_bills.flag_fun
+                                            FROM runners, runners_bills , bills
+                                            WHERE bills.event_id = $event_id AND bills.flag_success = 1 AND bills.bill_id = runners_bills.bill_id AND runners_bills.run_id = runners.run_id AND runners_bills.flag_fun = 1
+                                            ORDER by runners.frist_name ASC";
+                                        }
+                                    }else{
+                                        $fname = "'".$_POST['name']."%'"; 
+                                        if($_GET['search'] == "first"){
+                                            $sql = "SELECT runners.frist_name, runners.last_name, runners.brith_date, runners.nationality, runners_bills.flag_full , runners_bills.flag_half , runners_bills.flag_mini , runners_bills.flag_fun
+                                            FROM runners, runners_bills , bills
+                                            WHERE runners.frist_name LIKE $fname AND bills.event_id = $event_id AND bills.bill_id = runners_bills.bill_id AND runners_bills.run_id = runners.run_id
+                                            ORDER by runners.frist_name ASC";
+                                        }else if($_GET['search'] == "essn"){
+                                            $sql = "SELECT runners.frist_name, runners.last_name, runners.brith_date, runners.nationality, runners_bills.flag_full , runners_bills.flag_half , runners_bills.flag_mini , runners_bills.flag_fun
+                                            FROM runners, runners_bills , bills
+                                            WHERE runners.essn LIKE $fname AND bills.event_id = $event_id AND bills.bill_id = runners_bills.bill_id AND runners_bills.run_id = runners.run_id
+                                            ORDER by runners.frist_name ASC";
+                                        }
+                                    }
+                                    $result = $conn->query($sql);
 
+                                    $conn->close();
+                                ?> 
+                                <?php 
+                                if(!empty($result)){
+                                    while($row = $result->fetch_assoc()): 
+                                        $date = explode('-', $row['brith_date']);
+                                        $age = date("Y") - $date[0];
+
+                                        $text = "";
+                                        if(!empty($row["flag_full"])){
+                                        $text = "Full Marathon";
+                                        } else if(!empty($row["flag_half"])){
+                                        $text = "Half Marathon";
+                                        }else if(!empty($row["flag_mini"])){
+                                        $text = "Mini Marathon";
+                                        }else if(!empty($row["flag_fun"])){
+                                        $text = "Funrun Marathon";
+                                        }
+
+                                ?>    
+                                    <tbody>
+                                        <tr>
+                            
+                                            <td><?=$row['frist_name']?></td>
+                                            <td><?=$row['last_name']?></td>
+                                            <td><?=$age?></td>
+                                            <td><?=$row['nationality']?></td>
+                                            <td><?=$text?></td>
+                                            <td><a href="#"><span class="glyphicon glyphicon-list-alt"></span></a></td>
+                                        </tr>
+                                <?php endwhile; ?> 
+                                <?php
+                                    }
+                                ?>
+                                    </tbody>
+                            </table>
+                        </div>
+                    </div>  
+                </div>      
+</div>
+
+<br>
 </body>
 </html>
+
+<?php require_once("footer.php"); ?>

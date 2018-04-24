@@ -52,7 +52,7 @@ $conn->close();
         <div class="col-md-3 col-sm-6 col-xs-6">
             <ul class="nav setup-panel">
                 <li class="">
-                    <a href="#step-3"><button class="btn list-group-item-heading">รายชื่อนักวิ่ง</button></a>
+                    <a href="search.php?id=<?=$event_id?>"><button <button onclick="window.location.href='srearch.php?id=<?=$event_id?>'" class="btn list-group-item-heading">รายชื่อนักวิ่ง</button></a>
                 </li>
             </ul>        
         </div>
@@ -76,6 +76,13 @@ $conn->close();
                     <a href="#step-4"><button class="btn3 list-group-item-heading">รายละเอียด</button></a>
                 </li>
             </ul>       
+        </div>
+        <div class="col-md-3 col-sm-6 col-xs-6">
+            <ul class="nav setup-panel">
+                <li class="">
+                    <a href="statusPayment.php?id=<?=$event_id?>"><button <button onclick="window.location.href='statusPayment.php?id=<?=$event_id?>'" class="btn list-group-item-heading">สถานะการชำระเงิน</button></a>
+                </li>
+            </ul>        
         </div>
 	</div>
 

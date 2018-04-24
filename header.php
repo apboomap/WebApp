@@ -46,7 +46,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<ul class="nav navbar-nav">
 						<li class=""><a href="homepage.php" style="color:white;"><span data-hover="Home">Home</span></a></li>
 						<li><a href="#" style="color:white;"><span data-hover="Store">Store</span></a></li>
-						<li><a href="eventAll.php" style="color:white;"><span data-hover="Events All">Events All</span></a></li>
+						<li><a href="eventAll.php?year=2018" style="color:white;"><span dasta-hover="Events All">Events All</span></a></li>
 						<li><a href="profile.php" style="color:white;"><span data-hover="Profile">Profile</span></a></li>
 						<li><a href="#" style="color:white;"><span data-hover="Video">Video</span></a></li>
 						<li><a href="#" style="color:white;"><span data-hover="Picture">Picture</span></a></li>
