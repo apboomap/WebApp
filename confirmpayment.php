@@ -4,9 +4,14 @@ $sum = $_GET['pay']
 
 <!doctype html>
 <?php require_once("header.php"); ?>
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> -->
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+<link href="/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
+
+<link href="css/confirmpayment.css" rel="stylesheet">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -15,10 +20,10 @@ $sum = $_GET['pay']
 <div class="row">
     <form>
         <br>
-        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" style="margin-bottom:20px">
             <div class="panel panel-info">
                 <div class="panel-heading">
-                    <h1><center><strong>ยืนยันการชำระเงิน</strong></center></h1>
+                    <h1><center><strong>ยืนยันการโอนเงิน</strong></center></h1>
                 </div>
                 <div class="panel-body">
                 <div class="row">
@@ -27,32 +32,75 @@ $sum = $_GET['pay']
                         <tbody>
                             <tr>
                                 <td>Tracking Number : </td>
-                                <td>YYY-1234</td>
+                                <td>
+                                    <div class="col-xs-6 form-group">
+                                        <input type="text" name="" placeholder="" class="form-control">
+                                    </div>
+                                </td>
                             </tr>
-                            <tr>
+                            <!-- <tr>
                                 <td>วันที่สมัคร : </td>
                                 <td>DD/MM/YYYY</td>
-                            </tr>
-                            <tr>
+                            </tr> -->
+                            <!-- <tr>
                                 <td>Time :</td>
                                 <td>HH : MM : SS</td>
-                            </tr>
+                            </tr> -->
                             <tr>
                                 <td>จำนวนเงินรวม :</td>
-                                <td>XXX.XX บาท</td>
+                                <td>
+                                    <div class="col-xs-6 form-group">
+                                        <input type="text" name="" placeholder="" class="form-control">
+                                    </div>
+                                </td>
                             </tr>
                             <tr>
-                                <td>ข้อมูลธนาคารสำหรับการโอน</td>
-                                <td>ชื่อธนาคาร : <br><br> ประเภทบัญชี : <br><br> หมายเลขบัญชี: <br><br> ชื่อบัญชี : </td>
+                                <!-- <td>ข้อมูลธนาคารสำหรับการโอน</td>
+                                <td>ชื่อธนาคาร : <br><br> ประเภทบัญชี : <br><br> หมายเลขบัญชี: <br><br> ชื่อบัญชี : </td> -->
+                                <td>ชื่อธนาคารของคุณ : </td>
+                                <td>
+                                    <div class="col-xs-6 form-group">
+                                        <input type="text" name="" placeholder="" class="form-control">
+                                    </div>
+                                </td>
                             </tr>
                             <tr>
-                                <td>จำนวนเงินที่โอน/ฝาก *</td>
-                                <td> XXXX.XXX บาท </td>
+                                <td> ประเภทบัญชีของคุณ : </td>
+                                <td>
+                                    <div class="col-xs-6 form-group">
+                                        <input type="text" name="" placeholder="" class="form-control">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td> หมายเลขบัญชีของคุณ : </td>
+                                <td>
+                                    <div class="col-xs-6 form-group">
+                                        <input type="text" name="" placeholder="" class="form-control">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td> ชื่อบัญชีของคุณ : </td>
+                                <td>
+                                    <div class="col-xs-6 form-group">
+                                        <input type="text" name="" placeholder="" class="form-control">
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>จำนวนเงินที่โอน/ฝาก</td>
+                                <!-- <td> XXXX.XXX บาท </td> -->
+                                <td>
+                                    <div class="col-xs-6 form-group">
+                                        <input type="text" name="" placeholder="" class="form-control">
+                                    </div>
+                                </td>
                             </tr>
                             <tr>
                                 <td>วันที่ บนใบโอนเงิน/ฝากเงิน*</td>
                                 <td>
-                                    <div class="col-sm-9">
+                                    <!-- <div class="col-sm-9">
                                         <select name="birthDate" class="form-control">
                                             <option value="">--DD--</option> 
                                             <option>1</option>
@@ -209,13 +257,21 @@ $sum = $_GET['pay']
                                             <option value="1919">2462</option>
                                             <option value="1918">2461</option>
                                         </select>   
-                                    </div><br><br> 
+                                    </div><br><br>  -->
+                                    <div class="form-group">
+                
+                                        <div class="input-group date form_date col-xs-6" data-date="" data-date-format="dd MM yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+                                            <input class="form-control" size="16" type="text" value="" readonly>
+                                            <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                                        </div>
+                                        <input type="hidden" id="dtp_input2" value="" /><br/>
+                                    </div>
                                 </td>
                             </tr>
                             <tr>
                                 <td>เวลา บนใบโอนเงิน/ฝากเงิน*</td>
                                 <td>
-                                    <div class="col-sm-9">
+                                    <!-- <div class="col-sm-9">
                                         <select name="birthDate" class="form-control">
                                             <option value="">--HH--</option> 
                                             <option>1</option>
@@ -308,6 +364,13 @@ $sum = $_GET['pay']
                                             <option>59</option>
                                             <option>60</option>
                                         </select>   
+                                    </div>     -->
+                                    <div class="form-group">
+                                        <div class="input-group date form_time col-xs-6" data-date="" data-date-format="hh:ii" data-link-field="dtp_input3" data-link-format="hh:ii">
+                                            <input class="form-control" size="16" type="text" value="" readonly>   
+                                            <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
+                                        </div>
+                                        <input type="hidden" id="dtp_input3" value="" /><br/>
                                     </div>    
                                 </td>
                             </tr>
@@ -327,8 +390,50 @@ $sum = $_GET['pay']
     </form>
 </div>
 
+
+
+
+<script type="text/javascript" src="javascript/jquery-1.8.3.min.js" charset="UTF-8"></script>
+<script type="text/javascript" src="javascript/bootstrap.min.js"></script>
+<script type="text/javascript" src="javascript/bootstrap-datetimepicker.js" charset="UTF-8"></script>
+<script type="text/javascript" src="javascript/locales/bootstrap-datetimepicker.fr.js" charset="UTF-8"></script>
+<script type="text/javascript">
+    $('.form_datetime').datetimepicker({
+        //language:  'fr',
+        weekStart: 1,
+        todayBtn:  1,
+		autoclose: 1,
+		todayHighlight: 1,
+		startView: 2,
+		forceParse: 0,
+        showMeridian: 1
+    });
+	$('.form_date').datetimepicker({
+        language:  'fr',
+        weekStart: 1,
+        todayBtn:  1,
+		autoclose: 1,
+		todayHighlight: 1,
+		startView: 2,
+		minView: 2,
+		forceParse: 0
+    });
+	$('.form_time').datetimepicker({
+        language:  'fr',
+        weekStart: 1,
+        todayBtn:  1,
+		autoclose: 1,
+		todayHighlight: 1,
+		startView: 1,
+		minView: 0,
+		maxView: 1,
+		forceParse: 0
+    });
+</script>
+
+
 <center>
-<button type="button" class="btn btn-warning"><a href="add/sucess.php?pay=<?=$sum?>">ส่งข้อมูล</a></button>
+<a href="add/sucess.php?pay=<?=$sum?>"><button type="button" class="btn">ส่งข้อมูล</button></a>
 </center><br>
 
 <?php require_once("footer.php"); ?>  

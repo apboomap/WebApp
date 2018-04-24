@@ -16,15 +16,19 @@
     
     /* Set black background color, white text and some padding */
     footer {
-      background-color: rgb(241, 77, 233);
+      background-color: rgb(255, 255, 255);
       color: white;
       padding: 15px;
     }
 
     /* Container needed to position the button. Adjust the width as needed */
     .container {
+    padding-top: 20px;
+    padding-left: 70px;
+    padding-right: 70px;
+    padding-bottom: 20px;
     position: relative;
-    width: 100%;
+    width: 100ch;
     }
 
     /* Make the image responsive */
@@ -33,14 +37,22 @@
     height: auto;
     }
 
+    .container .carousel-indicators{
+        bottom: 20px;
+        align-content: center;
+        
+    }
+    .container .carousel-inner{
+        padding-bottom: 50px;
+    }
     /* Style the button and place it in the middle of the container/image */
-    .container .btn {
+    .btn {
     position: absolute;
-    top: 80%;
+    top: 106%;
     left: 50%;
     transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
-    background-color: rgb(92, 1, 1);
+    background-color: rgb(47, 61, 255);
     color: white;
     font-size: 16px;
     padding: 12px 24px;
@@ -49,8 +61,9 @@
     border-radius: 5px;
     }
 
-    .container .btn:hover {
-    background-color: black;
+    .btn:hover {
+    background-color: #47cf73;
+    color: rgb(47, 61, 255);
     }
 
     .bg-1 { 
@@ -59,7 +72,7 @@
     }
 
     .bg-2 { 
-    background-color: #9400D3; /* Black Gray */
+    background-color: rgb(255, 254, 255); /* Black Gray */
     color: #fff; 
     }
 

@@ -27,7 +27,6 @@ $rowB = $resultB->fetch_assoc();
 
 <!doctype html>
 <?php require_once("header.php"); ?>
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <link href="css/acss.css" rel="stylesheet">
@@ -37,38 +36,46 @@ $rowB = $resultB->fetch_assoc();
 
 
  <!-- process step bar -->
-<div class="container">
-        <ul class="progressbar">
-            <li class="active">ลงทะเบียน</li>
-            <li class="active">ตรวจสอบ</li>
-            <li>ยืนยันข้อมูล</li>
-            <li>ชำระเงิน</li>
-            <li>เสร็จสิ้น</li>
-        </ul>
-</div>
-    <center><div class="container" >
-<?php while($row = $result->fetch_assoc()): ?>    
-
-        <header class="clearfix">
-            <div id="logo" class="col-md-4 col-xs-12">
-            <?php
-                $sqlA = "SELECT * FROM runners WHERE run_id = ".$row['run_id'];
-                $resultA = $conn->query($sqlA);
-                $rowA = $resultA->fetch_assoc();
-            ?>
-                <h3><?=$rowA["frist_name"]?></h3>
-                <a onclick ="document.getElementById('<?=$rowA["run_id"]?>').style.display='block'"><span></span></a>
+    <center><h4 style="color:green">ความคืบหน้าในการสมัคร</h4></center>
+    <center><div class="container">
+        <div class="progress" style="width:50%;background:gray;height:20px;margin-top:10px;">
+            <div class="progress-bar" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:40%;background:green">
+            40%
             </div>
-                <button type="button" class="close" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-                </button>
-        </header>
-<?php endwhile; ?> 
-        
-    </div></center>
+        </div>
+    </div>
+    </center>
+
+    <div class="container">
+        <div class="w3-bar">
+            <button class="w3-bar-item w3-btn w3-khaki w3-xlarge" onclick="openCity('London')">รายชื่อนักวิ่ง</button>
+            <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-light-blue w3-bar-item w3-xlarge">+เพิ่มเพื่อน</button>
+        </div>
+        <div id="London" class="w3-container w3-border city">
+            <br><center>
+    <?php while($row = $result->fetch_assoc()): ?>    
+
+                <header class="clearfix">
+                    <div id="logo" class="col-md-4 col-xs-12">
+                    <?php
+                        $sqlA = "SELECT * FROM runners WHERE run_id = ".$row['run_id'];
+                        $resultA = $conn->query($sqlA);
+                        $rowA = $resultA->fetch_assoc();
+                    ?>
+                        <h3><?=$rowA["frist_name"]?></h3>
+                        <a onclick ="document.getElementById('<?=$rowA["run_id"]?>').style.display='block'"><span></span></a>
+                    </div>
+                        <button type="button" class="close" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                </header>
+    <?php endwhile; ?> 
+            
+            </center>
+        </div>
+    </div>
     
     <div class="container">
-        <center><button onclick="document.getElementById('id01').style.display='block'" class="w3-btn w3-light-blue w3-round-large w3-xlarge">+เพิ่มเพื่อน</button></center><br>
         <button onclick="document.getElementById('id02').style.display='block'" class="w3-button w3-red">กรอกแบบสอบถาม</button><tab></tab>	
         <button onclick="location.href='register2.5.2.php'" class="w3-button w3-blue w3-right" >ต่อไป</button>
     </div>  
@@ -1736,4 +1743,5 @@ $rowB = $resultB->fetch_assoc();
 </div>
 
 <?php $conn->close();?>
+
 <?php require_once("footer.php"); ?>

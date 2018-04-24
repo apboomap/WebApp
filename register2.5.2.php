@@ -28,18 +28,18 @@ $rowB = $resultB->fetch_assoc();
 
 <!doctype html>
 <?php require_once("header.php"); ?>
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<link href="css/acss.css" rel="stylesheet">
+<!-- <link href="css/acss.css" rel="stylesheet"> -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="javascript/validateregister.js"></script>
 <!------ Include the above in your HEAD tag ---------->
 
 
  <!-- process step bar -->
- <div class="container">
+ <!-- <div class="container">
         <ul class="progressbar">
             <li class="active">ลงทะเบียน</li>
             <li class="active">ตรวจสอบ</li>
@@ -47,7 +47,17 @@ $rowB = $resultB->fetch_assoc();
             <li>ชำระเงิน</li>
             <li>เสร็จสิ้น</li>
         </ul>
-</div>
+</div> -->
+<center><h4 style="color:green">ความคืบหน้าในการสมัคร</h4></center>
+<center><div class="container">
+        <div class="progress" style="width:50%;background:gray;height:20px;margin-top:10px;">
+            <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width:60%;background:green">
+            60%
+            </div>
+        </div>
+    </div>
+    </center>
+
 <h4><center><strong>กรุณาตรวจสอบเเละยืนยันความถูกต้องของข้อมูลการสมัครของท่าน</strong></center></h4>
 <?php while($row = $result->fetch_assoc()): 
     $text = "";
@@ -122,7 +132,16 @@ $rowB = $resultB->fetch_assoc();
                         </tr>
                         <tr>
                           <td>ไซต์เสื้อ</td>
-                          <td><?=$row["size"]?></td>
+                          <?php 
+                             $type_size = "";
+                            if($row["size"] == '1') $type_size = "SS";
+                            else if($row["size"] == '2') $type_size = "S";
+                            else if($row["size"] == '3') $type_size = "M";
+                            else if($row["size"] == '4') $type_size = "L";
+                            else if($row["size"] == '5') $type_size = "XL";
+                            else if($row["size"] == '6') $type_size = "XXL";
+                          ?>
+                          <td><?=$type_size?></td>
                         </tr>
                         <tr>
                           <td>การรับเสื้อและหมายเลขวิ่ง</td>
