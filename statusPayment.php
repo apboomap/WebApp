@@ -70,64 +70,63 @@
 <!--table-->
 
 <div class="w3-container">
-            <div class="w3-responsive"> 
-                <div class="w3-row">                       
-                        <div class="col-md-8 col-md-offset-2">
-                            <table class="w3-table-all w3-border w3-centered w3-hoverable w3-card-4">
-                                <thead>
-                                <tr>
-                                    <th>ชื่อ</th>
-                                    <th>นามสกุล</th>
-                                    <th>สถานะ</th>  
-                                </tr>
-                                </thead>
-                            </table>
-                        </div>
-                            <div class="col-md-8 col-md-offset-2" style="height:300px; overflow:scroll;">
-                                <table class="w3-table-all w3-border w3-centered w3-hoverable w3-card-4">   
-                                <tbody>
-                                <?php
-                                    $servername = "localhost";
-                                    $username = "root";
-                                    $password = "";
-                                    $dbname = "marathon";
-                                    $conn = new mysqli($servername, $username, $password,$dbname);
-                                    mysqli_set_charset($conn, "utf8");
-                                    
-                                    // Check connection
-                                    if ($conn->connect_error) {
-                                        die("Connection failed: " . $conn->connect_error);
-                                    } 
-                                
-                                    $sql = "SELECT runners.frist_name, runners.last_name, bills.flag_success
-                                            FROM runners, runners_bills , bills
-                                            WHERE bills.event_id = $event_id AND bills.bill_id = runners_bills.bill_id AND runners_bills.run_id = runners.run_id
-                                            ORDER by runners.frist_name ASC";
-                                    $result = $conn->query($sql);
-
-                                    $conn->close();
-                                ?> 
-                                <?php while($row = $result->fetch_assoc()): ?>    
-                                <tr>
-                                    <td><?=$row['frist_name']?></td>
-                                    <td><?=$row['last_name']?></td>
-                                    <?php
-                                    if(!empty($row['flag_success'])){
-                                    ?>
-                                        <td style="color:blue">ชำระเรียบร้อย</td>
-                                    <?php
-                                    }else{
-                                    ?>    
-                                         <td style="color:red">ยังไม่ได้ชำระ</td>
-                                    <?php } ?>                   
-                                </tr>
-                                <?php endwhile; ?> 
-                                </tbody>
-                            </table>
-                        </div>
+    <div class="w3-responsive"> 
+        <div class="w3-row">                       
+                <div class="col-md-8 col-md-offset-2">
+                    <table class="w3-table-all w3-border w3-centered w3-hoverable w3-card-4">
+                        <thead>
+                        <tr>
+                            <th>ชื่อ</th>
+                            <th>นามสกุล</th>
+                            <th>สถานะ</th>  
+                        </tr>
+                        </thead>
+                    </table>
                 </div>
-            </div>  
-           
+                    <div class="col-md-8 col-md-offset-2" style="height:300px; overflow:scroll;">
+                        <table class="w3-table-all w3-border w3-centered w3-hoverable w3-card-4">   
+                        <tbody>
+                        <?php
+                            $servername = "localhost";
+                            $username = "root";
+                            $password = "";
+                            $dbname = "marathon";
+                            $conn = new mysqli($servername, $username, $password,$dbname);
+                            mysqli_set_charset($conn, "utf8");
+                            
+                            // Check connection
+                            if ($conn->connect_error) {
+                                die("Connection failed: " . $conn->connect_error);
+                            } 
+                        
+                            $sql = "SELECT runners.frist_name, runners.last_name, bills.flag_success
+                                    FROM runners, runners_bills , bills
+                                    WHERE bills.event_id = $event_id AND bills.bill_id = runners_bills.bill_id AND runners_bills.run_id = runners.run_id
+                                    ORDER by runners.frist_name ASC";
+                            $result = $conn->query($sql);
+
+                            $conn->close();
+                        ?> 
+                        <?php while($row = $result->fetch_assoc()): ?>    
+                        <tr>
+                            <td><?=$row['frist_name']?></td>
+                            <td><?=$row['last_name']?></td>
+                            <?php
+                            if(!empty($row['flag_success'])){
+                            ?>
+                                <td style="color:blue">ชำระเรียบร้อย</td>
+                            <?php
+                            }else{
+                            ?>    
+                                    <td style="color:red">ยังไม่ได้ชำระ</td>
+                            <?php } ?>                   
+                        </tr>
+                        <?php endwhile; ?> 
+                        </tbody>
+                    </table>
+                </div>
+        </div>
+    </div>       
 </div>
 <br>
 
@@ -157,76 +156,71 @@
 <!--table-->
 
 <div class="w3-container">
-            <div class="w3-responsive"> 
-                <div class="w3-row">                       
-                        <div class="col-md-8 col-md-offset-2">
-                            <table class="w3-table-all w3-border w3-centered w3-hoverable w3-card-4">
-                                <thead>
-                                <tr>
-                                    <th>ชื่อ</th>
-                                    <th>นามสกุล</th>
-                                    <th>สถานะ</th>  
-                                </tr>
-                                </thead>
-                            </table>
-                        </div>
-                            <div class="col-md-8 col-md-offset-2" style="height:300px; overflow:scroll;">
-                                <table class="w3-table-all w3-border w3-centered w3-hoverable w3-card-4">   
-                                <tbody>
-                                <?php
-                                    $servername = "localhost";
-                                    $username = "root";
-                                    $password = "";
-                                    $dbname = "marathon";
-                                    $conn = new mysqli($servername, $username, $password,$dbname);
-                                    mysqli_set_charset($conn, "utf8");
-                                    
-                                    // Check connection
-                                    if ($conn->connect_error) {
-                                        die("Connection failed: " . $conn->connect_error);
-                                    } 
-                                    $fname = "'".$_POST['name']."%'";                                      
-                                    $sql = "SELECT runners.frist_name, runners.last_name, bills.flag_success
-                                            FROM runners, runners_bills , bills
-                                            WHERE runners.frist_name LIKE $fname AND bills.event_id = $event_id AND bills.bill_id = runners_bills.bill_id AND runners_bills.run_id = runners.run_id
-                                            ORDER by runners.frist_name ASC";
-                                    $result = $conn->query($sql);
-
-                                    $conn->close();
-                                ?> 
-                                <?php while($row = $result->fetch_assoc()): ?>    
-                                <tr>
-                                    <td><?=$row['frist_name']?></td>
-                                    <td><?=$row['last_name']?></td>
-                                    <?php
-                                    if(!empty($row['flag_success'])){
-                                    ?>
-                                        <td style="color:blue">ชำระเรียบร้อย</td>
-                                    <?php
-                                    }else{
-                                    ?>    
-                                         <td style="color:red">ยังไม่ได้ชำระ</td>
-                                    <?php } ?>                   
-                                </tr>
-                                </tr>
-                                <?php endwhile; ?> 
-                                </tbody>
-                            </table>
-                        </div>
+    <div class="w3-responsive"> 
+        <div class="w3-row">                       
+                <div class="col-md-8 col-md-offset-2">
+                    <table class="w3-table-all w3-border w3-centered w3-hoverable w3-card-4">
+                        <thead>
+                        <tr>
+                            <th>ชื่อ</th>
+                            <th>นามสกุล</th>
+                            <th>สถานะ</th>  
+                        </tr>
+                        </thead>
+                    </table>
                 </div>
-            </div>  
-           
+                    <div class="col-md-8 col-md-offset-2" style="height:300px; overflow:scroll;">
+                        <table class="w3-table-all w3-border w3-centered w3-hoverable w3-card-4">   
+                        <tbody>
+                        <?php
+                            $servername = "localhost";
+                            $username = "root";
+                            $password = "";
+                            $dbname = "marathon";
+                            $conn = new mysqli($servername, $username, $password,$dbname);
+                            mysqli_set_charset($conn, "utf8");
+                            
+                            // Check connection
+                            if ($conn->connect_error) {
+                                die("Connection failed: " . $conn->connect_error);
+                            } 
+                            $fname = "'".$_POST['name']."%'";                                      
+                            $sql = "SELECT runners.frist_name, runners.last_name, bills.flag_success
+                                    FROM runners, runners_bills , bills
+                                    WHERE runners.frist_name LIKE $fname AND bills.event_id = $event_id AND bills.bill_id = runners_bills.bill_id AND runners_bills.run_id = runners.run_id
+                                    ORDER by runners.frist_name ASC";
+                            $result = $conn->query($sql);
+
+                            $conn->close();
+                        ?> 
+                        <?php while($row = $result->fetch_assoc()): ?>    
+                        <tr>
+                            <td><?=$row['frist_name']?></td>
+                            <td><?=$row['last_name']?></td>
+                            <?php
+                            if(!empty($row['flag_success'])){
+                            ?>
+                                <td style="color:blue">ชำระเรียบร้อย</td>
+                            <?php
+                            }else{
+                            ?>    
+                                    <td style="color:red">ยังไม่ได้ชำระ</td>
+                            <?php } ?>                   
+                        </tr>
+                        </tr>
+                        <?php endwhile; ?> 
+                        </tbody>
+                    </table>
+                </div>
+                
+        </div>
+    </div>              
 </div>
 
 
 <?php } ?>
+<br><center style="margin-bottom:20px"><a href="registerdetail.php?id=2"><button class="btn btn-success"> ย้อนกลับ </button></a> </center>
 </body>
 </html>
-
-<br>
-<br>
-<br>
-<br>
-
 
 <?php require_once("footer.php"); ?>

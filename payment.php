@@ -89,12 +89,12 @@ $conn->close();
 	</div>
     <div class="row setup-content" id="step-1">
         <div class="col-xs-12">
-			<div class="col-md-12 well">
-			<center>
-				<div class="imglogo">
-					<img src="picture/credit.png" alt="Logocredit">
-				</div>
-			</center>
+			<div class="col-md-12 well" style="margin-bottom:60px;">
+				<center>
+					<div class="imglogo">
+						<img src="picture/credit.png" alt="Logocredit">
+					</div>
+				</center>
 				<div class="b">
 					<!-- <img class="imglogo" src="picture/credit.png" alt="Credit Card"> -->
 					<h1 class=""><font color="red">*****ค่าบริการ 24.50 บาท*****</font></h1>
@@ -125,7 +125,7 @@ $conn->close();
     </div>
     <div class="row setup-content" id="step-2">
         <div class="col-xs-12">
-            <div class="col-md-12 well">
+            <div class="col-md-12 well" style="margin-bottom:60px;">
 				<center>
 					<div class="imglogo">
 						<img src="picture/netbank.png" alt="Logo" height="52" width="150">
@@ -163,7 +163,7 @@ $conn->close();
     </div>
     <div class="row setup-content" id="step-3">
         <div class="col-xs-12">
-            <div class="col-md-12 well">
+            <div class="col-md-12 well" style="margin-bottom:60px;">
 				<center>
 					<div class="imglogo">
 						<img src="picture/eleven7.png" alt="Logoeleven7">

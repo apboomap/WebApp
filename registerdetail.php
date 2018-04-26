@@ -49,47 +49,47 @@ $conn->close();
     </div>
 
 	<div class="row">
-        <div class="col-md-3 col-sm-6 col-xs-6">
+        <div class="">
             <ul class="nav setup-panel">
                 <li class="">
-                    <a href="search.php?id=<?=$event_id?>"><button <button onclick="window.location.href='srearch.php?id=<?=$event_id?>'" class="btn list-group-item-heading">รายชื่อนักวิ่ง</button></a>
+                <button <button onclick="window.location.href='search.php?id=<?=$event_id?>'" class="btn list-group-item-heading" style="margin-top:10px"><a href="search.php?id=<?=$event_id?>">รายชื่อนักวิ่ง</a></button>
                 </li>
             </ul>        
         </div>
-        <div class="col-md-3 col-sm-6 col-xs-6">
+        <div class="">
             <ul class="nav setup-panel">
                 <li class="active">
-                    <a href="#step-2"><button class="btn1 list-group-item-heading">แผนที่</button></a>
+                <button class="btn1 list-group-item-heading" style="margin-top:10px"><a href="#step-2">แผนที่</a></button>
                 </li>
             </ul>       
         </div>
-        <div class="col-md-3 col-sm-6 col-xs-6">
+        <div class="">
             <ul class="nav setup-panel">
                 <li class="active">
-                    <a href="#step-3"><button class="btn2 list-group-item-heading">ประเภท</button></a>
+                <button class="btn2 list-group-item-heading" style="margin-top:10px"><a href="#step-3">ประเภท</a></button>
                 </li>
             </ul>       
         </div>
-        <div class="col-md-3 col-sm-6 col-xs-6">
+        <div class="">
             <ul class="nav setup-panel">
                 <li class="active">
-                    <a href="#step-4"><button class="btn3 list-group-item-heading">รายละเอียด</button></a>
+                <button class="btn3 list-group-item-heading" style="margin-top:10px"><a href="#step-4">รายละเอียด</a></button>
                 </li>
             </ul>       
         </div>
-        <div class="col-md-3 col-sm-6 col-xs-6">
+        <div class="">
             <ul class="nav setup-panel">
                 <li class="">
-                    <a href="statusPayment.php?id=<?=$event_id?>"><button <button onclick="window.location.href='statusPayment.php?id=<?=$event_id?>'" class="btn list-group-item-heading">สถานะการชำระเงิน</button></a>
+                <button onclick="window.location.href='statusPayment.php?id=<?=$event_id?>'" class="btn4 list-group-item-heading" style="margin-top:10px"><a href="statusPayment.php?id=<?=$event_id?>">สถานะการชำระเงิน</a></button>
                 </li>
             </ul>        
         </div>
 	</div>
 
     <div class="row setup-content" id="step-2">
-        <div class="col-xs-12">
-            <div class="" style="margin-bottom:100px;border-left-width:100px;border-right-width:100px;margin-top:20px;">
-            <center>
+        <div class="col-xs-12" style="margin-top:30px">
+            <div class="" style="margin-bottom:100px;border-left-width:100px;border-right-width:100px;margin-top:20px;background-color:#FFFFFF;">
+            <center style="margin-top:40px">
                 <br><h2><u>แผนที่</u></h2><br><img src="<?=$row["map"]?>" style="width:600px; height:500px" class="img-responsive"></center>
                 
                 <form name="test" method="post" action="add/addbill.php">
@@ -100,9 +100,9 @@ $conn->close();
     </div>
 
     <div class="row setup-content" id="step-3">
-        <div class="col-xs-12">
-            <div class="" style="margin-bottom:100px;border-left-width:100px;border-right-width:100px;margin-top:20px;">
-            <center>
+        <div class="col-xs-12" style="margin-top:30px">
+            <div class="" style="margin-bottom:100px;border-left-width:100px;border-right-width:100px;margin-top:20px;background-color:#FFFFFF;">
+            <center style="margin-top:40px">
                 <?php
                     $text = file($row["generation_competing"]);     
                     foreach($text as $index=>$value){
@@ -118,10 +118,10 @@ $conn->close();
     </div>
 
 
-    <div class="setup-content" id="step-4">
-        <div class="col-xs-12">
-			<div class=" active" style="margin-bottom:100px;border-left-width:100px;border-right-width:100px;margin-top:20px;">
-            <center>
+    <div class="row setup-content" id="step-4">
+        <div class="col-xs-12" style="margin-top:30px"> 
+			<div class="active" style="margin-bottom:100px;border-left-width:100px;border-right-width:100px;margin-top:20px;background-color:#FFFFFF;">
+            <center style="margin-top:40px">
                 <br><h2><u>กำหนดการ</u></h2><br>
                 <img src="<?=$row["img"]?>" style="width:400px; height:200px" class="img-responsive">
                 <h2>ค่าธรรมเนียม</h2><br>

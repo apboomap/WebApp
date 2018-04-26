@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <?php 
-$event_id = $_GET['id'];s
+$event_id = $_GET['id'];
 ?>
 <head>
     <meta charset="utf-8" />
@@ -80,7 +80,7 @@ $event_id = $_GET['id'];s
     <div class="w3-container">
         <div class="w3-row">
                                 <div id="show1">
-                                <form action="search.php?search=first" method="post">
+                                <form action="search.php?search=first&&id=<?=$event_id?>" method="post">
                                     <div class="input-group col-md-4">
                                             <input type="text" name ="name" class="search-query form-control" placeholder="ค้นหาจากชื่อ-นามสกุล" />
                                                 <span class="input-group-btn">
@@ -94,7 +94,7 @@ $event_id = $_GET['id'];s
                                 </div>
 
                                 <div id="show2">
-                                    <form action="search.php?search=essn" method="post">
+                                    <form action="search.php?search=essn&&id=<?=$event_id?>" method="post">
                                         <div class="input-group col-md-4">
                                         
                                             <input type="text" name ="name" class="search-query form-control" placeholder="ค้นหาจากเลขบัตรประชาชนหรือพาสปอร์ต" />
@@ -108,7 +108,7 @@ $event_id = $_GET['id'];s
                                 </div> 
 
                                 <div id="show3">
-                                    <form action="search.php?search=num" method="post">
+                                    <form action="search.php?search=num&&id=<?=$event_id?>" method="post">
                                         <div class="input-group col-md-4">
                                             <input type="text" name ="name" class="search-query form-control" placeholder="ค้นหาจากเลขที่ใบสมัคร" />
                                             <span class="input-group-btn">
@@ -136,16 +136,16 @@ $event_id = $_GET['id'];s
                 </button>
                 
                     <ul class="dropdown-menu" role="menu">                       
-                        <li id="type1"><a href="search.php?type=All">All</a></li>
-                        <li id="type2"><a href="search.php?type=Full">Full Marathon</a></li>
-                        <li id="type3"><a href="search.php?type=Half">Half Marathon</a></li>
-                        <li id="type4"><a href="search.php?type=Mini">Mini Marathom</a></li>
-                        <li id="type5"><a href="search.php?type=Fun">Fun run</a></li>                       
+                        <li id="type1"><a href="search.php?type=All&&id=<?=$event_id?>">All</a></li>
+                        <li id="type2"><a href="search.php?type=Full&&id=<?=$event_id?>">Full Marathon</a></li>
+                        <li id="type3"><a href="search.php?type=Half&&id=<?=$event_id?>">Half Marathon</a></li>
+                        <li id="type4"><a href="search.php?type=Mini&&id=<?=$event_id?>">Mini Marathom</a></li>
+                        <li id="type5"><a href="search.php?type=Fun&&id=<?=$event_id?>">Fun run</a></li>                       
                     </ul>   
             </div>   
 
             <button href="" type="button" class="w3-btn w3-ripple w3-round-xlarge w3-border w3-red">
-                <a href="#" class="w3-text-white"> สมัครเลย </a>               
+                <a href="register1.php" class="w3-text-white"> สมัครเลย </a>               
             </button>  
 
         </div> 
@@ -157,119 +157,120 @@ $event_id = $_GET['id'];s
 <!--table-->
 <div class="w3-container">
     <center><h3><p>ผลลัพธ์</p></h3></center>  <br>                                                                                        
-                <div class="w3-responsive">
-                    <div class="w3-row">                       
-                        <div class="col-md-8 col-md-offset-2">
-                            <table class="w3-table-all w3-border w3-centered w3-hoverable w3-card-4">
-                                <thead>
-                                    <tr class="w3-blue">
-                                        <th>ชื่อ</th>
-                                        <th>นามสกุล</th>
-                                        <th>อายุ</th>
-                                        <th>สัญชาติ</th>
-                                        <th>ประเภทการวิ่ง</th>
-                                        <th>Waiver</th>      
-                                    </tr>
-                                </thead>
-                            </table>
-                    </div>
-                    <div class="col-md-8 col-md-offset-2 " style="height:300px; overflow:scroll;">
-                            <table class="w3-table-all w3-border w3-centered w3-hoverable w3-card-4">
-                            <?php
-                                    $servername = "localhost";
-                                    $username = "root";
-                                    $password = "";
-                                    $dbname = "marathon";
-                                    $conn = new mysqli($servername, $username, $password,$dbname);
-                                    mysqli_set_charset($conn, "utf8");
-                                    
-                                    // Check connection
-                                    if ($conn->connect_error) {
-                                        die("Connection failed: " . $conn->connect_error);
-                                    } 
-                                    
-                                    if(empty($_GET['search'])){
-                                        if(empty($_GET['type']) or $_GET['type'] == "All" ){
-                                        $sql = "SELECT runners.frist_name, runners.last_name, runners.brith_date, runners.nationality, runners_bills.flag_full , runners_bills.flag_half , runners_bills.flag_mini , runners_bills.flag_fun
-                                                FROM runners, runners_bills , bills
-                                                WHERE bills.event_id = $event_id AND bills.flag_success = 1 AND bills.bill_id = runners_bills.bill_id AND runners_bills.run_id = runners.run_id
-                                                ORDER by runners.frist_name ASC";
-                                        }else if($_GET['type'] == "Full"){
-                                            $sql = "SELECT runners.frist_name, runners.last_name, runners.brith_date, runners.nationality, runners_bills.flag_full , runners_bills.flag_half , runners_bills.flag_mini , runners_bills.flag_fun
-                                            FROM runners, runners_bills , bills
-                                            WHERE bills.event_id = $event_id AND bills.flag_success = 1 AND bills.bill_id = runners_bills.bill_id AND runners_bills.run_id = runners.run_id  AND runners_bills.flag_full = 1
-                                            ORDER by runners.frist_name ASC";
-                                        }else if($_GET['type'] == "Half"){
-                                            $sql = "SELECT runners.frist_name, runners.last_name, runners.brith_date, runners.nationality, runners_bills.flag_full , runners_bills.flag_half , runners_bills.flag_mini , runners_bills.flag_fun
-                                            FROM runners, runners_bills , bills
-                                            WHERE bills.event_id = $event_id AND bills.flag_success = 1 AND bills.bill_id = runners_bills.bill_id AND runners_bills.run_id = runners.run_id AND runners_bills.flag_half = 1
-                                            ORDER by runners.frist_name ASC";
-                                        }else if($_GET['type'] == "Mini"){
-                                            $sql = "SELECT runners.frist_name, runners.last_name, runners.brith_date, runners.nationality, runners_bills.flag_full , runners_bills.flag_half , runners_bills.flag_mini , runners_bills.flag_fun
-                                            FROM runners, runners_bills , bills
-                                            WHERE bills.event_id = $event_id AND bills.flag_success = 1 AND bills.bill_id = runners_bills.bill_id AND runners_bills.run_id = runners.run_id AND runners_bills.flag_mini = 1
-                                            ORDER by runners.frist_name ASC";
-                                        }else if($_GET['type'] == "Fun"){
-                                            $sql = "SELECT runners.frist_name, runners.last_name, runners.brith_date, runners.nationality, runners_bills.flag_full , runners_bills.flag_half , runners_bills.flag_mini , runners_bills.flag_fun
-                                            FROM runners, runners_bills , bills
-                                            WHERE bills.event_id = $event_id AND bills.flag_success = 1 AND bills.bill_id = runners_bills.bill_id AND runners_bills.run_id = runners.run_id AND runners_bills.flag_fun = 1
-                                            ORDER by runners.frist_name ASC";
-                                        }
-                                    }else{
-                                        $fname = "'".$_POST['name']."%'"; 
-                                        if($_GET['search'] == "first"){
-                                            $sql = "SELECT runners.frist_name, runners.last_name, runners.brith_date, runners.nationality, runners_bills.flag_full , runners_bills.flag_half , runners_bills.flag_mini , runners_bills.flag_fun
-                                            FROM runners, runners_bills , bills
-                                            WHERE runners.frist_name LIKE $fname AND bills.event_id = $event_id AND bills.bill_id = runners_bills.bill_id AND runners_bills.run_id = runners.run_id
-                                            ORDER by runners.frist_name ASC";
-                                        }else if($_GET['search'] == "essn"){
-                                            $sql = "SELECT runners.frist_name, runners.last_name, runners.brith_date, runners.nationality, runners_bills.flag_full , runners_bills.flag_half , runners_bills.flag_mini , runners_bills.flag_fun
-                                            FROM runners, runners_bills , bills
-                                            WHERE runners.essn LIKE $fname AND bills.event_id = $event_id AND bills.bill_id = runners_bills.bill_id AND runners_bills.run_id = runners.run_id
-                                            ORDER by runners.frist_name ASC";
-                                        }
-                                    }
-                                    $result = $conn->query($sql);
+    <div class="w3-responsive">
+        <div class="w3-row">                       
+            <div class="col-md-8 col-md-offset-2">
+                <table class="w3-table-all w3-border w3-centered w3-hoverable w3-card-4">
+                    <thead>
+                        <tr class="w3-blue">
+                            <th>ชื่อ</th>
+                            <th>นามสกุล</th>
+                            <th>อายุ</th>
+                            <th>สัญชาติ</th>
+                            <th style="width:196px">ประเภทการวิ่ง</th>
+                            <th>Waiver</th>      
+                        </tr>
+                    </thead>
+                </table>
+        </div>
+        <div class="col-md-8 col-md-offset-2 " style="height:300px; overflow:scroll;">
+                <table class="w3-table-all w3-border w3-centered w3-hoverable w3-card-4">
+                <?php
+                        $servername = "localhost";
+                        $username = "root";
+                        $password = "";
+                        $dbname = "marathon";
+                        $conn = new mysqli($servername, $username, $password,$dbname);
+                        mysqli_set_charset($conn, "utf8");
+                        
+                        // Check connection
+                        if ($conn->connect_error) {
+                            die("Connection failed: " . $conn->connect_error);
+                        } 
+                        
+                        if(empty($_GET['search'])){
+                            if(empty($_GET['type']) or $_GET['type'] == "All" ){
+                            $sql = "SELECT runners.frist_name, runners.last_name, runners.brith_date, runners.nationality, runners_bills.flag_full , runners_bills.flag_half , runners_bills.flag_mini , runners_bills.flag_fun
+                                    FROM runners, runners_bills , bills
+                                    WHERE bills.event_id = $event_id AND bills.flag_success = 1 AND bills.bill_id = runners_bills.bill_id AND runners_bills.run_id = runners.run_id
+                                    ORDER by runners.frist_name ASC";
+                            }else if($_GET['type'] == "Full"){
+                                $sql = "SELECT runners.frist_name, runners.last_name, runners.brith_date, runners.nationality, runners_bills.flag_full , runners_bills.flag_half , runners_bills.flag_mini , runners_bills.flag_fun
+                                FROM runners, runners_bills , bills
+                                WHERE bills.event_id = $event_id AND bills.flag_success = 1 AND bills.bill_id = runners_bills.bill_id AND runners_bills.run_id = runners.run_id  AND runners_bills.flag_full = 1
+                                ORDER by runners.frist_name ASC";
+                            }else if($_GET['type'] == "Half"){
+                                $sql = "SELECT runners.frist_name, runners.last_name, runners.brith_date, runners.nationality, runners_bills.flag_full , runners_bills.flag_half , runners_bills.flag_mini , runners_bills.flag_fun
+                                FROM runners, runners_bills , bills
+                                WHERE bills.event_id = $event_id AND bills.flag_success = 1 AND bills.bill_id = runners_bills.bill_id AND runners_bills.run_id = runners.run_id AND runners_bills.flag_half = 1
+                                ORDER by runners.frist_name ASC";
+                            }else if($_GET['type'] == "Mini"){
+                                $sql = "SELECT runners.frist_name, runners.last_name, runners.brith_date, runners.nationality, runners_bills.flag_full , runners_bills.flag_half , runners_bills.flag_mini , runners_bills.flag_fun
+                                FROM runners, runners_bills , bills
+                                WHERE bills.event_id = $event_id AND bills.flag_success = 1 AND bills.bill_id = runners_bills.bill_id AND runners_bills.run_id = runners.run_id AND runners_bills.flag_mini = 1
+                                ORDER by runners.frist_name ASC";
+                            }else if($_GET['type'] == "Fun"){
+                                $sql = "SELECT runners.frist_name, runners.last_name, runners.brith_date, runners.nationality, runners_bills.flag_full , runners_bills.flag_half , runners_bills.flag_mini , runners_bills.flag_fun
+                                FROM runners, runners_bills , bills
+                                WHERE bills.event_id = $event_id AND bills.flag_success = 1 AND bills.bill_id = runners_bills.bill_id AND runners_bills.run_id = runners.run_id AND runners_bills.flag_fun = 1
+                                ORDER by runners.frist_name ASC";
+                            }
+                        }else{
+                            $fname = "'".$_POST['name']."%'"; 
+                            if($_GET['search'] == "first"){
+                                $sql = "SELECT runners.frist_name, runners.last_name, runners.brith_date, runners.nationality, runners_bills.flag_full , runners_bills.flag_half , runners_bills.flag_mini , runners_bills.flag_fun
+                                FROM runners, runners_bills , bills
+                                WHERE runners.frist_name LIKE $fname AND bills.event_id = $event_id AND bills.bill_id = runners_bills.bill_id AND runners_bills.run_id = runners.run_id
+                                ORDER by runners.frist_name ASC";
+                            }else if($_GET['search'] == "essn"){
+                                $sql = "SELECT runners.frist_name, runners.last_name, runners.brith_date, runners.nationality, runners_bills.flag_full , runners_bills.flag_half , runners_bills.flag_mini , runners_bills.flag_fun
+                                FROM runners, runners_bills , bills
+                                WHERE runners.essn LIKE $fname AND bills.event_id = $event_id AND bills.bill_id = runners_bills.bill_id AND runners_bills.run_id = runners.run_id
+                                ORDER by runners.frist_name ASC";
+                            }
+                        }
+                        $result = $conn->query($sql);
 
-                                    $conn->close();
-                                ?> 
-                                <?php 
-                                if(!empty($result)){
-                                    while($row = $result->fetch_assoc()): 
-                                        $date = explode('-', $row['brith_date']);
-                                        $age = date("Y") - $date[0];
+                        $conn->close();
+                    ?> 
+                    <?php 
+                    if(!empty($result)){
+                        while($row = $result->fetch_assoc()): 
+                            $date = explode('-', $row['brith_date']);
+                            $age = date("Y") - $date[0];
 
-                                        $text = "";
-                                        if(!empty($row["flag_full"])){
-                                        $text = "Full Marathon";
-                                        } else if(!empty($row["flag_half"])){
-                                        $text = "Half Marathon";
-                                        }else if(!empty($row["flag_mini"])){
-                                        $text = "Mini Marathon";
-                                        }else if(!empty($row["flag_fun"])){
-                                        $text = "Funrun Marathon";
-                                        }
+                            $text = "";
+                            if(!empty($row["flag_full"])){
+                            $text = "Full Marathon";
+                            } else if(!empty($row["flag_half"])){
+                            $text = "Half Marathon";
+                            }else if(!empty($row["flag_mini"])){
+                            $text = "Mini Marathon";
+                            }else if(!empty($row["flag_fun"])){
+                            $text = "Funrun Marathon";
+                            }
 
-                                ?>    
-                                    <tbody>
-                                        <tr>
-                            
-                                            <td><?=$row['frist_name']?></td>
-                                            <td><?=$row['last_name']?></td>
-                                            <td><?=$age?></td>
-                                            <td><?=$row['nationality']?></td>
-                                            <td><?=$text?></td>
-                                            <td><a href="#"><span class="glyphicon glyphicon-list-alt"></span></a></td>
-                                        </tr>
-                                <?php endwhile; ?> 
-                                <?php
-                                    }
-                                ?>
-                                    </tbody>
-                            </table>
-                        </div>
-                    </div>  
-                </div>      
+                    ?>    
+                        <tbody>
+                        <tr>
+            
+                            <td style="padding-left:16px;width:108px;"><?=$row['frist_name']?></td>
+                            <td style="width:118px;"><?=$row['last_name']?></td>
+                            <td><?=$age?></td>
+                            <td style="width:116px;"><?=$row['nationality']?></td>
+                            <td style="width:246px;"><?=$text?></td>
+                            <td><a href="#"><span class="glyphicon glyphicon-list-alt"></span></a></td>
+                        </tr>
+                    <?php endwhile; ?> 
+                    <?php
+                        }
+                    ?>
+                        </tbody>
+                </table>
+            </div>
+        </div>
+        <br><center><a href="registerdetail.php?id=2"><button class="btn btn-success"> ย้อนกลับ </button></a> </center>
+    </div>      
 </div>
 
 <br>

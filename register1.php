@@ -27,10 +27,12 @@ $conn->close();
 
 <link href="css/pic.css" rel="stylesheet">
 <link href="css/register1_new.css" rel="stylesheet">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <script src="javascript/validateregister.js"></script>
-
+<!-- <script src="javascript/testnew.js"></script> -->
+<script src="javascript/test3.js"></script>
   
 
     <!-- process step bar -->
@@ -79,7 +81,7 @@ $conn->close();
                             <label for="brith_date">วัน/เดือน/ปีเกิด<font color="red"> *</font></label>
                             <div class="col-sm-12 form-group">
                             <div class="col-sm-4">
-                                    <select name="year" class="form-control" required onchange="this.setCustomValidity(validity.valueMissing ?  : '');" id="field_terms">
+                                    <select name="year" class="form-control" required onchange="this.setCustomValidity(validity.valueMissing ?  : '');" id="idyear" oninput="checkYear();" required/>
                                         <option value="">--YY--</option> 
                                         <option value="2017">2560</option>
                                         <option value="2016">2559</option>
@@ -184,7 +186,7 @@ $conn->close();
                                     </select>   
                                 </div>
                                 <div class="col-sm-4">
-                                    <select name="month" class="form-control" required onchange="this.setCustomValidity(validity.valueMissing ?  : '');" id="field_terms">
+                                    <select name="month" class="form-control" required onchange="this.setCustomValidity(validity.valueMissing ?  : '');" id="idmonth" oninput="checkYear();" required/>
                                         <option value="">--MM--</option> 
                                         <option value="1">มกราคม</option>
                                         <option value="2">กุมภาพันธ์</option>
@@ -201,39 +203,39 @@ $conn->close();
                                     </select>
                                 </div>
                                 <div class="col-sm-4">
-                                    <select name="day" class="form-control" required onchange="this.setCustomValidity(validity.valueMissing ?  : '');" id="field_terms">
+                                    <select name="day" class="form-control" required onchange="this.setCustomValidity(validity.valueMissing ?  : '');" id="idday" oninput="checkYear();" required/>
                                         <option value="">--DD--</option> 
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                        <option>5</option>
-                                        <option>6</option>
-                                        <option>7</option>
-                                        <option>8</option>
-                                        <option>9</option>
-                                        <option>10</option>
-                                        <option>11</option>
-                                        <option>12</option>
-                                        <option>13</option>
-                                        <option>14</option>
-                                        <option>15</option>
-                                        <option>16</option>
-                                        <option>17</option>
-                                        <option>18</option>
-                                        <option>19</option>
-                                        <option>20</option>
-                                        <option>21</option>
-                                        <option>22</option>
-                                        <option>23</option>
-                                        <option>24</option>
-                                        <option>25</option>
-                                        <option>26</option>
-                                        <option>27</option>
-                                        <option>28</option>
-                                        <option>29</option>
-                                        <option>30</option>
-                                        <option>31</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
+                                        <option value="11">11</option>
+                                        <option value="12">12</option>
+                                        <option value="13">13</option>
+                                        <option value="14">14</option>
+                                        <option value="15">15</option>
+                                        <option value="16">16</option>
+                                        <option value="17">17</option>
+                                        <option value="18">18</option>
+                                        <option value="19">19</option>
+                                        <option value="20">20</option>
+                                        <option value="21">21</option>
+                                        <option value="22">22</option>
+                                        <option value="23">23</option>
+                                        <option value="24">24</option>
+                                        <option value="25">25</option>
+                                        <option value="26">26</option>
+                                        <option value="27">27</option>
+                                        <option value="28">28</option>
+                                        <option value="29">29</option>
+                                        <option value="30">30</option>
+                                        <option value="31">31</option>
                                     </select>
                                 </div>        
                             </div>
@@ -861,7 +863,8 @@ $conn->close();
                                         <label class="radio-inline">
                                             <input type="radio" id="longRadio" name="type_shirt" value="1" required onchange="this.setCustomValidity(validity.valueMissing ?  : '');">แบบที่ 1
                                         </label> 
-                                        <img id="myImg" alt="แบบที่ 1"src="<?=$row['shirtimg1']?>" width="300" height="200">
+                                        <img src="<?=$row['shirtimg1']?>" style="width:250px;height:200px;cursor:zoom-in"
+                                        onclick="document.getElementById('modal01').style.display='block'">
                                     </div>
                                     <?php 
                                         }
@@ -871,8 +874,8 @@ $conn->close();
                                         <label class="radio-inline">
                                             <input type="radio"  id="shortRadio" name="type_shirt" value="2">แบบที่ 2
                                         </label>
-                                        <!-- <img id="myImg" src="picture/longarm.jpg" alt="" width="300" height="200"> -->
-                                        <img id="myImg1" alt="แบบที่ 2" src="<?=$row['shirtimg2']?>" width="300" height="200">
+                                        <img src="<?=$row['shirtimg2']?>" style="width:250px;height:200px;cursor:zoom-in"
+                                        onclick="document.getElementById('modal02').style.display='block'" width="300" height="200">
                                     </div>
                                     <?php } ?> 
                                 </div>
@@ -939,31 +942,45 @@ $conn->close();
                     </div>
                     <!-- /.form-group-button-->
                     <div class="form-group" style="margin-bottom:30px;">
-                            <div class="col-sm-6 col-sm-offset-3">
-                                <br><br><a href="register2.5.1.php"><button type="submit" class="btn">บันทึก</button></a>
-                            </div>
+                        <div class="col-sm-6 col-sm-offset-3">
+                            <br><br><a href="register2.5.1.php"><button type="submit" class="btn">บันทึก</button></a>
+                        </div>
                     </div>
                 </form> 
             </div>
         </div>
+
+        <div id="modal01" class="w3-modal" onclick="this.style.display='none'">
+            <span class="w3-button w3-hover-red w3-xlarge w3-display-topright">&times;</span>
+            <div class="w3-modal-content w3-animate-zoom">
+            <img src="<?=$row['shirtimg1']?>" style="width:100%">
+            </div>
+        </div>
+        <div id="modal02" class="w3-modal" onclick="this.style.display='none'">
+            <span class="w3-button w3-hover-red w3-xlarge w3-display-topright">&times;</span>
+            <div class="w3-modal-content w3-animate-zoom">
+            <img src="<?=$row['shirtimg2']?>" style="width:100%">
+            </div>
+        </div>
+
     </div>
 
     <!-- The-Modal-img1 -->
-    <div id="myModal" class="modal">
+    <!-- <div id="myModal" class="modal">
         <span class="close">&times;</span>
         <img class="modal-content" id="img01">
         <div id="caption"></div>
-    </div>
+    </div> -->
 
     <!-- The-Modal-img2 -->
-    <div id="myModal" class="modal">
+    <!-- <div id="myModal1" class="modal">
         <span class="close">&times;</span>
         <img class="modal-content" id="img02">
         <div id="caption"></div>
-    </div>
+    </div> -->
 
     <!--script-modal-->
-    <script src="javascript/imgModal.js"></script>
-    <script src="javascript/java.js"></script> 
+    <!-- <script src="javascript/imgModal.js"></script>
+    <script src="javascript/java.js"></script>    -->
 
     <?php require_once("footer.php"); ?>      

@@ -24,7 +24,7 @@
 
 .container .btnn1 {
     position: absolute;
-    top: 95%;
+    top: 97%;
     left: 50%;
     transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
@@ -64,7 +64,7 @@
 
 .container .btnn3 {
     position: absolute;
-    top: 86%;
+    top: 89%;
     left: 50%;
     transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
@@ -84,12 +84,12 @@
 
 .container .btn {
     position: absolute;
-    top: 90%;
-    left: 50%;
+    top: 95%;
+    left: 21%;
     transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
-    background-color: rgba(0, 17, 255, 0.288);
-    color: rgb(4, 0, 255);
+    background-color: rgba(0, 255, 13, 0.288);
+    color: rgb(141, 231, 37);
     font-size: 16px;
     padding: 12px 24px;
     border: none;
@@ -98,14 +98,15 @@
 }
 
 .btn:hover {
-    background-color: #1100ff;
+    background-color: #00ff00;
     color: rgb(255, 255, 255);
 }
 
+
 .container .btn1 {
     position: absolute;
-    top: 90%;
-    left: 50%;
+    top: 95%;
+    left: 35%;
     transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
     background-color: rgba(255, 153, 0, 0.301);
@@ -124,12 +125,12 @@
 
 .container .btn2 {
     position: absolute;
-    top: 90%;
-    left: 50%;
+    top: 95%;
+    left: 47%;
     transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
-    background-color: rgba(255, 1, 1, 0.301);
-    color: rgb(255, 0, 0);
+    background-color: rgba(230, 53, 253, 0.301);
+    color: rgb(229, 58, 252);
     font-size: 16px;
     padding: 12px 24px;
     border: none;
@@ -138,18 +139,18 @@
 }
 
 .btn2:hover {
-    background-color: #ff0000;
+    background-color: #e02ff7;
     color: rgb(255, 255, 255);
 }
 
 .container .btn3 {
     position: absolute;
-    top: 90%;
-    left: 50%;
+    top: 95%;
+    left: 60%;
     transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
-    background-color: rgba(119, 13, 114, 0.267);
-    color: rgb(88, 9, 99);
+    background-color: rgba(34, 236, 193, 0.267);
+    color: rgb(20, 250, 231);
     font-size: 16px;
     padding: 12px 24px;
     border: none;
@@ -158,7 +159,27 @@
 }
 
 .btn3:hover {
-    background-color: #751270;
+    background-color: #18f0c1;
+    color: rgb(255, 255, 255);
+}
+
+.container .btn4 {
+    position: absolute;
+    top: 95%;
+    left: 77%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color: rgba(235, 26, 207, 0.267);
+    color: rgb(96, 9, 99);
+    font-size: 16px;
+    padding: 12px 24px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.btn4:hover {
+    background-color: #f829d6;
     color: rgb(255, 255, 255);
 }
 

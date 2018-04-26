@@ -33,6 +33,9 @@ $rowB = $resultB->fetch_assoc();
 <link href="css/scroll.css" rel="stylesheet">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<script src="javascript/validateregister.js"></script>
+<link href="css/pic.css" rel="stylesheet">
+<link href="css/register1_new.css" rel="stylesheet">
 <!------ Include the above in your HEAD tag ---------->
 
 
@@ -112,7 +115,7 @@ $rowB = $resultB->fetch_assoc();
                             <label for="brith_date">วัน/เดือน/ปีเกิด<font color="red"> *</font></label>
                             <div class="col-sm-12 form-group">
                             <div class="col-sm-4">
-                                    <select name="year" class="form-control" required onchange="this.setCustomValidity(validity.valueMissing ?  : '');" id="field_terms">
+                                    <select name="year" class="form-control" required onchange="this.setCustomValidity(validity.valueMissing ?  : '');" id="idyear" oninput="checkYear();" required/>
                                         <option value="">--YY--</option> 
                                         <option value="2017">2560</option>
                                         <option value="2016">2559</option>
@@ -217,7 +220,7 @@ $rowB = $resultB->fetch_assoc();
                                     </select>   
                                 </div>
                                 <div class="col-sm-4">
-                                    <select name="month" class="form-control" required onchange="this.setCustomValidity(validity.valueMissing ?  : '');" id="field_terms">
+                                    <select name="month" class="form-control" required onchange="this.setCustomValidity(validity.valueMissing ?  : '');" id="idmonth" oninput="checkYear();" required/>
                                         <option value="">--MM--</option> 
                                         <option value="1">มกราคม</option>
                                         <option value="2">กุมภาพันธ์</option>
@@ -234,39 +237,40 @@ $rowB = $resultB->fetch_assoc();
                                     </select>
                                 </div>
                                 <div class="col-sm-4">
-                                    <select name="day" class="form-control" required onchange="this.setCustomValidity(validity.valueMissing ?  : '');" id="field_terms">
+                                    <select name="day" class="form-control" required onchange="this.setCustomValidity(validity.valueMissing ?  : '');" id="idday" oninput="checkYear();" required/>
                                         <option value="">--DD--</option> 
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                        <option>5</option>
-                                        <option>6</option>
-                                        <option>7</option>
-                                        <option>8</option>
-                                        <option>9</option>
-                                        <option>10</option>
-                                        <option>11</option>
-                                        <option>12</option>
-                                        <option>13</option>
-                                        <option>14</option>
-                                        <option>15</option>
-                                        <option>16</option>
-                                        <option>17</option>
-                                        <option>18</option>
-                                        <option>19</option>
-                                        <option>20</option>
-                                        <option>21</option>
-                                        <option>22</option>
-                                        <option>23</option>
-                                        <option>24</option>
-                                        <option>25</option>
-                                        <option>26</option>
-                                        <option>27</option>
-                                        <option>28</option>
-                                        <option>29</option>
-                                        <option>30</option>
-                                        <option>31</option>
+                                        <option value="">--DD--</option> 
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
+                                        <option value="11">11</option>
+                                        <option value="12">12</option>
+                                        <option value="13">13</option>
+                                        <option value="14">14</option>
+                                        <option value="15">15</option>
+                                        <option value="16">16</option>
+                                        <option value="17">17</option>
+                                        <option value="18">18</option>
+                                        <option value="19">19</option>
+                                        <option value="20">20</option>
+                                        <option value="21">21</option>
+                                        <option value="22">22</option>
+                                        <option value="23">23</option>
+                                        <option value="24">24</option>
+                                        <option value="25">25</option>
+                                        <option value="26">26</option>
+                                        <option value="27">27</option>
+                                        <option value="28">28</option>
+                                        <option value="29">29</option>
+                                        <option value="30">30</option>
+                                        <option value="31">31</option>
                                     </select>
                                 </div>        
                             </div>
@@ -1875,5 +1879,8 @@ $rowB = $resultB->fetch_assoc();
 </div>
 
 <?php $conn->close();?>
+
+   <!--script-validation-->
+   <script src="javascript/testnew.js"></script>
 
 <?php require_once("footer.php"); ?>

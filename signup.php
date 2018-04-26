@@ -703,6 +703,10 @@ $conn->close();
                                         <input type="radio" name="sex" id="femaleRadio" value="F">หญิง
                                     </label>
                                 </div> 
+                                <div class="col-sm-6 form-group" >
+                                <label for="password" style="margin-left:10px">password<font color="red"> *</font></label>
+                                <input type="text" name="password" placeholder="กรุณากรอกpasswordของคุณ" class="form-control" autofocus required id = "txt" onkeyup = "Validate(this)" style="margin-left:10px">
+                            </div>
                             </div>
                         </div>	
 

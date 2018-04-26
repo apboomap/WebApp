@@ -45,12 +45,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<nav class="link-effect-2" id="link-effect-2">
 					<ul class="nav navbar-nav">
 						<li class=""><a href="homepage.php" style="color:white;"><span data-hover="Home">Home</span></a></li>
-						<li><a href="#" style="color:white;"><span data-hover="Store">Store</span></a></li>
-						<li><a href="eventAll.php?year=2018" style="color:white;"><span dasta-hover="Events All">Events All</span></a></li>
-						<li><a href="profile.php" style="color:white;"><span data-hover="Profile">Profile</span></a></li>
-						<li><a href="#" style="color:white;"><span data-hover="Video">Video</span></a></li>
-						<li><a href="#" style="color:white;"><span data-hover="Picture">Picture</span></a></li>
-						<li><a href="#" style="color:white;"data-toggle="modal" data-target="#myModal2"><span data-hover="Log in"> Log in</span></a></li>
+						<li class="nav-item nav-link disabled"><a href="#" style="color:white;">Store</a></li>
+						<li><a href="eventAll.php?year=2018" style="color:white;"><span data-hover="Events All">Events All</span></a></li>
+						<!-- <li><a href="profile.php" style="color:white;"><span data-hover="Profile">Profile</span></a></li> -->
+						<li class="nav-item nav-link disabled"><a href="#" style="color:white;">Video</a></li>
+						<li class="nav-item nav-link disabled"><a href="#" style="color:white;">Picture</a></li>
+						<li><a href="#" style="color:white;"data-toggle="modal" data-target="#myModal2"><span data-hover="Log In"> Log In</span></a></li>
                         <!-- <li><a href="#" style="color:white;"data-toggle="modal" data-target="#myModal3"><span data-hover="Sign up">Sign up</span></a></li> -->
                         
                     </ul>
@@ -76,7 +76,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="signin-form profile">
 					<h3 class="agileinfo_sign">Login</h3>
 						<div class="login-form">
-							<form action="#" method="post">
+							<form action="profile.php" method="post">
 								<input type="email" name="email" placeholder="E-mail" required="">
 								<input type="password" name="password" placeholder="Password" required="">
 								<div class="tp">
@@ -99,28 +99,3 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</div>
 	</div>
 	<!-- //Modal1 -->	
-	<!-- Modal2 -->
-	<div class="modal fade" id="myModal3" tabindex="-1" role="dialog">
-		<div class="modal-dialog">
-		<!-- Modal content-->
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal">&times;</button>
-					
-					<div class="signin-form profile">
-					<h3 class="agileinfo_sign">Sign Up</h3>	
-							<div class="login-form">
-								<form action="#" method="post">
-									<input type="text" name="name" placeholder="Username" required="">
-									<input type="email" name="email" placeholder="Email" required="">
-									<input type="password" name="password" placeholder="Password" required="">
-									<input type="password" name="password" placeholder="Confirm Password" required="">
-									<input type="submit" value="Sign Up">
-								</form>
-							</div>
-							<p><a href="#"> By clicking register, I agree to your terms</a></p>
-						</div>
-				</div>
-			</div>
-		</div>
-	</div>

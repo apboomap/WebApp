@@ -27,7 +27,7 @@ $sum = $_GET['pay']
                 </div>
                 <div class="panel-body">
                 <div class="row">
-                    <div class=" col-md-9 col-lg-9 "> 
+                    <div class=" col-md-9 col-lg-9 " style="width:650px"> 
                     <table class="table table-user-information">
                         <tbody>
                             <tr>
@@ -100,9 +100,9 @@ $sum = $_GET['pay']
                             <tr>
                                 <td>วันที่ บนใบโอนเงิน/ฝากเงิน*</td>
                                 <td>
-                                    <!-- <div class="col-sm-9">
-                                        <select name="birthDate" class="form-control">
-                                            <option value="">--DD--</option> 
+                                    <div class="col-sm-3">
+                                        <select name="day" class="form-control">
+                                            <option value="">DD</option> 
                                             <option>1</option>
                                             <option>2</option>
                                             <option>3</option>
@@ -135,10 +135,11 @@ $sum = $_GET['pay']
                                             <option>30</option>
                                             <option>31</option>
                                         </select>
-                                    </div><br><br>
-                                    <div class="col-sm-9">
-                                        <select name="birthDate" class="form-control">
-                                            <option value="">--MM--</option> 
+                                    </div>
+                                    <div class="col-sm-1"> / </div>
+                                    <div class="col-sm-3">
+                                        <select name="month" class="form-control">
+                                            <option value="">MM</option> 
                                             <option value="0">มกราคม</option>
                                             <option value="1">กุมภาพันธ์</option>
                                             <option value="2">มีนาคม</option>
@@ -152,10 +153,11 @@ $sum = $_GET['pay']
                                             <option value="10">พฤศจิกายน</option>
                                             <option value="11">ธันวาคม</option>
                                         </select>
-                                    </div><br><br>
-                                    <div class="col-sm-9">
-                                        <select name="birthDate" class="form-control">
-                                            <option value="">--YY--</option> 
+                                    </div>
+                                    <div class="col-sm-1"> / </div>
+                                    <div class="col-sm-4">
+                                        <select name="year" class="form-control">
+                                            <option value="">YY</option> 
                                             <option value="2017">2560</option>
                                             <option value="2016">2559</option>
                                             <option value="2015">2558</option>
@@ -257,23 +259,24 @@ $sum = $_GET['pay']
                                             <option value="1919">2462</option>
                                             <option value="1918">2461</option>
                                         </select>   
-                                    </div><br><br>  -->
-                                    <div class="form-group">
+                                    </div> 
+                                    <!-- <div class="form-group">
                 
                                         <div class="input-group date form_date col-xs-6" data-date="" data-date-format="dd MM yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
                                             <input class="form-control" size="16" type="text" value="" readonly>
                                             <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
                                         </div>
                                         <input type="hidden" id="dtp_input2" value="" /><br/>
-                                    </div>
+                                    </div> -->
                                 </td>
                             </tr>
                             <tr>
                                 <td>เวลา บนใบโอนเงิน/ฝากเงิน*</td>
                                 <td>
-                                    <!-- <div class="col-sm-9">
-                                        <select name="birthDate" class="form-control">
-                                            <option value="">--HH--</option> 
+                                    <div class="col-sm-4">
+                                        <select name="hour" class="form-control">
+                                            <option value="">HH</option>
+                                            <option>0</option> 
                                             <option>1</option>
                                             <option>2</option>
                                             <option>3</option>
@@ -296,13 +299,14 @@ $sum = $_GET['pay']
                                             <option>20</option>
                                             <option>21</option>
                                             <option>22</option>
-                                            <option>23</option>
-                                            <option>24</option>
+                                            <option>23</option>                                         
                                         </select>
-                                    </div> <br><br>
-                                    <div class="col-sm-9">
-                                        <select name="birthDate" class="form-control">
-                                            <option value="">--MM--</option> 
+                                    </div> 
+                                    <div class="col-sm-2"> : </div>
+                                    <div class="col-sm-4">
+                                        <select name="minite" class="form-control">
+                                            <option value="">MM</option>
+                                            <option>0</option> 
                                             <option>1</option>
                                             <option>2</option>
                                             <option>3</option>
@@ -362,16 +366,16 @@ $sum = $_GET['pay']
                                             <option>57</option>
                                             <option>58</option>
                                             <option>59</option>
-                                            <option>60</option>
                                         </select>   
-                                    </div>     -->
-                                    <div class="form-group">
+                                    </div>   
+                                    <div class="col-sm-2"> นาฬิกา </div>
+                                    <!-- <div class="form-group">
                                         <div class="input-group date form_time col-xs-6" data-date="" data-date-format="hh:ii" data-link-field="dtp_input3" data-link-format="hh:ii">
                                             <input class="form-control" size="16" type="text" value="" readonly>   
                                             <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
                                         </div>
                                         <input type="hidden" id="dtp_input3" value="" /><br/>
-                                    </div>    
+                                    </div>     -->
                                 </td>
                             </tr>
                             <tr>
@@ -386,11 +390,13 @@ $sum = $_GET['pay']
                 </div>
                 </div>
             </div>
+            <center>
+<a href="add/sucess.php?pay=<?=$sum?>"><button type="button" class="btn" style="margin-top:10px">ส่งข้อมูล</button></a>
+</center><br>
         </div>
+        
     </form>
 </div>
-
-
 
 
 <script type="text/javascript" src="javascript/jquery-1.8.3.min.js" charset="UTF-8"></script>
@@ -432,8 +438,6 @@ $sum = $_GET['pay']
 </script>
 
 
-<center>
-<a href="add/sucess.php?pay=<?=$sum?>"><button type="button" class="btn">ส่งข้อมูล</button></a>
-</center><br>
+
 
 <?php require_once("footer.php"); ?>  
